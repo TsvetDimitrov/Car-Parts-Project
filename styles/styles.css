@@ -107,7 +107,7 @@
 }
 
 
-.sidenav>.categories>.category>.dropdown{
+.dropdown{
     display: none;
     position: absolute;
     top: -20px;
@@ -120,3 +120,20 @@
     box-shadow: 0 0 0 2px rgb(0 138 238 / 15%);
     transform: translateX(100%);
 }
+
+
+.category:hover .dropdown{
+    
+    display: block;
+}
+
+
+.column>.category-child{
+    display: block;
+    margin-bottom: 15px;
+    text-decoration: none;
+    font-size: 13px;
+    color: #1c2d3a;
+    letter-spacing: 0;
+}
+
