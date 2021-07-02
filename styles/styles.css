@@ -135,5 +135,22 @@
     font-size: 13px;
     color: #1c2d3a;
     letter-spacing: 0;
+    line-height: 16px;
+    font-family: roboto,sans-serif;
+    font-weight: 400;
+    transition: all .25s ease;
 }
 
+
+.title-small-dark-strong {
+    color: #1c2d3a;
+    font-family: 'exo 2',sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 0;
+    line-height: 20px;
+    margin-bottom: 20px;
+}
+.category-child:hover {
+    color: #008aee;
+}

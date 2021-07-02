@@ -11,22 +11,3 @@ window.onscroll = function () {
   prevScrollpos = currentScrollPos;
 }
 
-
-//sidenav eventlistener for dropdown menu
-
-// const categories = document.querySelector('.categories');
-// //console.log(categories);
-// categories.addEventListener('mouseover', (e) => {
-
-//   if (e.target.querySelector(".dropdown").style.display == '') {
-//     console.log('here');
-//     e.target.querySelector(".dropdown").style.display = 'block';
-//   }
-// });
-
-// categories.addEventListener('mouseleave', (e) => {
- 
-//     console.log('there');
-//     e.target.querySelector(".dropdown").style.display = '';
-  
-// });
