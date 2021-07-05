@@ -210,5 +210,29 @@
     margin-right: auto;
     margin-left: auto;
 }
+/* aboutUsPage css end: */
+/* Footer css starts: */
 
 
+#footer{
+    background: url(../images/footer-img.jpg) no-repeat center top;
+    color: rgba(255,255,255,0.6);
+    padding-top: 78px;
+    font-size: 13px;
+}
+
+#footer .footerAbout{
+    width: 30%;
+    margin-left: 60px;
+    padding-bottom: 20px;
+}   
+.footerAbout .p{
+    font-size: 13px;
+    line-height: 24px;
+    max-height: 120px;
+    overflow: hidden;
+    margin-bottom: 30px;
+    font-family: roboto,sans-serif;
+}
+
+/* Footer css ends: */
