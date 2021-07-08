@@ -5,9 +5,9 @@
     background-color: #333;
     overflow: hidden;
     width: 100%;
-    position: fixed;
+    position: absolute;
     transition: top 0.5s;
-    
+    z-index: -1;
   }
 
   .topnav a {
@@ -35,7 +35,7 @@
 
 .homepage-grid{
     position: relative;
-    margin-bottom: 20px;
+    margin-bottom: 70px;
     padding-top: 0;
     max-width: 1220px;
     margin: 0 auto;
@@ -77,25 +77,30 @@
     text-align: center;
     padding-top: 8px;
 }
-.sidenav>.categories>.category{
+.homepage-grid .sidenav .categories .category{
     position: relative;
     margin-top: -1px;
     padding: 12px 35px 11px 10px;
     border-top: 1px solid transparent;
     border-bottom: 1px solid transparent;
     border-left: 1px solid transparent;
+    border-right: none;
     border-radius: 3px 0 0 3px;
     cursor: pointer;
 }
+
+
 
 .sidenav>.categories>.category:hover{
     border-color: #008aee;
     box-shadow: 0 0 0 2px rgb(0 138 238 / 15%);
 }
-
-.sidenav .dropdown .children{
-    display: flex;
+@media screen and (min-width: 741px){
+    .homepage-grid .sidenav .categories .dropdown .children{
+        display: flex;
+    }
 }
+
 @media screen and (min-width: 741px){
     .sidenav .dropdown .children .column{
         width: 240px;
@@ -128,17 +133,33 @@
     height: 1px;
     background: #e5e5e5;
 }
+@media screen and (min-width: 741px){
+    .sidenav>.categories>.category:hover:before{
+        top: 0;
+    right: -4px;
+    bottom: auto;
+    left: auto;
+    z-index: 3;
+    width: 8px;
+    height: 100%;
+    background: #fff;
+    }
+}
+
 .sidenav>.categories>.category>a{
     display: block;
     position: relative;
+    text-decoration: none;
 }
 .sidenav>.categories>.category:hover>a > span{
     color: #008aee
 }
-
-.sidenav>.categories>.category:hover:after{
-    color: #008aee
+/* Edit here */
+.homepage-grid .sidenav .categories .category:hover:after{
+    background: url(../images//icons8-chevron-right-30-blue.png) no-repeat center;
+    opacity: 1;
 }
+
 .sidenav>.categories>.category>a img{
     display: inline-block;
     width: 39px;
@@ -180,7 +201,7 @@
 }
 
 /* Important !*/
-.category:hover .dropdown{
+.sidenav .categories .category:hover .dropdown  {
     display: block;
 }
 
@@ -221,6 +242,7 @@
 
 /* aboutUsPage css starts: */
 .aboutUsHeader{
+    position: relative;
     text-align: center;
     background: url(../images/titlebar-aboutus.jpg) no-repeat center center;
     display: block;
