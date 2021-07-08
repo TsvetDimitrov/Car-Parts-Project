@@ -7,7 +7,7 @@
     width: 100%;
     position: fixed;
     transition: top 0.5s;
-
+    
   }
 
   .topnav a {
@@ -31,16 +31,38 @@
   }
 
 /* navigation bar css ends: */
+/* home page grid css starts: */
+
+.homepage-grid{
+    position: relative;
+    margin-bottom: 20px;
+    padding-top: 0;
+    max-width: 1220px;
+    margin: 0 auto;
+    padding: 60px 20px;
+}
+
+
+
+
+
+/* home page grid css ends: */
+
 /* side nav css starts: */
 
 .sidenav{
     margin-top:60px;
     display: block;
     float: left;
-    width: 250px;
+    width: 280px;
     background: #fff;
     border: 1px solid #008aee;
-    margin-left: 90px;
+    border-radius: 3px;
+    box-shadow: 0 0 0 2px rgb(0 138 238 / 15%);
+    margin-left: 30px;
+    padding-bottom: 40px;
+    margin-bottom: 40px;
+    margin-right: 14px;
 }
 
 .category-sidenav-header{
@@ -57,9 +79,30 @@
 }
 .sidenav>.categories>.category{
     position: relative;
+    margin-top: -1px;
     padding: 12px 35px 11px 10px;
+    border-top: 1px solid transparent;
+    border-bottom: 1px solid transparent;
+    border-left: 1px solid transparent;
+    border-radius: 3px 0 0 3px;
     cursor: pointer;
 }
+
+.sidenav>.categories>.category:hover{
+    border-color: #008aee;
+    box-shadow: 0 0 0 2px rgb(0 138 238 / 15%);
+}
+
+.sidenav .dropdown .children{
+    display: flex;
+}
+@media screen and (min-width: 741px){
+    .sidenav .dropdown .children .column{
+        width: 240px;
+    }
+}
+
+
 
 .sidenav>.categories>.category:after{
     content: '';
@@ -71,12 +114,14 @@
     height: 24px;
     background: url(../images//icons8-chevron-right-30.png) no-repeat center;
     opacity: .5;
+    transform: translateY(-50%);
+    transition: all .2s ease-in-out;
 }
 
 .sidenav>.categories>.category:before{
     content: '';
     position: absolute;
-    bottom: -5px;
+    bottom: -1px;
     left: 10px;
     display: block;
     width: 248px;
@@ -87,10 +132,23 @@
     display: block;
     position: relative;
 }
+.sidenav>.categories>.category:hover>a > span{
+    color: #008aee
+}
+
+.sidenav>.categories>.category:hover:after{
+    color: #008aee
+}
 .sidenav>.categories>.category>a img{
     display: inline-block;
     width: 39px;
     height: 29px;
+    margin-right: 2px;
+    vertical-align: middle;
+
+}
+.categories{
+    padding: 0 20px 0 10px;
 }
 
 .sidenav>.categories>.category>a span{
@@ -98,13 +156,14 @@
     vertical-align: middle;
     max-width: calc(100% - 50px);
     font-size: 13px;
+    width: 100%;
     color: #1c2d3a;
     letter-spacing: 0;
     line-height: 16px;
     font-family: roboto, sans-serif;
-    font-weight: 600;
-}
+    font-weight: 500;
 
+}
 
 .dropdown{
     display: none;
@@ -120,26 +179,29 @@
     transform: translateX(100%);
 }
 
-
+/* Important !*/
 .category:hover .dropdown{
-    
     display: block;
 }
 
-
-.column>.category-child{
-    display: block;
-    margin-bottom: 15px;
-    text-decoration: none;
-    font-size: 13px;
-    color: #1c2d3a;
-    letter-spacing: 0;
-    line-height: 16px;
-    font-family: roboto,sans-serif;
-    font-weight: 400;
-    transition: all .25s ease;
+.sidenav .categories .category .dropdown .children .column .category-child:hover{
+    color: #008aee;
 }
+@media screen and (min-width: 741px){
+    .sidenav .categories .category .dropdown .children .column .category-child{
+        display: block;
+        margin-bottom: 15px;
+        text-decoration: none;
+        font-size: 13px;
+        color: #1c2d3a;
+        letter-spacing: 0;
+        line-height: 16px;
+        font-family: roboto,sans-serif;
+        font-weight: 400;
+        transition: all .25s ease;
+    }
 
+}
 
 .title-small-dark-strong {
     color: #1c2d3a;
@@ -150,22 +212,21 @@
     line-height: 20px;
     margin-bottom: 20px;
 }
-.category-child:hover {
-    color: #008aee;
-}
+
+
+
 
 /* side nav css ends: */
 
 
 /* aboutUsPage css starts: */
 .aboutUsHeader{
-    position: relative;
     text-align: center;
     background: url(../images/titlebar-aboutus.jpg) no-repeat center center;
     display: block;
-    padding: 18px 0;
-
+    padding: 18px 0;    
     height: 20px;
+    margin-top: 10px;
 }
 
 .aboutUsHeader>.container>.h4{
