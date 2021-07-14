@@ -5,9 +5,8 @@
     background-color: #333;
     overflow: hidden;
     width: 100%;
-    position: absolute;
+    position: fixed;
     transition: top 0.5s;
-    z-index: -1;
   }
 
   .topnav a {
@@ -40,6 +39,8 @@
     max-width: 1220px;
     margin: 0 auto;
     padding: 60px 20px;
+    margin-top: 50px;
+
 }
 
 
