@@ -249,7 +249,9 @@
 }
 
 
-
+.sidenav > .banners {
+    padding: 30px 20px 0;
+}
 
 /* side nav css ends: */
 
