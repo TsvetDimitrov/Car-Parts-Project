@@ -105,6 +105,14 @@
     }
 }
 
+@media screen and (min-width: 741px){
+    .sidenav>.categories>.category>.dropdown>.children>.separator{
+        width: 1px;
+        margin: 0 30px;
+        background: #e5e5e5;
+    }
+}
+
 
 
 .sidenav>.categories>.category:after{
