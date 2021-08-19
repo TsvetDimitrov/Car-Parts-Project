@@ -49,7 +49,7 @@
 /* side nav css starts: */
 
 .sidenav{
-    margin-top:60px;
+    margin-top:40px;
     display: block;
     float: left;
     width: 280px;
@@ -486,3 +486,26 @@
 }
 
 /* Footer css ends: */
+
+
+.headerModel::before{
+
+    content: ' ';
+    background-color: #008aee;
+    display: block;
+    width: 5px;
+    height: 45px;
+    margin-right: 10px;
+
+} 
+
+
+
+.homePageModel{
+    float: right;
+    max-width: calc(100% - 400px);
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 20px 20px 30px;
+    display: flex;
+}
