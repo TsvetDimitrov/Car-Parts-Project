@@ -159,6 +159,14 @@
     opacity: 1;
 }
 
+.homepage-grid:after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 0;
+    clear: both;
+}
+
 .sidenav>.categories>.category>a img{
     display: inline-block;
     width: 39px;
@@ -240,6 +248,13 @@
 
 
 /* aboutUsPage css starts: */
+
+
+#aboutUsPage {
+    z-index: 9;
+    margin-top: 30px;
+    position:relative;
+}
 .aboutUsHeader{
     position: relative;
     text-align: center;
