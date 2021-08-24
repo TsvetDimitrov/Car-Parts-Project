@@ -501,6 +501,7 @@
 
 .headerModel{
     display: flex;
+    grid-column: 1/-1!important;
 }
 
 .homePageModel{
@@ -526,15 +527,15 @@
     text-decoration: none;
     flex-direction: column;
     padding: 15px;
-    border: 2px solid var(--background-color-body-bg);
+    border: 2px solid #e5e5e5;
     transition: background-color .5s;
 }
 
 .content-data{
     grid-area: content_data;
     display: grid;
-    grid-template-columns: repeat(3,1fr);
     background-color: white;
+    grid-template-columns: repeat(3,1fr);
 }
 
 .grid{
@@ -546,4 +547,24 @@ picture.lozad>img {
     height: 130px;
     object-fit: contain;
     margin-bottom: 15px;
+}
+
+.content-data-4-columns {
+    grid-template-columns: repeat(3,1fr);
+}
+
+.content-data-title {
+    text-align: center;
+    color: black;
+}
+picture img {
+    width: 100%;
+}
+.content-data-item:hover{
+    border-color: #008aee;
+    background-color: gainsboro;
+}
+
+.content-data-item:hover>.content-data-description>.content-data-title{
+    color: #008aee;
 }
