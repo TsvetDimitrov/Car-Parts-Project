@@ -251,7 +251,21 @@
 
 .sidenav > .banners {
     padding: 30px 20px 0;
+    display: block;
+    border-radius: 3px;
+    overflow: hidden;
 }
+
+.sidenav  .banners  .desktop{
+    display: block;
+    width: 100%;
+    transition: transform .20s ease-in-out;
+}
+
+.sidenav  >.banners:hover .desktop{
+    transform: scale(1.015,1.015);
+}
+
 
 /* side nav css ends: */
 
@@ -513,7 +527,6 @@
     display: grid;
     grid-template-columns: 250px calc(100% - 280px);
     grid-gap: 30px;
-    margin: 40px 0;
     grid-template-areas: 'content_data content_data';
 }
 
