@@ -534,7 +534,7 @@
     grid-template-columns: repeat(3,1fr);
 }
 
-
+/* brands css starts here */
 .content-data-item {
     display: flex;
     text-decoration: none;
@@ -581,3 +581,6 @@ picture img {
 .content-data-item:hover>.content-data-description>.content-data-title{
     color: #008aee;
 }
+
+
+/* brands css ends here */
