@@ -57,7 +57,20 @@
     height: 56px;
     margin: 0 auto;
     padding: 0 10px;
-  }
+}
+.topnav > .innerTopNav > .logo-wrapper{
+    width: 300px;
+}
+
+.topnav>.innerTopNav> .logo-wrapper >.logo {
+    display: block;
+    width: 42px;
+    height: 42px;
+    background: url(../images/logo-firmD1.png) no-repeat 0 0;
+    background-size: 100%;
+}
+
+
 
 .topnav > .innerTopNav > .elements {
     flex: 1;
@@ -65,12 +78,12 @@
 }
   .topnav > .innerTopNav > .elements > .element.phone{
     margin-right: 16px;
-  }
-  a {
+}
+a {
       text-decoration: none;
-  }
+}
 
-  .topnav>.innerTopNav .elements .element {
+.topnav>.innerTopNav .elements .element {
     position: relative;
     display: inline-block;
     vertical-align: middle;
