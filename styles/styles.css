@@ -64,9 +64,9 @@
 
 .topnav>.innerTopNav> .logo-wrapper >.logo {
     display: block;
-    width: 42px;
-    height: 42px;
-    background: url(../images/logo-firmD1.png) no-repeat 0 0;
+    width: 150px;
+    height: 40px;
+    background: url(../images/dimiparts-comb-logo.png) no-repeat 0 0;
     background-size: 100%;
 }
 
