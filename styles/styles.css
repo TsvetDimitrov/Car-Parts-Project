@@ -42,8 +42,125 @@
     border: 0;
     outline: 0;
     box-sizing: border-box;
+    display: block;
+    left: 0;
+
+  }
+  body {
+    margin: 0;
+}
+  .topnav > .innerTopNav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    height: 56px;
+    margin: 0 auto;
+    padding: 0 10px;
   }
 
+.topnav > .innerTopNav > .elements {
+    flex: 1;
+    text-align: right;
+}
+  .topnav > .innerTopNav > .elements > .element.phone{
+    margin-right: 16px;
+  }
+  a {
+      text-decoration: none;
+  }
+
+  .topnav>.innerTopNav .elements .element {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.topnav>.innerTopNav .elements .element.phone>.icon {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    width: 40px;
+    height: 40px;
+    margin-right: 8px;
+    background: white url(../images/phone-icon.png) no-repeat center center;
+    border-radius: 50%;
+    transition: background-color .5s;
+    transition: transform .4s;
+
+}
+.topnav>.innerTopNav .elements .element.login{
+    margin-right: 12px;
+    cursor: pointer;
+}
+
+.topnav>.innerTopNav .elements .element.phone>.icon:hover {
+    transform: scale(1.055,1.055);
+    background-color: gainsboro;
+}
+
+.topnav>.innerTopNav .elements .element.login>.icon {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    width: 40px;
+    height: 40px;
+    margin-right: 8px;
+    background: white url(../images/user-icon.png) no-repeat center center;
+    border-radius: 50%;
+    transition: background-color .5s;
+    transition: transform .4s;
+}
+
+.topnav>.innerTopNav .elements .element.cart {
+    display: inline-block;
+    vertical-align: middle;
+    width: 40px;
+    height: 40px;
+    background: #008aee url(../images/shopping-cart.png) no-repeat center center;
+    border-radius: 50%;
+    color: white;
+}
+
+.topnav>.innerTopNav .elements .element.login>.text {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 15px;
+    color: #fff;
+    letter-spacing: 0;
+    line-height: 13px;
+    font-weight: 500;
+}
+
+.topnav>.innerTopNav .elements .element.login>.icon:hover {
+    transform: scale(1.055,1.055);
+    background-color: gainsboro;
+}
+
+.topnav>.innerTopNav .elements .element.cart:hover {
+    transform: scale(1.055,1.055);
+}
+
+.topnav>.innerTopNav .elements .element.phone>.icon:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    transition: all .25s ease;
+}
+
+.topnav>.innerTopNav .elements .element.phone>.text {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 15px;
+    color: #fff;
+    letter-spacing: 0;
+    line-height: 13px;
+    font-weight: 500;
+}
 /* navigation bar css ends: */
 /* home page grid css starts: */
 
