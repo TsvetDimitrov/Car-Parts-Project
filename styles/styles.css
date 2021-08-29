@@ -735,7 +735,7 @@ picture.lozad>img {
 }
 
 .content-data-4-columns {
-    grid-template-columns: repeat(3,1fr);
+    grid-template-columns: repeat(4,1fr);
 }
 
 .content-data-title {
@@ -789,14 +789,6 @@ ul, ol {
 
 }
 
-*{
-
-    margin: 0;
-    padding: 0;
-    border: 0;
-    outline: 0;
-    box-sizing: border-box;
-}
 
 
 .benefits ul li>p:first-of-type {
