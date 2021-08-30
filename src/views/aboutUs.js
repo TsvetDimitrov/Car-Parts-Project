@@ -61,9 +61,9 @@ const aboutUsTemplate = () => html`
 export function aboutUsPage(ctx) {
     const homepage = document.querySelector('.homepage-grid');
     homepage.style.display = 'none';
-    const aboutUsPg = document.querySelector('#aboutUsPage');
-    aboutUsPg.style.display = 'none';
+
     const benefits = document.querySelector('.benefits-wrapper');
     benefits.style.display = 'none';
     ctx.render(aboutUsTemplate());
+    window.scrollTo(0, 0);
 }
