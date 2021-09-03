@@ -866,3 +866,20 @@ ul, ol {
 }
 
 /* benefits ends here */
+
+/*login page starts here */
+
+.content-login{
+    width: 340px;
+    margin: 0 auto;
+    padding: 20px 10px;
+}
+
+.content-login .page-member-login .main .inner .inner-inner{
+    padding: 30px 30px 25px;
+    background: #fff;
+    border-radius: 3px;
+    box-shadow: 0 0 15px -10px rgb(0 0 0 / 30%);
+}
+
+/*login page ends here */
