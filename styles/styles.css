@@ -872,6 +872,7 @@ ul, ol {
 .content-login{
     width: 340px;
     margin: 0 auto;
+    background: #f3f3f3;
     padding: 20px 10px;
 }
 
@@ -881,5 +882,60 @@ ul, ol {
     border-radius: 3px;
     box-shadow: 0 0 15px -10px rgb(0 0 0 / 30%);
 }
+
+.content-login .page-member-login .main .inner .inner-inner .title{
+    margin: 20px 0;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 0;
+    line-height: 21px;
+}
+
+.content-login > .page-member-login >.main >.inner >.inner-inner >.member-form fieldset{
+    margin-bottom: 10px;
+}
+
+.field-label{
+    position: relative;
+    display: block;
+    color: #777;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0;
+    margin-bottom: 10px;
+}
+
+.field-label span:first-child{
+    top: 24px;
+    display: block!important;
+    position: absolute;
+    left: 16px;
+    top: 22px;
+    color: #999;
+    background-color: #fff;
+    z-index: 10;
+    transition: top 150ms ease-out,left 150ms ease-out,background 150ms ease-out,font-size 150ms ease-out;
+}
+
+.field-label span.required-field:after {
+    content: '*';
+    display: inline-block;
+    margin-left: 2px;
+}
+
+.member-form input[type=text], .member-form input[type=text]{
+    width: 240px;
+    height: 44px;
+    padding: 0 15px;
+    border: 1px solid #e5e5e5;
+    border-radius: 3px;
+    color: #1c2d3a;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0;
+    line-height: 14px;
+}
+
 
 /*login page ends here */
