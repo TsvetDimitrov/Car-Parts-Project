@@ -1029,6 +1029,7 @@ label {
     cursor: pointer;
     position: relative;
     overflow: hidden;
+    border: 0;
 }
 
 .content-login  .page-member-login  .main  .inner  .inner-inner  .media-login > .facebook-login-button:before{
@@ -1040,5 +1041,17 @@ label {
     width: 20px;
     height: 20px;
     margin-right: 10px;
+}
+
+
+.content-login  .page-member-login  .main  .inner  .inner-inner  .media-login > .facebook-login-button > span {
+    display: inline-block;
+    vertical-align: middle;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0;
+    line-height: 14px;
+    text-transform: uppercase;
 }
 /*login page ends here */
