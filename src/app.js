@@ -4,10 +4,11 @@ import page from '../node_modules/page/page.mjs';
 
 
 import {aboutUsPage} from './views/aboutUs.js';
+import { loginPage } from './views/login.js';
 const main = document.querySelector('main');
 
 page('/aboutUs', decorateContext, aboutUsPage);
-
+page('/login', decorateContext, loginPage);
 
 page.start();
 
