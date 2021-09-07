@@ -218,6 +218,8 @@ a {
 
 .homepage-wrapper{
     margin-top: -455px;
+    background: #f3f3f3;
+
 }
 /* home page grid css ends: */
 
@@ -756,6 +758,18 @@ a {
     margin-bottom: 18px;
 }
 
+.footer-logo{
+    transition: transform .5s ease-in-out;
+    transform: scale(1.0,1.0);
+
+
+}
+
+.footer-logo:hover{
+    transform: scale(1.055,1.055);
+    transition: transform .5s ease-in-out;
+}
+
 /* Footer css ends: */
 
 
@@ -853,7 +867,7 @@ picture img {
     padding: 40px 20px;
     max-width: 1220px;
     margin: 0 auto;
-    padding: 60px 20px;
+    padding: 40px 20px;
 }
 
 .benefits ul li {
