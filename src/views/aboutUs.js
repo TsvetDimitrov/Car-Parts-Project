@@ -64,6 +64,10 @@ export function aboutUsPage(ctx) {
 
     const benefits = document.querySelector('.benefits-wrapper');
     benefits.style.display = 'none';
+
+    const homePagePic = document.querySelector('.inner');
+    homePagePic.style.display = 'none';
+
     ctx.render(aboutUsTemplate());
     window.scrollTo(0, 0);
 }

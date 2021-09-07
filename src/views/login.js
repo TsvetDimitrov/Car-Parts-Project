@@ -66,10 +66,43 @@ const loginTemplate = () => html`
 </div>`;
 
 export async function loginPage(ctx) {
+
+
     const homepage = document.querySelector('.homepage-grid');
     const benefits = document.querySelector('.benefits-wrapper');
+    const homePagePic = document.querySelector('.homepage-font-picture');
+    const footer = document.getElementById('footer');
+
     benefits.style.display = 'none';
     homepage.style.display = 'none';
+    homePagePic.style.display = 'none';
+    footer.style.display = 'none';
+
 
     ctx.render(loginTemplate());
+
+        //Login page focus and blur input elements and adding class.
+
+        const emailLogin = document.querySelector('input[name="email"]');
+        const passwordLogin = document.querySelector('input[name="password"]');
+        emailLogin.addEventListener("focus", (e) => {
+            const el = e.path[1];
+            el.classList.add('focused');
+        });
+    
+        emailLogin.addEventListener('blur', (e) => {
+            const el = e.path[1];
+            el.classList.remove('focused');
+        });
+    
+    
+        passwordLogin.addEventListener("focus", (e) => {
+            const el = e.path[1];
+            el.classList.add('focused');
+        });
+    
+        passwordLogin.addEventListener('blur', (e) => {
+            const el = e.path[1];
+            el.classList.remove('focused');
+        });
 }

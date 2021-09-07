@@ -249,7 +249,46 @@ a {
     font-weight: 700;
     text-align: center;
     padding-top: 8px;
+    margin-top: 10px
 }
+.homepage-grid .sidenav .search{
+    margin-bottom: 20px;
+    padding: 0 20px;
+}
+
+.homepage-grid .sidenav .search .search-field{
+    position: relative;
+}
+
+.homepage-grid .sidenav .search .search-field input{
+    width:190px;
+    padding: 16px 40px 15px 10px;
+    background: #fff;
+    border: 1px solid rgba(0,138,238,.5);
+    border-radius: 3px;
+    box-shadow: 0 0 0 2px rgb(0 138 238 / 15%);
+    font-size: 14px;
+    color: #1c2d3a;
+    letter-spacing: 0;
+    line-height: 17px;
+    font-weight: 500;
+    transition: none;
+}
+
+.homepage-grid .sidenav .search .search-field::after{
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    display: block;
+    width: 24px;
+    height: 24px;
+    background: url(../images/icon-search-dark.svg) no-repeat center;
+    opacity: .5;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
 .homepage-grid .sidenav .categories .category{
     position: relative;
     margin-top: -1px;
