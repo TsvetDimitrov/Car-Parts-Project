@@ -903,11 +903,11 @@ ul, ol {
     font-size: 14px;
     font-weight: 400;
     letter-spacing: 0;
-    margin-bottom: 10px;
+    margin-bottom: 17px;
 }
 
 .field-label span:first-child{
-    top: 24px;
+    top: 17px;
     display: block!important;
     position: absolute;
     left: 16px;
@@ -923,7 +923,7 @@ ul, ol {
     margin-left: 2px;
 }
 
-.member-form input[type=text], .member-form input[type=text]{
+.member-form input[type=text], .member-form input[type=password]{
     width: 240px;
     height: 44px;
     padding: 0 15px;
@@ -1092,4 +1092,84 @@ label {
     line-height: 14px;
     text-transform: uppercase;
 }
+
+.content-login  .page-member-login  .main  .inner  .inner-inner  .not-registered-user{
+    text-align: center;
+}
+
+.content-login  .page-member-login  .main  .inner  .inner-inner  .not-registered-user .not-registered-user-text{
+    color: #1c2d3a;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: 22px;
+}
+
+.content-login  .page-member-login  .main  .inner  .inner-inner  .not-registered-user a{
+    color: #008aee;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: 22px;
+}
+
+.content-login  .page-member-login  .main  .inner .back-to-site{
+    display: block;
+    margin: 25px 0;
+    text-align: center;
+}
+
+.text-body-dark {
+    color: #1c2d3a;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: 22px;
+}
+
+
+.content-login  .page-member-login  .main  .inner .back-to-site .back-to-site-icon{
+    width: 16px;
+    height: 16px;
+    margin-right: 7px;
+    background: url(../images/back-to-site-icon.svg);
+}
+
+.content-login  .page-member-login  .main  .inner .back-to-site span{
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.content-login  .page-member-login  .main  .inner  .inner-inner .logo{
+    display: block;
+    width: 218px;
+    height: 36px;
+    margin: 0 auto;
+    background: url(../images/dimiparts-comb-logo.jpg) no-repeat 0 0;
+    margin-left:50px;
+}
+
+.content-login  .page-member-login  .main  .inner  .inner-inner .member-form input[type=text]:focus, .content-login  .page-member-login  .main  .inner  .inner-inner .member-form input[type=password]:focus{
+    outline: none !important;
+    padding: 0 14px !important;
+    border-color: transparent;
+
+    border: 2px solid #008aee !important;
+}
+
+/* .content-login  .page-member-login  .main  .inner  .inner-inner .member-form input[type=text]:focus, .content-login  .page-member-login  .main  .inner  .inner-inner .member-form input[type=password]:focus{
+    padding: 0 14px;
+    border: 3px solid #008aee;
+} */
+
+.field-label.focused span:first-child{
+    top: -13px;
+    left: 8px;
+    font-size: 12px;
+    background: white;
+    padding: 8px;
+    z-index: 50;
+    padding-bottom: 1px;
+}
+
 /*login page ends here */
