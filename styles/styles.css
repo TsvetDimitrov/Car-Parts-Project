@@ -696,7 +696,6 @@ a {
 .footerContacts .content .footer-logo{
     width: 200px;
     height: 200px;
-    padding-left: 80px;
 }
 
 
@@ -758,11 +757,13 @@ a {
     margin-bottom: 18px;
 }
 
+#footer .container .modules .footerContacts .content .logo{
+    text-align: center;
+}
+
 .footer-logo{
     transition: transform .5s ease-in-out;
     transform: scale(1.0,1.0);
-
-
 }
 
 .footer-logo:hover{
