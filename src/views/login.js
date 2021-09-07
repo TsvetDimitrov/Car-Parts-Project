@@ -32,8 +32,6 @@ const loginTemplate = () => html`
                                     <span>Забравена парола?</span>
                                 </a>
                             </div>
-
-
                         </div>
                         <div class="separator">
                             <span class="separator-text">или</span>
@@ -46,7 +44,6 @@ const loginTemplate = () => html`
                                 <span>ВХОД С GOOGLE</span>
                             </button>
                         </div>
-
                         <div class="separator"></div>
                         <div class="not-registered-user">
                             <span class="not-registered-user-text">Нямате профил?</span>
