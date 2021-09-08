@@ -65,14 +65,12 @@ const loginTemplate = () => html`
 export async function loginPage(ctx) {
 
 
-    const homepage = document.querySelector('.homepage-grid');
+    const homepage = document.querySelector('.inner');
     const benefits = document.querySelector('.benefits-wrapper');
-    const homePagePic = document.querySelector('.homepage-font-picture');
     const footer = document.getElementById('footer');
 
     benefits.style.display = 'none';
     homepage.style.display = 'none';
-    homePagePic.style.display = 'none';
     footer.style.display = 'none';
 
 

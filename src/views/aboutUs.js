@@ -59,14 +59,11 @@ const aboutUsTemplate = () => html`
 
 
 export function aboutUsPage(ctx) {
-    const homepage = document.querySelector('.homepage-grid');
+    const homepage = document.querySelector('.inner');
     homepage.style.display = 'none';
 
     const benefits = document.querySelector('.benefits-wrapper');
     benefits.style.display = 'none';
-
-    const homePagePic = document.querySelector('.inner');
-    homePagePic.style.display = 'none';
 
     ctx.render(aboutUsTemplate());
     window.scrollTo(0, 0);
