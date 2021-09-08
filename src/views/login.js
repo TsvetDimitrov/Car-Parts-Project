@@ -76,7 +76,7 @@ export async function loginPage(ctx) {
 
     ctx.render(loginTemplate());
 
-        //Login page focus and blur input elements and adding class.
+        //Login page focus and blur input elements and adding html tag class.
 
         const emailLogin = document.querySelector('input[name="email"]');
         const passwordLogin = document.querySelector('input[name="password"]');
