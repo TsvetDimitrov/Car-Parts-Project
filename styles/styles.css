@@ -74,8 +74,75 @@
     background-size: 100%;
 }
 
+.topnav> .innerTopNav > .tab{
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+    height: 40px;
 
+}
 
+.topnav> .innerTopNav > .tab > .redemption-car{
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    height: 49px;
+    padding-left: 13px;
+    padding-right: 13px;
+    margin-left: 2px;
+    background: rgba(0,138,238,.15);
+    border-radius: 3px 3px 0 0;
+    text-align: center;
+}
+
+.topnav> .innerTopNav > .tab > .redemption-car::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 3px 3px 0 0;
+    transition: all .25s ease;
+}
+
+.topnav> .innerTopNav > .tab > .redemption-car:hover::before{
+    content: '';
+    background: rgba(255,255,255,.15);
+}
+
+.topnav> .innerTopNav > .tab > .redemption-car > .icon{
+    display: inline-block;
+    vertical-align: middle;
+    width: 48px;
+    height: 48px;
+    object-fit: cover;
+    margin-right: 7px;
+    background: url(../images/car-icon-header-nav.ico) no-repeat center center;
+}
+
+.topnav> .innerTopNav > .tab > .redemption-car > .text{
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 13px;
+    color: #008aee;
+    letter-spacing: 0;
+    line-height: 13px;
+    font-family: roboto,sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+.topnav> .innerTopNav > .tab > .redemption-car::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 3px;
+    background: #008aee;
+    border-radius: 3px 3px 0 0;
+    margin-top: -3px;
+}
 .topnav > .innerTopNav > .elements {
     flex: 1;
     text-align: right;
@@ -610,15 +677,20 @@ a {
 
 .footerContacts .footer-loc{
     font-size: 15px;
+    margin-top: 0px;
 }
 .footerContacts .content h6{
     font-size: 15px;
     color: #fff;
     font-family: sans-serif;
     margin-bottom: 4px;
+    margin-top: 18px;
 }
+
+
 .footerContacts .tel-num{
     font-size: 15px;
+    margin-top:0px;
 }
 
 .footerContacts .contactsSocialMedia{
@@ -654,6 +726,13 @@ a {
     font-size: 22px;
     text-decoration: none;
     color: #fff;
+}
+
+.aboutUsPage-pos{
+    text-align: left;
+    padding-left: 40px
+
+
 }
 
 .aboutUsPage:hover{
@@ -694,8 +773,24 @@ a {
 }
 
 .footerContacts .content .footer-logo{
-    width: 200px;
-    height: 200px;
+    width: 120px;
+    height: 98px;
+    background-size: cover;
+    margin-bottom: -15px;
+    text-align: left;
+    margin-left: auto;
+    margin-right: auto;
+    display: inline-block;
+}
+
+.footerContacts .content .logo a{
+    width: 0;
+    height: 0;
+    text-align: left;
+    transform: translateX(-50%);
+    left: 50%;
+    position: absolute;
+
 }
 
 
@@ -758,7 +853,11 @@ a {
 }
 
 #footer .container .modules .footerContacts .content .logo{
-    text-align: center;
+    display: inline-block;
+    height: 84px;
+    width: 84px;
+    text-align: left;
+
 }
 
 .footer-logo{
@@ -767,8 +866,8 @@ a {
 }
 
 .footer-logo:hover{
-    transform: scale(1.055,1.055);
-    transition: transform .5s ease-in-out;
+    transform: scale(1.12,1.12);
+    transition: transform .4s ease-in-out;
 }
 
 /* Footer css ends: */
