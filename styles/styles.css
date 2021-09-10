@@ -1541,6 +1541,42 @@ label {
     height: 24px;
     margin-right: 7px;
     background: url(../images/bank-ico.png);
+    filter: invert(100%);
+}
+
+.buyout-car-wrapper .buyout-car-content .button-evaluation span {
     color: #fff;
+    font-size: 15px;
+    font-weight:900 ;
+    line-height: 17px;
+    letter-spacing: 0;
+    text-transform: uppercase;
+}
+
+.buyout-car-wrapper .buyout-car-content .buyout-info .text-contacts{
+    color: #1c2d3a;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: 22px;
+}
+
+.buyout-car-wrapper .buyout-car-content .buyout-info .text-contacts .icon{
+    position: relative;
+    bottom: -6px;
+    margin-right: 15px;
+}
+
+.buyout-car-wrapper .buyout-car-content .buyout-info .text-contacts .tel{
+    color: #008aee;
+}
+
+.buyout-car-wrapper .buyout-car-content .buyout-info .text-contacts .mail{
+    color: #008aee;
+
+}
+
+strong {
+    font-size: 18px;
 }
 /*sell your car page ends here */
