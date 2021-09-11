@@ -1532,6 +1532,10 @@ label {
     left: 0;
     top: 0;
 }
+.buyout-car-wrapper .buyout-car-content .button-evaluation:hover::before{
+    content: '';
+    background: rgba(255,255,255,.15); 
+}
 
 .buyout-car-wrapper .buyout-car-content .button-evaluation .icon{
     display: inline-block;
