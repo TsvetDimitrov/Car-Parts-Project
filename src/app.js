@@ -4,7 +4,7 @@ import page from '../node_modules/page/page.mjs';
 
 
 import { aboutUsPage } from './views/aboutUs.js';
-import { buyoutPage } from './views/buyout.js';
+import { buyoutPage } from './views/buyout/buyout.js';
 import { loginPage } from './views/login.js';
 import { registerPage } from './views/register.js'
 const main = document.querySelector('main');
