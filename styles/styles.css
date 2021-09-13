@@ -1584,3 +1584,28 @@ strong {
     font-size: 18px;
 }
 /*sell your car page ends here */
+
+/*page 404 starts*/
+    .page-404-wrapper a img{
+        display: block;
+        margin-left: 350px;
+    }
+
+    .page-404-wrapper a .text{
+        vertical-align: middle;
+        display: inline-block;
+    }
+
+    .page-404-wrapper{
+        text-align: center;
+    }
+
+    .page-404-wrapper a .icon{
+        display: inline-block;
+        vertical-align: middle;
+        width: 16px;
+        height: 16px;
+        margin-right: 7px;
+        background: url(../images/back-to-site-icon.svg);
+    }
+/*page 404 ends*/
