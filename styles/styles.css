@@ -1594,6 +1594,11 @@ strong {
     .page-404-wrapper a .text{
         vertical-align: middle;
         display: inline-block;
+        color: #1c2d3a;
+        font-size: 14px;
+        font-weight: 400;
+        letter-spacing: 0;
+        line-height: 22px;
     }
 
     .page-404-wrapper{
