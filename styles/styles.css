@@ -1586,6 +1586,10 @@ strong {
 /*sell your car page ends here */
 
 /*page 404 starts*/
+
+.page-404-wrapper{
+    margin-top: 50px;
+}
     .page-404-wrapper a img{
         display: block;
         margin-left: 350px;
