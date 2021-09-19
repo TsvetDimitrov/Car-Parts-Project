@@ -1219,7 +1219,7 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="benefits-wrapper">
             <div class="inner">
                 <div class="benefits">
@@ -1252,16 +1252,85 @@
 </div>
 
 
-<div class = "buyout-car-info">
+<div class="buyout-car-info">
     <div class="buyout-car-header">
         <div class="inner">
-            <h1 class = "header">Онлайн оценка на автомобил</h1>
+            <h1 class="header">Oнлайн оценка на автомобил</h1>
         </div>
-        <div class = "buyout-car-content">
-            <div class = "buyout-steps"></div>
+    </div>
+    <div class="buyout-car-content">
+        <div class="buyout-steps">
+            <div class="buyout-step active">
+                <div class="step-image">
+                    <img src="/images/step-01-active.svg">
+                </div>
+                <div class="buyout-text">Въведете данните за вашия автомобил</div>
+            </div>
+            <div class="buyout-separator-step"></div>
+            <div class="buyout-step">
+                <div class="step-image">
+                    <img src="images/step-02-inactive.svg">
+                </div>
+                <div class="buyout-text">Приложете снимки на вашият автомобил</div>
+            </div>
+        </div>
+        <form action="POST" name="buyoutForm" class="form-horiz">
+            <div class="form-inputs">
+                <div class="form-input">
+                    <label class="field-label">
+                        <span class="required-field">Марка</span>
+                        <input type="text" name="brand" class="required">
+                    </label>
+                </div>
+                <div class="form-input">
+                    <label class="field-label">
+                        <span class="required-field">Модел</span>
+                        <input type="text" name="model" class="required">
+                    </label>
+                </div>
+                <div class="form-input">
+                    <label class="field-label">
+                        <span class="required-field">Година на производство</span>
+                        <input type="text" name="manufactureYear" class="required">
+                    </label>
+                </div>
+                <div class="form-input">
+                    <label class="field-label">
+                        <span class="required-field">Вид двигател</span>
+                        <input type="text" name="engineType" class="required">
+                    </label>
+                </div>
+                <div class="form-input">
+                    <label class="field-label">
+                        <span class="required-field">Скоросттна кутия</span>
+                        <input type="text" name="gearboxType" class="required">
+                    </label>
+                </div>
+                <div class="form-input">
+                    <label class="field-label">
+                        <span class="required-field">Предложете цена за вашият автомобил</span>
+                        <input type="text" name="priceWanted" class="required">
+                    </label>
+                </div>
+                <div class="form-input fullwidth">
+                    <label class="field-label">
+                        <span class="required-field">Цялостно описание</span>
+                        <textarea name="text"></textarea>
+                    </label>
+                </div>
+            </div>
+        </form>
+        <div class="button-wrapper">
+            <button type="submit" class="button-submit">
+                <span>Към стъпка 2</span>
+                <span class="icon"></span>
+
+            </button>
+            <div class="text-button">* Задължителни полета</div>
         </div>
     </div>
 </div>
+
 <body>
 
 </body>
