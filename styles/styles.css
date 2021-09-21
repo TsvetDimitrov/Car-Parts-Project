@@ -880,8 +880,7 @@ a {
     display: block;
     width: 5px;
     height: 45px;
-    margin-right:10px;
-
+    margin-right:190px;
 } 
 
 .headerModel{
@@ -889,7 +888,7 @@ a {
     grid-column: 1/-1!important;
     border: 2px solid #008aee;
     margin: 0;
-    }
+}
 
 .homePageModel{
     float: right;
