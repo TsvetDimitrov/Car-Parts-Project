@@ -204,6 +204,7 @@ a {
     background: #008aee url(../images/shopping-cart.png) no-repeat center center;
     border-radius: 50%;
     color: white;
+    transition: transform .4s;
 }
 
 .topnav>.innerTopNav .elements .element.login>.text {
@@ -880,7 +881,7 @@ a {
     display: block;
     width: 5px;
     height: 45px;
-    margin-right:190px;
+    margin-right:210px;
 } 
 
 .headerModel{
