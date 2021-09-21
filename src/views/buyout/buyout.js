@@ -17,7 +17,7 @@ const buyoutTemplate = () => html`
                 За повече информация може да се свържете
                 с нас по телефона или използвайте опцията, онлайн оценка на вашия автомобил.
             </div>
-            <a href="/izkupuvane/info" class="button-evaluation">
+            <a class="button-evaluation">
                 <span class="icon"></span>
                 <span>ОНЛАЙН ОЦЕНКА НА АВТОМОБИЛ</span>
             </a>
@@ -26,7 +26,7 @@ const buyoutTemplate = () => html`
                     <img src="/images/phone-icon.png" alt="" class="icon">
                     <strong><a class="tel" href="tel: 0893496566">0893496566</a></strong>
                 </h3>
-                <p>&nbsp;</p>
+                
                 <h3>
                     <img src="/images/mail-icon.png" class="icon">
                     <a class="mail" href="mailto:dimitrovv32@gmail.com"><strong>dimitrovv32@gmail.com</strong></a>
@@ -38,7 +38,7 @@ const buyoutTemplate = () => html`
 `;
 
 
-export async function buyoutPage(ctx){
+export async function buyoutPage(ctx) {
     ctx.render(buyoutTemplate());
 
     const homepage = document.querySelector('.inner');
@@ -48,4 +48,33 @@ export async function buyoutPage(ctx){
     benefits.style.display = 'none';
     homepage.style.display = 'none';
     footer.style.display = 'none';
+    // Button animation buyout page.
+
+    function createRipple(event) {
+        const button = event.currentTarget;
+        const circle = document.createElement("span");
+        const diameter = Math.max(button.clientWidth, button.clientHeight);
+        const radius = diameter / 2;
+
+        circle.style.width = circle.style.height = `${diameter}px`;
+        console.log("event clientX", event.clientX);
+        console.log("event clientY", event.clientY);
+        console.log("offsetLEFT", button.offsetLeft);
+        console.log("offsetTOP", button.offsetTop);
+        console.log("radius ", radius)
+        circle.style.left = `${event.clientX - button.offsetLeft - radius}px`;
+        circle.style.top = `${event.clientY - button.offsetTop - radius}px`;
+        circle.classList.add("ripple");
+
+        const ripple = button.getElementsByClassName("ripple")[0];
+
+        if (ripple) {
+            ripple.remove();
+        }
+
+        button.appendChild(circle);
+    }
+
+    const button = document.querySelector(".button-evaluation");
+    button.addEventListener("click", createRipple);
 }
