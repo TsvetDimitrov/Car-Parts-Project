@@ -17,7 +17,7 @@ const buyoutTemplate = () => html`
                 За повече информация може да се свържете
                 с нас по телефона или използвайте опцията, онлайн оценка на вашия автомобил.
             </div>
-            <a class="button-evaluation">
+            <a href="/izkupuvane/info" class="button-evaluation">
                 <span class="icon"></span>
                 <span>ОНЛАЙН ОЦЕНКА НА АВТОМОБИЛ</span>
             </a>
@@ -57,11 +57,6 @@ export async function buyoutPage(ctx) {
         const radius = diameter / 2;
 
         circle.style.width = circle.style.height = `${diameter}px`;
-        console.log("event clientX", event.clientX);
-        console.log("event clientY", event.clientY);
-        console.log("offsetLEFT", button.offsetLeft);
-        console.log("offsetTOP", button.offsetTop);
-        console.log("radius ", radius)
         circle.style.left = `${event.clientX - button.offsetLeft - radius}px`;
         circle.style.top = `${event.clientY - button.offsetTop - radius}px`;
         circle.classList.add("ripple");

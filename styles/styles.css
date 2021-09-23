@@ -1105,6 +1105,7 @@ ul, ol {
     font-weight: 400;
     letter-spacing: 0;
     margin-bottom: 17px;
+    margin-left: 40px;
 }
 
 .field-label span:first-child{
@@ -1676,7 +1677,7 @@ strong {
 .buyout-car-info .buyout-car-content{
     max-width: 720px;
     margin: 0 auto;
-    padding: 20px 20px 60px;
+    padding: 20px 0px 60px;
 }
 .buyout-car-info .buyout-car-content .buyout-steps{
     display: flex;
@@ -1730,7 +1731,7 @@ strong {
     margin-top: 20px;
 }
 
-.buyout-car-info .buyout-car-content .form-inputs .form-input input[type=text]{
+.buyout-car-info .buyout-car-content .form-inputs .form-input input[type=text], .buyout-car-info .buyout-car-content .form-inputs .form-input input[type=number]{
     width: 100%;
     height: 44px;
     padding: 0 15px;
@@ -1743,6 +1744,20 @@ strong {
     line-height: 14px;
 }
 
+.buyout-car-info .buyout-car-content .form-inputs .form-input input:focus{
+    border: 2px solid #008aee !important;
+    border-color: transparent;
+    outline: none !important;
+    padding: 0 14px
+}
+
+.buyout-car-info .buyout-car-content .form-inputs .form-input textarea:focus{
+    border: 2px solid #008aee !important;
+    border-color: transparent;
+    outline: none !important;
+    padding: 0 14px
+}
+
 .buyout-car-info .buyout-car-content .form-inputs .form-input{
     margin: 0;
     padding: 0;
@@ -1752,6 +1767,103 @@ strong {
 }
 
 
+.buyout-car-info .buyout-car-content .form-inputs .form-input.fullwidth{
+    display: block;
+    max-width: calc(100% - 20px);
+    width: 100%;
+    margin-top: 20px;
+}
+
+.buyout-car-info .buyout-car-content .form-inputs .form-input.fullwidth .field-label textarea{
+    width: 98%;
+    height: 100px;
+    padding: 15px;
+    border: 1px solid #e5e5e5;
+    border-radius: 3px;
+    color: #1c2d3a;
+    font-family: roboto,sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0;
+    line-height: 14px;
+}
+
+.buyout-car-info .buyout-car-content .button-wrapper{
+    max-width: 320px;
+    margin: 0 auto;
+}
+
+
+.buyout-car-info .buyout-car-content .button-wrapper button{
+    flex-direction: row;
+    max-width: 100%;
+    position: relative;
+    overflow: hidden;
+    background: #008aee;
+    border: 1px solid #008aee;
+    display: flex;
+    width: 100%;
+    height: 48px;
+    border-radius: 3px;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+}
+
+.buyout-car-info .buyout-car-content .button-wrapper button::before{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transition: all .25s ease;
+    left: 0;
+    top: 0;
+}
+
+.buyout-car-info .buyout-car-content .button-wrapper button:hover::before{
+    content: '';
+    background: rgba(255,255,255,.15);
+}
+
+
+.buyout-car-info .buyout-car-content .button-wrapper button span{
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 14px;
+    letter-spacing: 0;
+    text-transform: uppercase;
+}
+
+.buyout-car-info .buyout-car-content .button-wrapper button .icon{
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    margin-left: 5px;
+    background: url(../images/icon-chevron-right-white.svg);
+    color: #fff;
+}
+
+.buyout-car-info .buyout-car-content .button-wrapper .text-button{
+    display: block;
+    margin-top: 11px;
+    color: #777;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: 18px;
+}
+.buyout-car-info .buyout-car-content .red-text-field{
+    display: block;
+    margin-top: 5px;
+    color: #e40730;
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: 14px;
+}
 /* sell your car info form and header ends*/
 
 
