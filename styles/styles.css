@@ -1105,7 +1105,6 @@ ul, ol {
     font-weight: 400;
     letter-spacing: 0;
     margin-bottom: 17px;
-    margin-left: 40px;
 }
 
 .field-label span:first-child{
@@ -1732,7 +1731,7 @@ strong {
 }
 
 .buyout-car-info .buyout-car-content .form-inputs .form-input input[type=text], .buyout-car-info .buyout-car-content .form-inputs .form-input input[type=number]{
-    width: 100%;
+    width: 81%;
     height: 44px;
     padding: 0 15px;
     border: 1px solid #e5e5e5;
