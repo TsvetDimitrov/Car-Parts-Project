@@ -76,28 +76,27 @@ export async function loginPage(ctx) {
 
     ctx.render(loginTemplate());
 
-        //Login page focus and blur input elements and adding html tag class.
+    function addFocusClass(e) {
+        const el = e.path[1];
+        el.classList.add('focused');
+        return el;
+    }
 
-        const emailLogin = document.querySelector('input[name="email"]');
-        const passwordLogin = document.querySelector('input[name="password"]');
-        emailLogin.addEventListener("focus", (e) => {
-            const el = e.path[1];
-            el.classList.add('focused');
-        });
-    
-        emailLogin.addEventListener('blur', (e) => {
+    function removeFocusClass(e) {
+        if (!e.target.value) {
             const el = e.path[1];
             el.classList.remove('focused');
-        });
-    
-    
-        passwordLogin.addEventListener("focus", (e) => {
-            const el = e.path[1];
-            el.classList.add('focused');
-        });
-    
-        passwordLogin.addEventListener('blur', (e) => {
-            const el = e.path[1];
-            el.classList.remove('focused');
-        });
+            return el;
+        }
+    }
+    //Login page focus and blur input elements and adding html tag class.
+
+    const emailLogin = document.querySelector('input[name="email"]');
+    const passwordLogin = document.querySelector('input[name="password"]');
+
+    emailLogin.addEventListener("focus", addFocusClass);
+    emailLogin.addEventListener('blur', removeFocusClass);
+
+    passwordLogin.addEventListener("focus", addFocusClass);
+    passwordLogin.addEventListener('blur', removeFocusClass);
 }

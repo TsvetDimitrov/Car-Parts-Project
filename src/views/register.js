@@ -92,50 +92,34 @@ export async function registerPage(ctx) {
 
     //Register page focus and blur input elements and adding html tag class.
 
+    function addFocusClass(e) {
+        const el = e.path[1];
+        el.classList.add('focused');
+        return el;
+    }
+
+    function removeFocusClass(e) {
+        if (!e.target.value) {
+            const el = e.path[1];
+            el.classList.remove('focused');
+            return el;
+        }
+    }
+
     const nameRegister = document.querySelector('input[name="name"]');
     const emailRegister = document.querySelector('input[name="email"]');
     const passwordRegister = document.querySelector('input[name="password"]');
     const repeatPassRegister = document.querySelector('input[name="repeatPass"]');
 
+    nameRegister.addEventListener("focus", addFocusClass);
+    nameRegister.addEventListener('blur', removeFocusClass);
 
-    nameRegister.addEventListener("focus", (e) => {
-        const el = e.path[1];
-        el.classList.add('focused');
-    });
+    emailRegister.addEventListener("focus", addFocusClass);
+    emailRegister.addEventListener('blur', removeFocusClass);
 
-    nameRegister.addEventListener('blur', (e) => {
-        const el = e.path[1];
-        el.classList.remove('focused');
-    });
+    passwordRegister.addEventListener("focus", addFocusClass);
+    passwordRegister.addEventListener('blur', removeFocusClass);
 
-    emailRegister.addEventListener("focus", (e) => {
-        const el = e.path[1];
-        el.classList.add('focused');
-    });
-
-    emailRegister.addEventListener('blur', (e) => {
-        const el = e.path[1];
-        el.classList.remove('focused');
-    });
-
-
-    passwordRegister.addEventListener("focus", (e) => {
-        const el = e.path[1];
-        el.classList.add('focused');
-    });
-
-    passwordRegister.addEventListener('blur', (e) => {
-        const el = e.path[1];
-        el.classList.remove('focused');
-    });
-
-    repeatPassRegister.addEventListener("focus", (e) => {
-        const el = e.path[1];
-        el.classList.add('focused');
-    });
-
-    repeatPassRegister.addEventListener('blur', (e) => {
-        const el = e.path[1];
-        el.classList.remove('focused');
-    });
+    repeatPassRegister.addEventListener("focus", addFocusClass);
+    repeatPassRegister.addEventListener('blur', removeFocusClass);
 }

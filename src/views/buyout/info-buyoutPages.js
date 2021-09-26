@@ -98,91 +98,40 @@ export async function buyoutInfoPage1(ctx) {
     const priceWantedInput = document.querySelector('input[name="priceWanted"]');
     const textArea = document.querySelector('textarea[name="text"]');
 
-    brandInput.addEventListener("focus", (e) => {
+    function addFocusClass(e){
         const el = e.path[1];
         el.classList.add('focused');
-    });
+        return el;
+    }
 
-    brandInput.addEventListener('blur', (e) => {
-        if(!brandInput.value){
+    function removeFocusClass(e){
+        if(!e.target.value){
             const el = e.path[1];
             el.classList.remove('focused');
+            return el;
         }
-    });
+    }
 
-    modelInput.addEventListener('focus', (e) => {
-        const el = e.path[1];
-        el.classList.add('focused');
-    });
+    brandInput.addEventListener("focus", addFocusClass);
+    brandInput.addEventListener('blur', removeFocusClass);
 
-    modelInput.addEventListener('blur', (e) => {
-        if(!modelInput.value){
-            const el = e.path[1];
-            el.classList.remove('focused');
-        }
-    });
-
+    modelInput.addEventListener('focus', addFocusClass);
+    modelInput.addEventListener('blur', removeFocusClass);
     
-    manufactureYearInput.addEventListener('focus', (e) => {
-        const el = e.path[1];
-        el.classList.add('focused');
-    });
+    manufactureYearInput.addEventListener('focus', addFocusClass);
+    manufactureYearInput.addEventListener('blur', removeFocusClass);
 
-    manufactureYearInput.addEventListener('blur', (e) => {
-        if(!manufactureYearInput.value){
-            const el = e.path[1];
-            el.classList.remove('focused');
-        }
-    });
+    engineInput.addEventListener('focus', addFocusClass);
+    engineInput.addEventListener('blur', removeFocusClass);
 
-    engineInput.addEventListener('focus', (e) => {
-        const el = e.path[1];
-        el.classList.add('focused');
-    });
+    gearboxTypeInput.addEventListener('focus', addFocusClass);
+    gearboxTypeInput.addEventListener('blur', removeFocusClass);
 
-    engineInput.addEventListener('blur', (e) => {
-        if(!engineInput.value){
-            const el = e.path[1];
-            el.classList.remove('focused');
-        }
-    });
+    priceWantedInput.addEventListener('focus', addFocusClass);
+    priceWantedInput.addEventListener('blur', removeFocusClass);
 
-    gearboxTypeInput.addEventListener('focus', (e) => {
-        const el = e.path[1];
-        el.classList.add('focused');
-    });
-
-    gearboxTypeInput.addEventListener('blur', (e) => {
-        if(!gearboxTypeInput.value){
-            const el = e.path[1];
-            el.classList.remove('focused');
-        }
-    });
-
-    priceWantedInput.addEventListener('focus', (e) => {
-        const el = e.path[1];
-        el.classList.add('focused');
-    });
-
-    priceWantedInput.addEventListener('blur', (e) => {
-        if(!priceWantedInput.value){
-            const el = e.path[1];
-            el.classList.remove('focused');
-        }
-    });
-
-
-    textArea.addEventListener('focus', (e) => {
-        const el = e.path[1];
-        el.classList.add('focused');
-    });
-
-    textArea.addEventListener('blur', (e) => {
-        if(!textArea.value){
-            const el = e.path[1];
-            el.classList.remove('focused');
-        }
-    });
+    textArea.addEventListener('focus', addFocusClass);
+    textArea.addEventListener('blur', removeFocusClass);
 
     function onSubmit(e) {
         e.preventDefault();
