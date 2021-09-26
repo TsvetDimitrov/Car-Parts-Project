@@ -663,6 +663,11 @@ a {
 
 .footerAbout .map .imageMap{
     width: 300px;
+    transition: transform .20s ease-in-out;
+}
+
+.footerAbout .map .imageMap:hover{
+    transform: scale(1.015,1.015);
 }
 
 .footerContacts{
