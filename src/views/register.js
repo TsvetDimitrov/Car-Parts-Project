@@ -1,4 +1,5 @@
 import { html } from '../../node_modules/lit-html/lit-html.js';
+import {addFocusClass, removeFocusClass} from '../util/util.js';
 
 const registerTemplate = () => html`
 <div class="register-wrap">
@@ -92,19 +93,6 @@ export async function registerPage(ctx) {
 
     //Register page focus and blur input elements and adding html tag class.
 
-    function addFocusClass(e) {
-        const el = e.path[1];
-        el.classList.add('focused');
-        return el;
-    }
-
-    function removeFocusClass(e) {
-        if (!e.target.value) {
-            const el = e.path[1];
-            el.classList.remove('focused');
-            return el;
-        }
-    }
 
     const nameRegister = document.querySelector('input[name="name"]');
     const emailRegister = document.querySelector('input[name="email"]');

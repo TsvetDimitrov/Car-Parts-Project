@@ -1,4 +1,5 @@
 import { html } from '../../node_modules/lit-html/lit-html.js';
+import {addFocusClass, removeFocusClass} from '../util/util.js';
 
 
 
@@ -76,19 +77,6 @@ export async function loginPage(ctx) {
 
     ctx.render(loginTemplate());
 
-    function addFocusClass(e) {
-        const el = e.path[1];
-        el.classList.add('focused');
-        return el;
-    }
-
-    function removeFocusClass(e) {
-        if (!e.target.value) {
-            const el = e.path[1];
-            el.classList.remove('focused');
-            return el;
-        }
-    }
     //Login page focus and blur input elements and adding html tag class.
 
     const emailLogin = document.querySelector('input[name="email"]');

@@ -1,5 +1,5 @@
 import { html } from '../../../node_modules/lit-html/lit-html.js';
-
+import {addFocusClass, removeFocusClass} from '../../util/util.js';
 
 
 const infoBuyout1Template = (onSubmit) => html`
@@ -98,19 +98,6 @@ export async function buyoutInfoPage1(ctx) {
     const priceWantedInput = document.querySelector('input[name="priceWanted"]');
     const textArea = document.querySelector('textarea[name="text"]');
 
-    function addFocusClass(e){
-        const el = e.path[1];
-        el.classList.add('focused');
-        return el;
-    }
-
-    function removeFocusClass(e){
-        if(!e.target.value){
-            const el = e.path[1];
-            el.classList.remove('focused');
-            return el;
-        }
-    }
 
     brandInput.addEventListener("focus", addFocusClass);
     brandInput.addEventListener('blur', removeFocusClass);
