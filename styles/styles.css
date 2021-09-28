@@ -1499,11 +1499,6 @@ label {
     border: 2px solid #e8281e !important;
 }
 
-/* .content-login  .page-member-login  .main  .inner  .inner-inner .member-form input[type=text]:focus, .content-login  .page-member-login  .main  .inner  .inner-inner .member-form input[type=password]:focus{
-    padding: 0 14px;
-    border: 3px solid #008aee;
-} */
-
 .field-label.focused span:first-child{
     top: -13px;
     left: 8px;

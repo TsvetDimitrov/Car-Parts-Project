@@ -1,6 +1,5 @@
 import { html } from '../../../node_modules/lit-html/lit-html.js';
 
-
 const buyoutTemplate = () => html`
 <div class="buyout-car-wrapper">
     <div class="header">
@@ -48,7 +47,6 @@ export async function buyoutPage(ctx) {
     benefits.style.display = 'none';
     homepage.style.display = 'none';
     footer.style.display = 'none';
-    // Button animation buyout page.
 
     function createRipple(event) {
         const button = event.currentTarget;
