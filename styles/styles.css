@@ -90,7 +90,7 @@
     padding-left: 13px;
     padding-right: 13px;
     margin-left: 2px;
-    background: rgba(0,138,238,.15);
+    background: rgb(210 25 106 / 15%);
     border-radius: 3px 3px 0 0;
     text-align: center;
 }
@@ -350,9 +350,9 @@ a {
     width:190px;
     padding: 16px 40px 15px 10px;
     background: #fff;
-    border: 1px solid rgba(0,138,238,.5);
+    border: 1px solid rgb(210 25 106 / 15%);
     border-radius: 3px;
-    box-shadow: 0 0 0 2px rgb(0 138 238 / 15%);
+    box-shadow: 0 0 0 2px rgb(210 25 106 / 15%);
     font-size: 14px;
     color: #1c2d3a;
     letter-spacing: 0;
