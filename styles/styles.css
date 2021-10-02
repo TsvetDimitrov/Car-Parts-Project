@@ -462,7 +462,7 @@ a {
 }
 /* Edit here */
 .homepage-grid .sidenav .categories .category:hover:after{
-    background: url(../images//icons8-chevron-right-30-blue.png) no-repeat center;
+    background: url(../images//icons8-chevron-right-30-red.png) no-repeat center;
     opacity: 1;
 }
 
