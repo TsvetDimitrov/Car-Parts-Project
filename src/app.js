@@ -23,7 +23,6 @@ page('/izkupuvane/info', decorateContext, buyoutInfoPage1);
 page.start();
 
 
-
 function decorateContext(ctx, next) {
 
     ctx.render = (content) => render(content, main);

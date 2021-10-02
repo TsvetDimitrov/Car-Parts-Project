@@ -1,5 +1,5 @@
 import { html } from '../../../node_modules/lit-html/lit-html.js';
-import {addFocusClass, removeFocusClass} from '../../util/util.js';
+import {removeFocusClass, addFocusClass} from '../../util/util.js';
 
 
 const infoBuyout1Template = (onSubmit) => html`

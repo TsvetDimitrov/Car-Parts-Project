@@ -1,10 +1,10 @@
-function addFocusClass(e){
+export function addFocusClass(e){
     const el = e.path[1];
     el.classList.add('focused');
     return el;
 }
 
-function removeFocusClass(e){
+export function removeFocusClass(e){
     if(!e.target.value){
         const el = e.path[1];
         el.classList.remove('focused');
@@ -13,4 +13,3 @@ function removeFocusClass(e){
 }
 
 
-module.exports = {removeFocusClass, addFocusClass}
