@@ -1898,6 +1898,37 @@ strong {
     letter-spacing: 0;
     line-height: 14px;
 }
+
+
+
+.buyout-car-info .buyout-car-content .buyout-steps .buyout-separator-step.success{
+    background: #29bc55;
+}
+
+.buyout-car-info .buyout-car-content .image-preview{
+    width: 300px;
+    height: 150px;
+    min-width: 100px;
+    border: 2px solid #dddddd;
+    margin-top: 15px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: #cccccc;
+    object-fit: cover;
+
+
+}
+
+.buyout-car-info .buyout-car-content .image-preview .image-preview-image{
+    display: none;
+    width: 100%;
+    max-width: 300px;
+    max-height: 150px;
+}
+
 /* sell your car info form and header ends*/
 
 

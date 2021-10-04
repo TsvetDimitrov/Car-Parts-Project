@@ -1,5 +1,5 @@
 import { html } from '../../../node_modules/lit-html/lit-html.js';
-import {removeFocusClass, addFocusClass} from '../../util/util.js';
+import { removeFocusClass, addFocusClass } from '../../util/util.js';
 
 
 const infoBuyout1Template = (onSubmit) => html`
@@ -83,7 +83,42 @@ const infoBuyout1Template = (onSubmit) => html`
     </div>
 </div>
 `
+const infoBuyout2Template = () => html`
+<div class="buyout-car-info">
+    <div class="buyout-car-header">
+        <div class="inner">
+            <h1 class="header">Oнлайн оценка на автомобил</h1>
+        </div>
+    </div>
+    <div class="buyout-car-content">
+        <div class="buyout-steps">
+            <div class="buyout-step active">
+                <div class="step-image">
+                    <img src="/images/step-01-success.svg">
+                </div>
+                <div class="buyout-text">Въведете данните за вашия автомобил</div>
+            </div>
+            <div class="buyout-separator-step success"></div>
+            <div class="buyout-step">
+                <div class="step-image">
+                    <img src="/images/step-01-active.svg">
+                </div>
+                <div class="buyout-text">Приложете снимки на вашият автомобил</div>
+            </div>
 
+
+        </div>
+        <div class="image-wrapper">
+            <input type="file" name="inpFile" id="inpFile" multiple>
+            <div class="image-preview" id="image-preview">
+                <img src="" alt="Image Preview" class="image-preview-image">
+                <span class="image-preview-default-text">Image preview</span>
+            </div>
+        </div>
+
+    </div>
+</div>
+`;
 
 
 export async function buyoutInfoPage1(ctx) {
@@ -91,7 +126,7 @@ export async function buyoutInfoPage1(ctx) {
 
 
     const brandInput = document.querySelector('input[name="brand"]');
-    const modelInput= document.querySelector('input[name="model"]');
+    const modelInput = document.querySelector('input[name="model"]');
     const manufactureYearInput = document.querySelector('input[name="manufactureYear"]');
     const engineInput = document.querySelector('input[name="engineType"]');
     const gearboxTypeInput = document.querySelector('input[name="gearboxType"]');
@@ -104,7 +139,7 @@ export async function buyoutInfoPage1(ctx) {
 
     modelInput.addEventListener('focus', addFocusClass);
     modelInput.addEventListener('blur', removeFocusClass);
-    
+
     manufactureYearInput.addEventListener('focus', addFocusClass);
     manufactureYearInput.addEventListener('blur', removeFocusClass);
 
@@ -142,7 +177,7 @@ export async function buyoutInfoPage1(ctx) {
                 if (!label.contains(label.querySelector('.red-text-field'))) {
                     label.appendChild(createEl());
                 }
-            }else{
+            } else {
                 const el = document.querySelector(`input[name="${entry[0]}"]`) || document.querySelector(`textarea[name="text"]`);
                 const label = el.parentNode;
                 if (label.contains(label.querySelector('.red-text-field'))) {
@@ -151,7 +186,7 @@ export async function buyoutInfoPage1(ctx) {
             }
         }
 
-        if(!hasEmptyField){
+        if (!hasEmptyField) {
             ctx.page.redirect('/izkupuvane/info2');
         }
     }
@@ -163,3 +198,46 @@ export async function buyoutInfoPage1(ctx) {
         return span;
     }
 }
+
+export async function buyoutInfoPage2(ctx) {
+    ctx.render(infoBuyout2Template());
+
+    function imageUploader() {
+        const imageWrapper = document.querySelector('.image-wrapper');
+        const inpFile = document.getElementById('inpFile');
+        const previewContainer = document.getElementById('image-preview');
+        const previewImage = previewContainer.querySelector('.image-preview-image');
+        const previewDefaultText = previewContainer.querySelector('.image-preview-default-text');
+
+        inpFile.addEventListener('change', function () {
+            //const file = this.files[0];
+
+            for (let i = 0; i < this.files.length; i++) {
+                const file = this.files[i];
+                if (file) {
+                    const reader = new FileReader();
+                    previewDefaultText.style.display = 'none';
+                    previewImage.style.display = 'block';
+
+                    reader.addEventListener('load', function () {
+                        previewImage.setAttribute('src', this.result);
+                    });
+
+                    reader.readAsDataURL(file);
+                    imageWrapper.innerHTML += `                        <div class="image-preview" id="image-preview">
+                    <img src="" alt="Image Preview" class="image-preview-image">
+                    <span class="image-preview-default-text">Image preview</span>
+                </div>`
+                } else {
+                    previewDefaultText.style.display = null;
+                    previewImage.style.display = null;
+                    previewImage.setAttribute('src', '');
+                }
+            }
+
+        });
+    }
+
+    imageUploader();
+}
+
