@@ -203,15 +203,15 @@ export async function buyoutInfoPage2(ctx) {
     ctx.render(infoBuyout2Template());
 
     function imageUploader() {
-        const imageWrapper = document.querySelector('.image-wrapper');
-        const inpFile = document.getElementById('inpFile');
-        const previewContainer = document.getElementById('image-preview');
-        const previewImage = previewContainer.querySelector('.image-preview-image');
-        const previewDefaultText = previewContainer.querySelector('.image-preview-default-text');
+        let imageWrapper = document.querySelector('.image-wrapper');
+        let inpFile = document.getElementById('inpFile');
+        let previewContainer = document.getElementById('image-preview');
+        let previewImage = previewContainer.querySelector('.image-preview-image');
+        let previewDefaultText = previewContainer.querySelector('.image-preview-default-text');
+        console.log(previewImage);
 
         inpFile.addEventListener('change', function () {
             //const file = this.files[0];
-
             for (let i = 0; i < this.files.length; i++) {
                 const file = this.files[i];
                 if (file) {
@@ -224,10 +224,10 @@ export async function buyoutInfoPage2(ctx) {
                     });
 
                     reader.readAsDataURL(file);
-                    imageWrapper.innerHTML += `                        <div class="image-preview" id="image-preview">
-                    <img src="" alt="Image Preview" class="image-preview-image">
-                    <span class="image-preview-default-text">Image preview</span>
-                </div>`
+                    imageWrapper.appendChild(createEl());
+                    previewContainer = document.getElementById('image-preview').lastElementChild;
+                    // TODO getting bug after the second upload.
+                    previewImage = previewContainer.querySelector('.image-preview-image').lastElementChild;
                 } else {
                     previewDefaultText.style.display = null;
                     previewImage.style.display = null;
@@ -236,6 +236,27 @@ export async function buyoutInfoPage2(ctx) {
             }
 
         });
+
+
+        function createEl() {
+            let div = document.createElement('div');
+            div.className = "image-preview";
+            div.setAttribute('id', 'image-preview');
+
+            let img = document.createElement('img');
+            img.setAttribute('src', '');
+            img.setAttribute('alt', 'Image Preview');
+            img.className = 'image-preview-image';
+
+            let span = document.createElement('span');
+            span.className = "image-preview-default-text";
+            span.textContent = 'Image preview';
+
+            div.appendChild(img);
+            div.appendChild(span);
+
+            return div;
+        }
     }
 
     imageUploader();
