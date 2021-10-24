@@ -11,14 +11,21 @@ module.exports = () => (req, res, next) => {
                 const { user, token } = await register(name, email, password);
                 res.cookie(COOKIE_NAME, token);
                 return {
+                    name: user.name,
                     _id: user._id,
                     email: user.email,
-                    accessToken: token
+                    authToken: token
                 };
             },
             async login(email, password) {
                 const token = await login(email, password);
                 res.cookie(COOKIE_NAME, token);
+                return {
+                    name: user.name,
+                    _id: user._id,
+                    email: user.email,
+                    authToken: token
+                };
             },
 
             logout() {
@@ -58,8 +65,9 @@ async function login(email, password) {
         err.type = 'credential';
         throw err;
     }
+    const token = generateToken(user);
+    return { user, token };
 
-    return generateToken(user);
 }
 
 function generateToken(userData) {
