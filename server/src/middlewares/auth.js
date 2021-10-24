@@ -8,8 +8,13 @@ module.exports = () => (req, res, next) => {
     if (parseToken(req, res)) {
         req.auth = {
             async register(name, email, password) {
-                const token = await register(name, email, password);
+                const { user, token } = await register(name, email, password);
                 res.cookie(COOKIE_NAME, token);
+                return {
+                    _id: user._id,
+                    email: user.email,
+                    accessToken: token
+                };
             },
             async login(email, password) {
                 const token = await login(email, password);
@@ -32,9 +37,10 @@ async function register(name, email, password) {
     }
 
     const hashedPassword = await bcrypt.hash(password, 10);
-    const user = userService.createUser(name, email, hashedPassword);
+    const user = await userService.createUser(name, email, hashedPassword);
+    const token = generateToken(user);
+    return { user, token };
 
-    return generateToken(user);
 }
 
 async function login(email, password) {
@@ -64,15 +70,16 @@ function generateToken(userData) {
     }, TOKEN_SECRET);
 };
 
-function parseToken(req, res){
+function parseToken(req, res) {
     const token = req.cookies[COOKIE_NAME];
 
-    if(token){
-        try{
+    if (token) {
+        try {
             const userData = jwt.verify(token, TOKEN_SECRET);
             req.user = userData;
             res.locals.user = userData;
-        }catch(err){
+        } catch (err) {
+            console.log(err.message);
             res.clearCookie(COOKIE_NAME);
             return false;
         }
