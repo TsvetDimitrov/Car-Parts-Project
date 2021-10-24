@@ -11,7 +11,7 @@ const registerTemplate = () => html`
                         <a href="/" class="logo bg"></a>
                         <h1 class="title">Регистрация</h1>
                         <div class="member-form">
-                            <form method="post" class="form-horizontal" name="memberLoginForm" id="memberLoginForm">
+                            <form method="POST" class="form-horizontal" name="memberLoginForm" id="memberLoginForm">
                                 <label class="field-label">
                                     <span class="required-field">Име</span>
                                     <input type="text" name="name" class="required" value="">

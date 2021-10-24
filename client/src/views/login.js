@@ -13,7 +13,7 @@ const loginTemplate = () => html`
                         <a href="/" class="logo bg"></a>
                         <h1 class="title">Вход</h1>
                         <div class="member-form">
-                            <form method="post" class="form-horizontal" name="memberLoginForm" id="memberLoginForm">
+                            <form method="POST" class="form-horizontal" name="memberLoginForm" id="memberLoginForm">
                                 <label class="field-label">
                                     <span class="required-field">E-mail</span>
                                     <input type="text" name="email" class="required" value="">
