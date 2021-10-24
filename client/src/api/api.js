@@ -70,10 +70,10 @@ export async function login(email, password) {
 }
 
 
-export async function register(username, email, password) {
-    const result = await post(settings.host + '/users/register', { username, email, password });
+export async function register(name, email, password) {
+    const result = await post(settings.host + '/auth/register', { name, email, password });
 
-    sessionStorage.setItem('username', result.username);
+    sessionStorage.setItem('name', result.name);
     sessionStorage.setItem('email', result.email);
     sessionStorage.setItem('authToken', result.acessToken);
     sessionStorage.setItem('userId', result._id);

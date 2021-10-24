@@ -1,7 +1,8 @@
 import { html } from '../../node_modules/lit-html/lit-html.js';
-import {addFocusClass, removeFocusClass} from '../util/util.js';
+import { addFocusClass, removeFocusClass } from '../util/util.js';
+import { register } from '../api/data.js';
 
-const registerTemplate = () => html`
+const registerTemplate = (onSubmit) => html`
 <div class="register-wrap">
     <div class="content-register">
         <div class="page-member-register">
@@ -11,7 +12,8 @@ const registerTemplate = () => html`
                         <a href="/" class="logo bg"></a>
                         <h1 class="title">Регистрация</h1>
                         <div class="member-form">
-                            <form method="POST" class="form-horizontal" name="memberLoginForm" id="memberLoginForm">
+                            <form @submit=${onSubmit} method="POST" class="form-horizontal" name="memberLoginForm"
+                                id="memberLoginForm">
                                 <label class="field-label">
                                     <span class="required-field">Име</span>
                                     <input type="text" name="name" class="required" value="">
@@ -89,10 +91,31 @@ export async function registerPage(ctx) {
     benefits.style.display = 'none';
     homepage.style.display = 'none';
     footer.style.display = 'none';
-    ctx.render(registerTemplate());
+    ctx.render(registerTemplate(onSubmit));
+
+    async function onSubmit(e) {
+        e.preventDefault();
+        const formData = new FormData(e.target);
+        const name = formData.get('name').trim();
+        const email = formData.get('email').trim();
+        const password = formData.get('password').trim();
+        const repeatPass = formData.get('repeatPass').trim();
+
+        if (!name || !email || !password || !repeatPass) {
+            throw new Error('All fields are required!');
+        }
+
+        if (repeatPass !== password) {
+            throw new Error('Passwords don\'t match!');
+        }
+
+        await register(name, email, password);
+
+        //set user nav here!
+        ctx.page.redirect('/');
+    }
 
     //Register page focus and blur input elements and adding html tag class.
-
 
     const nameRegister = document.querySelector('input[name="name"]');
     const emailRegister = document.querySelector('input[name="email"]');
