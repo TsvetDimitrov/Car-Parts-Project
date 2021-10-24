@@ -20,13 +20,29 @@ page('/izkupuvane', decorateContext, buyoutPage);
 page('/izkupuvane/info', decorateContext, buyoutInfoPage1);
 page('/izkupuvane/info2', decorateContext, buyoutInfoPage2);
 // page('*', decorateContext, notfound);
-page.start();
 
+setUserNav();
+
+
+page.start();
 
 function decorateContext(ctx, next) {
 
     ctx.render = (content) => render(content, main);
+    ctx.setUserNav = setUserNav;
     next();
+}
+
+function setUserNav() {
+    const userId = sessionStorage.getItem('userId');
+
+    if (userId != null) {
+        document.querySelector('.guest').style.display = 'none';;
+        document.querySelector('.user').style.display = 'inline-block';
+    } else {
+        document.querySelector('.guest').style.display = 'inline-block';
+        document.querySelector('.user').style.display = 'none';
+    }
 }
 
 

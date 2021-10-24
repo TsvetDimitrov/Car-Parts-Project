@@ -196,6 +196,40 @@ a {
     transition: transform .4s;
 }
 
+.topnav>.innerTopNav .elements .element.logout{
+    margin-right: 12px;
+    cursor: pointer;
+}
+
+.topnav>.innerTopNav .elements .element.logout>.icon:hover {
+    transform: scale(1.055,1.055);
+    background-color: gainsboro;
+}
+
+
+.topnav>.innerTopNav .elements .element.logout>.icon {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    width: 40px;
+    height: 40px;
+    margin-right: 8px;
+    background: white url(../images/logout-ico.png) no-repeat center center;
+    border-radius: 50%;
+    transition: background-color .5s;
+    transition: transform .4s;
+}
+
+.topnav>.innerTopNav .elements .element.logout>.text {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 15px;
+    color: #fff;
+    letter-spacing: 0;
+    line-height: 13px;
+    font-weight: 500;
+}
+
 .topnav>.innerTopNav .elements .element.cart {
     display: inline-block;
     vertical-align: middle;
