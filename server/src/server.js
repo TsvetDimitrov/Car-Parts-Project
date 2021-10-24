@@ -1,7 +1,10 @@
 const express = require('express');
+const cors = require('cors');
+
 const { PORT } = require('./config/constants');
 const databaseConfig = require('./config/database');
 const routesConfig = require('./config/routes');
+const expressConfig = require('./config/express');
 
 
 start();
@@ -9,21 +12,16 @@ async function start() {
     const app = express();
     await databaseConfig();
     app.use(express.json());
-    //Can use cors library instead of that.
-    app.use((req, res, next) => {
-        res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
-        res.setHeader('Access-Control-Allow-Headers', '*');
-        res.setHeader('Access-Control-Allow-Methods', 'OPTIONS, GET, POST, PUT, PATCH, DELETE');
 
-        next();
-    });
+    routesConfig(app);
+    expressConfig(app);
+
+    //Can use cors library instead of that.
+    app.use(cors());
 
     app.get('/', (req, res) => {
         res.json({ text: 'It\'s working!' });
     });
 
-    routesConfig(app);
-
-    app.listen(PORT, () => console.log(`App is running on port: ${PORT}`));
-
+    app.listen(PORT, () => console.log(`App started at http://localhost:${PORT}`));
 }

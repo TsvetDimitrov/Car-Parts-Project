@@ -64,7 +64,7 @@ function generateToken(userData) {
     }, TOKEN_SECRET);
 };
 
-function parseToken(){
+function parseToken(req, res){
     const token = req.cookies[COOKIE_NAME];
 
     if(token){
