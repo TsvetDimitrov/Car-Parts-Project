@@ -2,6 +2,8 @@ import { render } from '../node_modules/lit-html/lit-html.js';
 import page from '../node_modules/page/page.mjs';
 
 
+import { logout } from './api/data.js';
+
 import { aboutUsPage } from './views/aboutUs.js';
 import { buyoutPage } from './views/buyout/buyout.js';
 import { buyoutInfoPage1 } from './views/buyout/info-buyoutPages.js';
@@ -12,7 +14,6 @@ import { registerPage } from './views/register.js';
 
 
 const main = document.querySelector('main');
-
 page('/aboutUs', decorateContext, aboutUsPage);
 page('/login', decorateContext, loginPage);
 page('/register', decorateContext, registerPage);
@@ -25,6 +26,13 @@ setUserNav();
 
 
 page.start();
+
+document.querySelector('.user').addEventListener('click', async () => {
+    await logout();
+    setUserNav();
+    page.redirect('/');
+})
+
 
 function decorateContext(ctx, next) {
 

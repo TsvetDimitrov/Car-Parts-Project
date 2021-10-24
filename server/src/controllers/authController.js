@@ -21,9 +21,18 @@ router.post('/register', async (req, res) => {
 });
 
 router.post('/login', async (req, res) => {
-    const {email, password} = req.body;
+    const { email, password } = req.body;
 
-    
+});
+
+
+router.get('/logout', async (req, res) => {
+
+    console.log('Logging out...');
+    req.auth.logout();
+
+    res.json({ok: true});
+
 });
 
 module.exports = router;
