@@ -10,18 +10,18 @@ const expressConfig = require('./config/express');
 start();
 async function start() {
     const app = express();
-    await databaseConfig();
+    await databaseConfig(app);
     app.use(express.json());
 
-    routesConfig(app);
     expressConfig(app);
 
     //Can use cors library instead of that.
     app.use(cors());
-
     app.get('/', (req, res) => {
         res.json({ text: 'It\'s working!' });
     });
+
+    routesConfig(app);
 
     app.listen(PORT, () => console.log(`App started at http://localhost:${PORT}`));
 }

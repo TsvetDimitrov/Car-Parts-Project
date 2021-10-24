@@ -12,7 +12,7 @@ const registerTemplate = (onSubmit) => html`
                         <a href="/" class="logo bg"></a>
                         <h1 class="title">Регистрация</h1>
                         <div class="member-form">
-                            <form @submit=${onSubmit} method="POST" class="form-horizontal" name="memberLoginForm"
+                            <form @submit=${onSubmit} class="form-horizontal" name="memberLoginForm"
                                 id="memberLoginForm">
                                 <label class="field-label">
                                     <span class="required-field">Име</span>
@@ -108,7 +108,6 @@ export async function registerPage(ctx) {
         if (repeatPass !== password) {
             throw new Error('Passwords don\'t match!');
         }
-
         await register(name, email, password);
 
         //set user nav here!
