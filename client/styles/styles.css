@@ -351,7 +351,7 @@ a {
     background: #fff;
     border: 1px solid #e8281e;
     border-radius: 3px;
-    box-shadow: 0 0 0 2px rgb(0 138 238 / 15%);
+    box-shadow: 0 0 0 2px rgb(230 60 60 / 15%);
     margin-left: 30px;
     padding-bottom: 40px;
     margin-bottom: 40px;
@@ -425,7 +425,7 @@ a {
 
 .sidenav>.categories>.category:hover{
     border-color: #e8281e;
-    box-shadow: 0 0 0 2px rgb(0 138 238 / 15%);
+    box-shadow: 0 0 0 2px rgb(230 60 60 / 15%);
 }
 @media screen and (min-width: 741px){
     .homepage-grid .sidenav .categories .dropdown .children{

@@ -10,7 +10,7 @@ import { buyoutPage } from './views/buyout/buyout.js';
 import { buyoutInfoPage1 } from './views/buyout/info-buyoutPages.js';
 import { buyoutInfoPage2 } from './views/buyout/info-buyoutPages.js';
 import { loginPage } from './views/login.js';
-import { notfound } from './views/notfound404.js'; //TODO MAKE HOMEPAGE AND THEN UNCOMMENT THAT.
+import { notfound } from './views/notfound404.js'; 
 import { registerPage } from './views/register.js';
 
 
