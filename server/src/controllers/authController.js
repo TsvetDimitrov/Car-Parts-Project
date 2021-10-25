@@ -10,6 +10,7 @@ router.post('/register', async (req, res) => {
             _id: userData._id,
             email: userData.email,
             authToken: userData.authToken,
+            isAdmin: userData.isAdmin,
         });
     } catch (err) {
         console.log(err.message);
@@ -32,9 +33,10 @@ router.post('/login', async (req, res) => {
             authToken: userData.authToken,
         });
     } catch (err) {
-        console.log(err.message);
+        console.log('auth Error login meesage:', err.message);
         res.json({
             type: 'error',
+            ok: false,
             message: err.message,
         });
     }

@@ -45,13 +45,21 @@ function decorateContext(ctx, next) {
 
 function setUserNav() {
     const userId = sessionStorage.getItem('userId');
-
+    const isAdmin = sessionStorage.getItem('isAdmin');
+    console.log(userId);
     if (userId != null) {
         document.querySelector('.guest').style.display = 'none';;
         document.querySelector('.user').style.display = 'inline-block';
     } else {
         document.querySelector('.guest').style.display = 'inline-block';
         document.querySelector('.user').style.display = 'none';
+    }
+
+    if(isAdmin != null){
+        document.querySelector('.admin').style.display = 'inline-block';
+    }else{
+        document.querySelector('.admin').style.display = 'none';
+
     }
 }
 

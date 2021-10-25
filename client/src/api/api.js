@@ -6,7 +6,7 @@ export const settings = {
 async function request(url, options) {
     try {
         const response = await fetch(url, options);
-
+        console.log(response.ok);
         if (response.ok == false) {
             const error = await response.json();
             throw new Error(error.message);
@@ -14,9 +14,14 @@ async function request(url, options) {
 
         try {
             const data = await response.json();
+            if(data.ok == false){
+                const error = data.message;
+                throw new Error(error);
+            }
             return data;
         } catch (err) {
-            return response;
+            throw err;
+            // return response;
         }
     } catch (err) {
         console.error(err.message);
@@ -67,6 +72,7 @@ export async function login(email, password) {
     sessionStorage.setItem('email', result.email);
     sessionStorage.setItem('authToken', result.authToken);
     sessionStorage.setItem('userId', result._id);
+    sessionStorage.setItem('isAdmin', result.isAdmin);
 }
 
 
@@ -85,6 +91,7 @@ export async function logout() {
     sessionStorage.removeItem('email');
     sessionStorage.removeItem('authToken');
     sessionStorage.removeItem('userId');
+    sessionStorage.removeItem('isAdmin');
 
     return result;
 }
