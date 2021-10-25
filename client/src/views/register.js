@@ -109,7 +109,6 @@ export async function registerPage(ctx) {
             throw new Error('Passwords don\'t match!');
         }
         await register(name, email, password);
-
         //set user nav here!
         ctx.page.redirect('/');
     }

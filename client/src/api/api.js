@@ -6,7 +6,6 @@ export const settings = {
 async function request(url, options) {
     try {
         const response = await fetch(url, options);
-        console.log(response.ok);
         if (response.ok == false) {
             const error = await response.json();
             throw new Error(error.message);
@@ -14,17 +13,15 @@ async function request(url, options) {
 
         try {
             const data = await response.json();
-            if(data.ok == false){
-                const error = data.message;
-                throw new Error(error);
-            }
+
             return data;
         } catch (err) {
-            throw err;
-            // return response;
+
+            return response;
         }
     } catch (err) {
         console.error(err.message);
+        alert(err.message);
         throw err;
     }
 }

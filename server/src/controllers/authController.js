@@ -33,8 +33,8 @@ router.post('/login', async (req, res) => {
             authToken: userData.authToken,
         });
     } catch (err) {
-        console.log('auth Error login meesage:', err.message);
-        res.json({
+        console.log(err.message);
+        res.status(400).json({
             type: 'error',
             ok: false,
             message: err.message,

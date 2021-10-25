@@ -82,14 +82,15 @@ export async function loginPage(ctx) {
         e.preventDefault();
         const formData = new FormData(e.target);
 
-        const email = formData.get('email');
-        const password = formData.get('password');
+        const email = formData.get('email').trim();
+        const password = formData.get('password').trim();
 
         if (!email || !password) {
             throw new Error('All fields are required!');
         }
 
-        await login(email, password);
+        const data = await login(email, password);
+        console.log(data);
         ctx.setUserNav();
         ctx.page.redirect('/');
     }
