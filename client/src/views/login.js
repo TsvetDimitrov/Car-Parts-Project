@@ -1,9 +1,9 @@
 import { html } from '../../node_modules/lit-html/lit-html.js';
-import {addFocusClass, removeFocusClass} from '../util/util.js';
+import { addFocusClass, removeFocusClass } from '../util/util.js';
+import { login } from '../api/data.js';
 
 
-
-const loginTemplate = () => html`
+const loginTemplate = (onSubmit) => html`
 <div class="login-wrap">
     <div class="content-login">
         <div class="page-member-login">
@@ -13,7 +13,8 @@ const loginTemplate = () => html`
                         <a href="/" class="logo bg"></a>
                         <h1 class="title">Вход</h1>
                         <div class="member-form">
-                            <form method="POST" class="form-horizontal" name="memberLoginForm" id="memberLoginForm">
+                            <form @submit=${onSubmit} method="POST" class="form-horizontal" name="memberLoginForm"
+                                id="memberLoginForm">
                                 <label class="field-label">
                                     <span class="required-field">E-mail</span>
                                     <input type="text" name="email" class="required" value="">
@@ -75,8 +76,23 @@ export async function loginPage(ctx) {
     footer.style.display = 'none';
 
 
-    ctx.render(loginTemplate());
+    ctx.render(loginTemplate(onSubmit));
 
+    async function onSubmit(e) {
+        e.preventDefault();
+        const formData = new FormData(e.target);
+
+        const email = formData.get('email');
+        const password = formData.get('password');
+
+        if (!email || !password) {
+            throw new Error('All fields are required!');
+        }
+
+        await login(email, password);
+        ctx.setUserNav();
+        ctx.page.redirect('/');
+    }
     //Login page focus and blur input elements and adding html tag class.
 
     const emailLogin = document.querySelector('input[name="email"]');

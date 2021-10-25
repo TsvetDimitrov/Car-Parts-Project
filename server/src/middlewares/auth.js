@@ -18,7 +18,7 @@ module.exports = () => (req, res, next) => {
                 };
             },
             async login(email, password) {
-                const token = await login(email, password);
+                const { user, token } = await login(email, password);
                 res.cookie(COOKIE_NAME, token);
                 return {
                     name: user.name,
@@ -52,7 +52,6 @@ async function register(name, email, password) {
 
 async function login(email, password) {
     const user = await userService.getUserByEmail(email);
-
     if (!user) {
         const err = new Error('No such email!');
         err.type = 'credential';

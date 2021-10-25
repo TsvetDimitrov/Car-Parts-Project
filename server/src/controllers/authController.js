@@ -23,16 +23,28 @@ router.post('/register', async (req, res) => {
 router.post('/login', async (req, res) => {
     const { email, password } = req.body;
 
+    try {
+        let userData = await req.auth.login(email, password);
+        res.json({
+            name: userData.name,
+            _id: userData._id,
+            email: userData.email,
+            authToken: userData.authToken,
+        });
+    } catch (err) {
+        console.log(err.message);
+        res.json({
+            type: 'error',
+            message: err.message,
+        });
+    }
 });
 
 
 router.get('/logout', async (req, res) => {
-
     console.log('Logging out...');
     req.auth.logout();
-
-    res.json({ok: true});
-
+    res.json({ ok: true });
 });
 
 module.exports = router;
