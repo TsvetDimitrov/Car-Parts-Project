@@ -25,7 +25,7 @@ const buyoutTemplate = () => html`
                     <img src="/images/phone-icon.png" alt="" class="icon">
                     <strong><a class="tel" href="tel: 0893496566">0893496566</a></strong>
                 </h3>
-                
+
                 <h3>
                     <img src="/images/mail-icon.png" class="icon">
                     <a class="mail" href="mailto:dimitrovv32@gmail.com"><strong>dimitrovv32@gmail.com</strong></a>
@@ -39,14 +39,6 @@ const buyoutTemplate = () => html`
 
 export async function buyoutPage(ctx) {
     ctx.render(buyoutTemplate());
-
-    const homepage = document.querySelector('.inner');
-    const benefits = document.querySelector('.benefits-wrapper');
-    const footer = document.getElementById('footer');
-
-    benefits.style.display = 'none';
-    homepage.style.display = 'none';
-    footer.style.display = 'none';
 
     function createRipple(event) {
         const button = event.currentTarget;

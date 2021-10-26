@@ -84,11 +84,9 @@ const registerTemplate = (onSubmit) => html`
 
 export async function registerPage(ctx) {
 
-    // const homepage = document.querySelector('.inner');
-    // const footer = document.getElementById('footer');
-
-    // homepage.style.display = 'none';
-    // footer.style.display = 'none';
+    const footer = document.getElementById('footer');
+    footer.style.display = 'none';
+    
     ctx.render(registerTemplate(onSubmit));
 
     async function onSubmit(e) {

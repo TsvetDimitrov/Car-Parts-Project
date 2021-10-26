@@ -66,5 +66,6 @@ export function aboutUsPage(ctx) {
     benefits.style.display = 'none';
 
     ctx.render(aboutUsTemplate());
+    ctx.setFooter();
     window.scrollTo(0, 0);
 }

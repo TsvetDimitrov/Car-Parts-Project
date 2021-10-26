@@ -66,15 +66,8 @@ const loginTemplate = (onSubmit) => html`
 
 export async function loginPage(ctx) {
 
-
-    const homepage = document.querySelector('.inner');
-    const benefits = document.querySelector('.benefits-wrapper');
     const footer = document.getElementById('footer');
-
-    benefits.style.display = 'none';
-    homepage.style.display = 'none';
     footer.style.display = 'none';
-
 
     ctx.render(loginTemplate(onSubmit));
 

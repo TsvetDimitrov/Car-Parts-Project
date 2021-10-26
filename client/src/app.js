@@ -40,6 +40,7 @@ function decorateContext(ctx, next) {
 
     ctx.render = (content) => render(content, main);
     ctx.setUserNav = setUserNav;
+    ctx.setFooter = setFooter;
     next();
 }
 
@@ -60,6 +61,11 @@ function setUserNav() {
         document.querySelector('.admin').style.display = 'none';
 
     }
+}
+
+function setFooter(){
+    const footer = document.getElementById('footer');
+    footer.style.display = '';
 }
 
 
