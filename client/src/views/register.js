@@ -84,13 +84,11 @@ const registerTemplate = (onSubmit) => html`
 
 export async function registerPage(ctx) {
 
-    const homepage = document.querySelector('.inner');
-    const benefits = document.querySelector('.benefits-wrapper');
-    const footer = document.getElementById('footer');
+    // const homepage = document.querySelector('.inner');
+    // const footer = document.getElementById('footer');
 
-    benefits.style.display = 'none';
-    homepage.style.display = 'none';
-    footer.style.display = 'none';
+    // homepage.style.display = 'none';
+    // footer.style.display = 'none';
     ctx.render(registerTemplate(onSubmit));
 
     async function onSubmit(e) {
@@ -100,16 +98,20 @@ export async function registerPage(ctx) {
         const email = formData.get('email').trim();
         const password = formData.get('password').trim();
         const repeatPass = formData.get('repeatPass').trim();
+        const agreenment1 = formData.get('agreement_1');
+        const agreenment2 = formData.get('agreement_2');
 
-        if (!name || !email || !password || !repeatPass) {
+        if (!name || !email || !password || !repeatPass || !agreenment1 || !agreenment2) {
+            alert('All fields are required!');
             throw new Error('All fields are required!');
         }
 
         if (repeatPass !== password) {
+            alert('Passwords don\'t match!');
             throw new Error('Passwords don\'t match!');
         }
         await register(name, email, password);
-        //set user nav here!
+        ctx.setUserNav();
         ctx.page.redirect('/');
     }
 
