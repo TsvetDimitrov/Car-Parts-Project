@@ -12,6 +12,7 @@ import { buyoutInfoPage2 } from './views/buyout/info-buyoutPages.js';
 import { loginPage } from './views/login.js';
 import { notfound } from './views/notfound404.js';
 import { registerPage } from './views/register.js';
+import { createPage } from './views/create.js';
 
 const main = document.querySelector('main');
 page('/', decorateContext, homePage);
@@ -21,6 +22,7 @@ page('/register', decorateContext, registerPage);
 page('/izkupuvane', decorateContext, buyoutPage);
 page('/izkupuvane/info', decorateContext, buyoutInfoPage1);
 page('/izkupuvane/info2', decorateContext, buyoutInfoPage2);
+page('/create', decorateContext, createPage);
 page('*', decorateContext, notfound);
 
 setUserNav();
@@ -69,7 +71,7 @@ function setFooter() {
 
 
 //TEDST
-
+//TODO MOVE THEM IN CREATE VIEW FILE.
 let myData = [
     ['Аудио, видео, навигации', 'CD Чейнджъри'],
     ['Аудио, видео, навигации', 'DVD и TV приемници'],
