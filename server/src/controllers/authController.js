@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const passport = require('passport');
 
 
 router.post('/register', async (req, res) => {
@@ -49,5 +50,27 @@ router.get('/logout', async (req, res) => {
     req.auth.logout();
     res.json({ ok: true });
 });
+
+
+//FACEBOOK LOGIN: 
+
+router.get('/facebook',
+    passport.authenticate('facebook'),
+    function (req, res) {
+        const value = passport.authenticate('facebook');
+        console.log(value);
+        res.json({ ok: true });
+
+        console.log('hereee');
+    });
+
+router.get('/facebook/callback',
+    passport.authenticate('facebook', { successRedirect: '/', failureRedirect: '/login' }),
+    function (req, res) {
+        console.log(req.user);
+        console.log('here2');
+        res.json({ ok: true });
+    }
+)
 
 module.exports = router;

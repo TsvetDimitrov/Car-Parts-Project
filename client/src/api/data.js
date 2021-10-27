@@ -8,3 +8,10 @@ export const register = api.register;
 export const logout = api.logout;
 
 //App specific requests
+
+
+//Facebook login: 
+export async function facebookLogin() {
+    const result = await api.get(host + '/auth/facebook');
+    return result;
+}

@@ -1,9 +1,9 @@
 import { html } from '../../node_modules/lit-html/lit-html.js';
 import { addFocusClass, removeFocusClass } from '../util/util.js';
-import { login } from '../api/data.js';
+import { login, facebookLogin } from '../api/data.js';
 
 
-const loginTemplate = (onSubmit) => html`
+const loginTemplate = (onSubmit, onSubmitFacebook) => html`
 <div class="login-wrap">
     <div class="content-login">
         <div class="page-member-login">
@@ -39,7 +39,7 @@ const loginTemplate = (onSubmit) => html`
                             <span class="separator-text">или</span>
                         </div>
                         <div class="media-login">
-                            <button class="facebook-login-button" type="button">
+                            <button class="facebook-login-button" href="/auth/facebook" @click=${onSubmitFacebook} type="button">
                                 <span>ВХОД С FACEBOOK</span>
                             </button>
                             <button class="google-login-button" type="button">
@@ -69,7 +69,7 @@ export async function loginPage(ctx) {
     const footer = document.getElementById('footer');
     footer.style.display = 'none';
 
-    ctx.render(loginTemplate(onSubmit));
+    ctx.render(loginTemplate(onSubmit, onSubmitFacebook));
 
     async function onSubmit(e) {
         e.preventDefault();
@@ -85,6 +85,12 @@ export async function loginPage(ctx) {
         await login(email, password);
         ctx.setUserNav();
         ctx.page.redirect('/');
+    }
+
+    async function onSubmitFacebook(e) {
+        console.log('hEREER!!!');
+        const result = await facebookLogin();
+        console.log(result);
     }
     //Login page focus and blur input elements and adding html tag class.
 
