@@ -31,6 +31,7 @@ router.post('/login', async (req, res) => {
             _id: userData._id,
             email: userData.email,
             authToken: userData.authToken,
+            isAdmin: userData.isAdmin
         });
     } catch (err) {
         console.log(err.message);

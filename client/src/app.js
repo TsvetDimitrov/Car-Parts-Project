@@ -56,7 +56,7 @@ function setUserNav() {
         document.querySelector('.user').style.display = 'none';
     }
 
-    if (isAdmin != null) {
+    if (isAdmin == 1) {
         document.querySelector('.admin').style.display = 'inline-block';
     } else {
         document.querySelector('.admin').style.display = 'none';

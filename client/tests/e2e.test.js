@@ -116,7 +116,7 @@ describe('E2E tests', function () {
             expect(postData.password).to.equal(data.password);
         });
 
-        it.only('login makes correct API call [ 5 Points ]', async () => {
+        it('login makes correct API call', async () => {
             const data = mockData.users[0];
             const { post } = await handle(endpoints.login);
             const { onRequest } = post(data);

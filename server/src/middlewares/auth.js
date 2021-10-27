@@ -25,7 +25,8 @@ module.exports = () => (req, res, next) => {
                     name: user.name,
                     _id: user._id,
                     email: user.email,
-                    authToken: token
+                    authToken: token,
+                    isAdmin: user.isAdmin,
                 };
             },
 
@@ -53,7 +54,6 @@ async function register(name, email, password) {
 
 async function login(email, password) {
     const user = await userService.getUserByEmail(email);
-    console.log(user);
     if (!user) {
         const err = new Error('No such email!');
         err.type = 'credential';
