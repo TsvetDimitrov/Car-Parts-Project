@@ -53,6 +53,7 @@ async function register(name, email, password) {
 
 async function login(email, password) {
     const user = await userService.getUserByEmail(email);
+    console.log(user);
     if (!user) {
         const err = new Error('No such email!');
         err.type = 'credential';

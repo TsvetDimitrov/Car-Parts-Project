@@ -81,7 +81,7 @@ describe('E2E tests', function () {
             expect(isCalled()).to.be.false;
         });
 
-        it.only('register makes correct API call [ 5 Points ]', async () => {
+        it('register makes correct API call', async () => {
             const data = mockData.users[0];
             const { post } = await handle(endpoints.register);
             const { onRequest } = post(data);
@@ -116,31 +116,31 @@ describe('E2E tests', function () {
             expect(postData.password).to.equal(data.password);
         });
 
-        // it('login makes correct API call [ 5 Points ]', async () => {
-        //     const data = mockData.users[0];
-        //     const { post } = await handle(endpoints.login);
-        //     const { onRequest } = post(data);
+        it.only('login makes correct API call [ 5 Points ]', async () => {
+            const data = mockData.users[0];
+            const { post } = await handle(endpoints.login);
+            const { onRequest } = post(data);
 
-        //     await page.goto(host);
-        //     await page.waitForTimeout(interval);
-        //     await page.click('text=Login');
+            await page.goto(host);
+            await page.waitForTimeout(interval);
+            await page.click('[href="/login"]');
 
-        //     await page.waitForTimeout(interval);
-        //     await page.waitForSelector('form');
+            await page.waitForTimeout(interval);
+            await page.waitForSelector('form');
 
-        //     await page.fill('[name="username"]', data.username);
-        //     await page.fill('[name="password"]', data.password);
+            await page.fill('[name="email"]', data.email);
+            await page.fill('[name="password"]', data.password);
 
 
-        //     const [request] = await Promise.all([
-        //         onRequest(),
-        //         page.click('[type="submit"]')
-        //     ]);
+            const [request] = await Promise.all([
+                onRequest(),
+                page.click('[type="submit"]')
+            ]);
 
-        //     const postData = JSON.parse(request.postData());
-        //     expect(postData.username).to.equal(data.username);
-        //     expect(postData.password).to.equal(data.password);
-        // });
+            const postData = JSON.parse(request.postData());
+            expect(postData.email).to.equal(data.email);
+            expect(postData.password).to.equal(data.password);
+        });
 
         // it('logout makes correct API call [ 5 Points ]', async () => {
         //     const data = mockData.users[0];

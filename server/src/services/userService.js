@@ -14,7 +14,7 @@ async function createUser(name, email, password) {
 
 async function getUserByEmail(email) {
     const pattern = new RegExp(`^${email}$`, 'i');
-    const user = await User.findOne({ username: { $regex: pattern } });
+    const user = await User.findOne({ email: { $regex: pattern } });
 
     return user;
 }
