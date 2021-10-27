@@ -5,7 +5,7 @@ const { expect } = require('chai');
 
 const host = 'http://localhost:3000'; // Application host (NOT service host - that can be anything)
 const interval = 300;
-const DEBUG = true;
+const DEBUG = false;
 const slowMo = 500;
 
 const mockData = require('./mock-data.json');
@@ -50,28 +50,20 @@ describe('E2E tests', function () {
             await page.waitForTimeout(interval);
 
             await page.click('[href="/login"]');
-            await page.waitForTimeout(interval);
 
             await page.click('[href="/register"]');
-            await page.waitForTimeout(interval);
 
             await page.click('[name="name"]');
-            await page.waitForTimeout(interval);
 
             await page.click('[name="email"]');
-            await page.waitForTimeout(interval);
 
             await page.click('[name="password"]');
-            await page.waitForTimeout(interval);
 
             await page.click('[name="repeatPass"]');
-            await page.waitForTimeout(interval);
 
             await page.click('[name="agreement_1"]');
-            await page.waitForTimeout(interval);
 
             await page.click('[name="agreement_2"]');
-            await page.waitForTimeout(interval);
 
             await page.waitForSelector('form');
             await page.click('[type="submit"]');
@@ -142,36 +134,35 @@ describe('E2E tests', function () {
             expect(postData.password).to.equal(data.password);
         });
 
-        // it('logout makes correct API call [ 5 Points ]', async () => {
-        //     const data = mockData.users[0];
-        //     const { post } = await handle(endpoints.login);
-        //     const { get } = await handle(endpoints.logout);
-        //     const { onResponse } = post(data);
-        //     const { onRequest } = get('', { json: false, status: 204 });
+        it('logout makes correct API call [ 5 Points ]', async () => {
+            const data = mockData.users[0];
+            const { post } = await handle(endpoints.login);
+            const { get } = await handle(endpoints.logout);
+            const { onResponse } = post(data);
+            const { onRequest } = get('', { json: false, status: 204 });
 
-        //     await page.goto(host);
-        //     await page.click('text=Login');
-        //     await page.waitForTimeout(interval);
-        //     await page.waitForSelector('form');
-        //     await page.fill('[name="username"]', data.username);
-        //     await page.fill('[name="password"]', data.password);
+            await page.goto(host);
+            await page.click('[href="/login"]');
+            await page.waitForTimeout(interval);
+            await page.waitForSelector('form');
+            await page.fill('[name="email"]', data.email);
+            await page.fill('[name="password"]', data.password);
 
-        //     await Promise.all([
-        //         onResponse(),
-        //         page.click('[type="submit"]')
-        //     ]);
+            await Promise.all([
+                onResponse(),
+                page.click('[type="submit"]')
+            ]);
 
-        //     await page.waitForTimeout(interval);
+            await page.waitForTimeout(interval);
 
-        //     const [request] = await Promise.all([
-        //         onRequest(),
-        //         page.click('nav >> text=Logout')
-        //     ]);
-
-        //     const token = request.headers()['x-authorization'];
-        //     expect(request.method()).to.equal('GET');
-        //     expect(token).to.equal(data.accessToken);
-        // });
+            const [request] = await Promise.all([
+                onRequest(),
+                page.click('text=Изход')
+            ]);
+            const sessionStorage = await page.evaluate(() => JSON.stringify(sessionStorage));
+            expect(sessionStorage).to.be.equal('{}');
+            expect(request.method()).to.equal('GET');
+        });
     });
 });
 
@@ -219,7 +210,6 @@ async function handleRaw(match, handlers) {
 
     function request(method, returns, options) {
         let handled = false;
-
         methodHandlers[method.toLowerCase()] = (route, request) => {
             handled = true;
             route.fulfill(respond(returns, options));
