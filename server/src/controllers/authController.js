@@ -57,11 +57,8 @@ router.get('/logout', async (req, res) => {
 router.get('/facebook',
     passport.authenticate('facebook'),
     function (req, res) {
-        const value = passport.authenticate('facebook');
-        console.log(value);
+        passport.authenticate('facebook');
         res.json({ ok: true });
-
-        console.log('hereee');
     });
 
 router.get('/facebook/callback',

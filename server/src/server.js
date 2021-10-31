@@ -1,6 +1,6 @@
 const express = require('express');
 const cors = require('cors');
-const facebookStrategy = require('passport-facebook').Strategy;
+const FacebookStrategy = require('passport-facebook').Strategy;
 const passport = require('passport');
 
 const { PORT, FB_LOGIN } = require('./config/constants');
@@ -30,7 +30,7 @@ async function start() {
         });
     });
 
-    passport.use(new facebookStrategy({
+    passport.use(new FacebookStrategy({
         clientID: FB_LOGIN.facebook_api_key,
         clientSecret: FB_LOGIN.facebook_api_secret,
         callbackURL: "http://localhost:3030/auth/facebook/callback"
