@@ -27,6 +27,7 @@ router.post('/login', async (req, res) => {
 
     try {
         let userData = await req.auth.login(email, password);
+
         res.json({
             name: userData.name,
             _id: userData._id,

@@ -15,3 +15,8 @@ export async function facebookLogin() {
     const result = await api.get(host + '/auth/facebook');
     return result;
 }
+
+export async function isUserAdmin(){
+    const result = await api.get(host + '/create');
+    return result;
+}

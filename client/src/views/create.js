@@ -1,4 +1,5 @@
 import { html } from '../../node_modules/lit-html/lit-html.js';
+import { isUserAdmin } from '../api/data.js';
 
 const createTemplate = (onSubmit) => html`
     <div class="creatediv">
@@ -355,6 +356,7 @@ const createTemplate = (onSubmit) => html`
 
 export async function createPage(ctx) {
     //TODO CHECK IF THE USER IS ADMIN AND IF HE TRIED TO TYPE THE URL.
+    const isAdmin = await isUserAdmin(sessionStorage.getItem('userId'));
     ctx.render(createTemplate(onSubmit));
 
     async function onSubmit(e) {

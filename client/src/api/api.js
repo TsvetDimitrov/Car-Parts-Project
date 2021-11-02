@@ -70,6 +70,7 @@ export async function login(email, password) {
     sessionStorage.setItem('authToken', result.authToken);
     sessionStorage.setItem('userId', result._id);
     sessionStorage.setItem('isAdmin', result.isAdmin);
+    document.cookie = result.authToken;
 }
 
 
