@@ -386,7 +386,6 @@ const homeTemplate = () => html`
                                         Виско съединители
                                     </a>
                                     <a href="#" class="category-child" data-value="300">Водни помпи</a>
-                                    <a href="#" class="category-child" data-value="300">Демпфер</a>
                                     <a href="#" class="category-child" data-value="300">Водни радиатори</a>
                                     <a href="#" class="category-child" data-value="300">Компресори за климатик</a>
                                     <a href="#" class="category-child" data-value="300">Интеркулери</a>
