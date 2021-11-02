@@ -667,7 +667,7 @@ let brandsModelsData = [
     ['CHRYSLER', 'GRAND'],
     ['CHRYSLER', 'LE'],
     ['CHRYSLER', 'NEON'],
-    ['CHRYSLER', 'NEW']
+    ['CHRYSLER', 'NEW'],
     ['CHRYSLER', 'PT'],
     ['CHRYSLER', 'SARATOGA'],
     ['CHRYSLER', 'SEBRING'],
@@ -1379,11 +1379,10 @@ let brandsModelsData = [
     ['VOLKSWAGEN', 'TRANSPORTER'],
     ['VOLKSWAGEN', 'UP'],
     ['VOLKSWAGEN', 'VENTO'],
-]
+];
 
 
 function makeDropDown(data, level1Filter, applyData) {
-
     const filteredArray = data.filter(r => r[0] === level1Filter);
     const uniqueOptions = new Set();
     filteredArray.forEach(r => uniqueOptions.add(r[1]));
