@@ -3,13 +3,14 @@ const passport = require('passport');
 
 
 router.post('/register', async (req, res) => {
-    const { name, email, password } = req.body;
+    const { name, email, phoneNumber, password } = req.body;
     try {
-        let userData = await req.auth.register(name, email, password);
+        let userData = await req.auth.register(name, email, phoneNumber, password);
         res.json({
             name: userData.name,
             _id: userData._id,
             email: userData.email,
+            phoneNumber: userData.phoneNumber,
             authToken: userData.authToken,
             isAdmin: userData.isAdmin,
         });
@@ -32,6 +33,7 @@ router.post('/login', async (req, res) => {
             name: userData.name,
             _id: userData._id,
             email: userData.email,
+            phoneNumber: userData.phoneNumber,
             authToken: userData.authToken,
             isAdmin: userData.isAdmin
         });
@@ -58,6 +60,7 @@ router.get('/logout', async (req, res) => {
 router.get('/facebook',
     passport.authenticate('facebook'),
     function (req, res) {
+        console.log('here');
         passport.authenticate('facebook');
         res.json({ ok: true });
     });

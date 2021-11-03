@@ -23,6 +23,10 @@ const registerTemplate = (onSubmit) => html`
                                     <input type="text" name="email" class="required" value="">
                                 </label>
                                 <label class="field-label">
+                                    <span class="required-field">Телефон</span>
+                                    <input type="text" name="telNumber" class="required" value="">
+                                </label>
+                                <label class="field-label">
                                     <span>Парола</span>
                                     <input type="password" name="password" class="required" value="">
                                 </label>
@@ -86,7 +90,7 @@ export async function registerPage(ctx) {
 
     const footer = document.getElementById('footer');
     footer.style.display = 'none';
-    
+
     ctx.render(registerTemplate(onSubmit));
 
     async function onSubmit(e) {
@@ -94,12 +98,13 @@ export async function registerPage(ctx) {
         const formData = new FormData(e.target);
         const name = formData.get('name').trim();
         const email = formData.get('email').trim();
+        const phoneNumber = formData.get('telNumber').trim();
         const password = formData.get('password').trim();
         const repeatPass = formData.get('repeatPass').trim();
         const agreenment1 = formData.get('agreement_1');
         const agreenment2 = formData.get('agreement_2');
 
-        if (!name || !email || !password || !repeatPass || !agreenment1 || !agreenment2) {
+        if (!name || !email || !phoneNumber || !password || !repeatPass || !agreenment1 || !agreenment2) {
             alert('All fields are required!');
             throw new Error('All fields are required!');
         }
@@ -108,7 +113,7 @@ export async function registerPage(ctx) {
             alert('Passwords don\'t match!');
             throw new Error('Passwords don\'t match!');
         }
-        await register(name, email, password);
+        await register(name, email, phoneNumber, password);
         ctx.setUserNav();
         ctx.page.redirect('/');
     }
@@ -117,6 +122,7 @@ export async function registerPage(ctx) {
 
     const nameRegister = document.querySelector('input[name="name"]');
     const emailRegister = document.querySelector('input[name="email"]');
+    const phoneRegister = document.querySelector('input[name="telNumber"]');
     const passwordRegister = document.querySelector('input[name="password"]');
     const repeatPassRegister = document.querySelector('input[name="repeatPass"]');
 
@@ -125,6 +131,9 @@ export async function registerPage(ctx) {
 
     emailRegister.addEventListener("focus", addFocusClass);
     emailRegister.addEventListener('blur', removeFocusClass);
+
+    phoneRegister.addEventListener("focus", addFocusClass);
+    phoneRegister.addEventListener("blur", removeFocusClass);
 
     passwordRegister.addEventListener("focus", addFocusClass);
     passwordRegister.addEventListener('blur', removeFocusClass);

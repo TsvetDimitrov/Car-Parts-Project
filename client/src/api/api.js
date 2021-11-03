@@ -67,6 +67,7 @@ export async function login(email, password) {
 
     sessionStorage.setItem('name', result.name);
     sessionStorage.setItem('email', result.email);
+    sessionStorage.setItem('phoneNumber', result.phoneNumber);
     sessionStorage.setItem('authToken', result.authToken);
     sessionStorage.setItem('userId', result._id);
     sessionStorage.setItem('isAdmin', result.isAdmin);
@@ -74,10 +75,11 @@ export async function login(email, password) {
 }
 
 
-export async function register(name, email, password) {
-    const result = await post(settings.host + '/auth/register', { name, email, password });
+export async function register(name, email, phoneNumber, password) {
+    const result = await post(settings.host + '/auth/register', { name, email, phoneNumber, password });
     sessionStorage.setItem('name', result.name);
     sessionStorage.setItem('email', result.email);
+    sessionStorage.setItem('phoneNumber', result.phoneNumber);
     sessionStorage.setItem('authToken', result.authToken);
     sessionStorage.setItem('userId', result._id);
 }
