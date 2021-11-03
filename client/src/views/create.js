@@ -355,6 +355,13 @@ const createTemplate = (onSubmit) => html`
                             <input type="text" placeholder="" name="title">
                         </div>
                     </div>
+
+                    <div class="price">
+                        <span>Цена *</span>
+                        <div class="select">
+                            <input type="text" placeholder="" name="price">
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="button-wrapper">
@@ -390,13 +397,13 @@ export async function createPage(ctx) {
         const imageUrl = formData.get('imageUrl').trim();
         const condition = formData.get('condition').trim();
         const title = formData.get('title').trim();
+        const price = formData.get('price').trim();
 
-        console.log(category, type, brand, model, yearFrom, yearTo, engineType, partColor, imageUrl, condition, title)
-        if (!category || !type || !brand || !model || !title) {
-            return alert('Category, type, brand, model and title are required!');
+        if (!category || !type || !brand || !model || !title || !price) {
+            return alert('Category, type, brand, model, title and price are required!');
         }
 
-        await createPart(category, type, brand, model, yearFrom, yearTo, engineType, partColor, imageUrl, condition, title);
+        await createPart(category, type, brand, model, yearFrom, yearTo, engineType, partColor, imageUrl, condition, title, price);
         ctx.page.redirect('/');
     }
 

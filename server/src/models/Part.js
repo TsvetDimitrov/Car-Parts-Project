@@ -13,7 +13,8 @@ const partSchema = new mongoose.Schema({
     imageUrl: { type: String },
     condition: { type: String },
     title: { type: String },
-});
+    price: { type: Number, required: [true, 'Price is required!'] },
+}, { timestamps: true });
 
 
 const Part = mongoose.model('Part', partSchema);
