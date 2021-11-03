@@ -7,13 +7,14 @@ const userService = require('../services/userService');
 module.exports = () => (req, res, next) => {
     if (parseToken(req, res)) {
         req.auth = {
-            async register(name, email, password) {
-                const { user, token } = await register(name, email, password);
+            async register(name, email, phoneNumber, password) {
+                const { user, token } = await register(name, email, phoneNumber, password);
                 res.cookie(COOKIE_NAME, token);
                 return {
                     name: user.name,
                     _id: user._id,
                     email: user.email,
+                    phoneNumber: user.phoneNumber,
                     authToken: token,
                     isAdmin: user.isAdmin,
                 };
@@ -25,22 +26,23 @@ module.exports = () => (req, res, next) => {
                     name: user.name,
                     _id: user._id,
                     email: user.email,
+                    phoneNumber: user.phoneNumber,
                     authToken: token,
                     isAdmin: user.isAdmin,
                 };
             },
 
-            async getToken(){
+            async getToken() {
                 const token = req.headers['x-authorization'];
 
-                try{
-                    if(token){
+                try {
+                    if (token) {
                         const userData = jwt.verify(token, TOKEN_SECRET);
                         req.user = userData;
                     }
-                }catch(err){    
+                } catch (err) {
                     console.log(err.message);
-                    res.status(401).json({message: 'Invalid access token. No permission!'});
+                    res.status(401).json({ message: 'Invalid access token. No permission!' });
                 }
             },
             logout() {
@@ -51,7 +53,7 @@ module.exports = () => (req, res, next) => {
     }
 };
 
-async function register(name, email, password) {
+async function register(name, email, phoneNumber, password) {
     const existing = await userService.getUserByEmail(email);
 
     if (existing) {
@@ -59,7 +61,7 @@ async function register(name, email, password) {
     }
 
     const hashedPassword = await bcrypt.hash(password, 10);
-    const user = await userService.createUser(name, email, hashedPassword);
+    const user = await userService.createUser(name, email, phoneNumber, hashedPassword);
     const token = generateToken(user);
     return { user, token };
 
@@ -88,6 +90,7 @@ function generateToken(userData) {
     return jwt.sign({
         _id: userData._id,
         email: userData.email,
+        phoneNumber: userData.phoneNumber,
         name: userData.name
     }, TOKEN_SECRET);
 };

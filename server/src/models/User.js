@@ -8,10 +8,11 @@ let validateEmail = function (email) {
 const userSchema = new mongoose.Schema({
     name: { type: String, required: [true, 'Name is required!'] },
     email: { type: String, required: [true, 'Email is required!'], validate: [validateEmail, 'Please fill a valid email address'], unique: [true, 'This email already exists!'] },
-    phoneNumber: {type: String, required: [true, 'Telephone Number is required!']},
-    isAdmin: {type: Number, default: 0},
+    phoneNumber: { type: String, required: [true, 'Telephone Number is required!'] },
+    isAdmin: { type: Number, default: 0 },
     password: { type: String, required: [true, 'Password is required!'] },
-    facebookId: {type: String},
+    orders: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Part', default: [] }],
+    facebookId: { type: String },
 });
 
 
