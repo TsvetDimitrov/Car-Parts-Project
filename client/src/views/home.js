@@ -24,7 +24,7 @@ const homeTemplate = () => html`
                             <div class="title title-small-dark-strong">Аудио, видео, навигации</div>
                             <div class="children">
                                 <div class="column">
-                                    <a href="/" class="category-child" data-value="300">CD Чейнджъри</a>
+                                    <a href="/products/cd-cheindjyri" class="category-child" data-value="300">CD Чейнджъри</a>
                                     <a href="#" class="category-child" data-value="300">DVD и TV приемници</a>
                                     <a href="#" class="category-child" data-value="300">GPS и навигации</a>
                                     <a href="#" class="category-child" data-value="300">Hands Free и bluetooth

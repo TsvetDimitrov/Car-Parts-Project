@@ -25,3 +25,8 @@ export async function createPart(category, type, brand, model, yearFrom, yearTo,
     const result = await api.post(host + '/parts/create', { category, type, brand, model, yearFrom, yearTo, engineType, partColor, imageUrl, condition, title });
     return result;
 }
+
+export async function getNavigationSystems(){
+    const result = await api.get(host + '/parts/navigationSystems');
+    return result;
+}

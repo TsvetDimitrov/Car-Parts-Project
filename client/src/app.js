@@ -14,6 +14,9 @@ import { notfound } from './views/notfound404.js';
 import { registerPage } from './views/register.js';
 import { createPage } from './views/create.js';
 
+
+import { navigationSystemsPage } from './views/parts/AudioVideoNavigation/navigationSystems.js';
+
 const main = document.querySelector('main');
 page('/', decorateContext, homePage);
 page('/aboutUs', decorateContext, aboutUsPage);
@@ -23,6 +26,10 @@ page('/izkupuvane', decorateContext, buyoutPage);
 page('/izkupuvane/info', decorateContext, buyoutInfoPage1);
 page('/izkupuvane/info2', decorateContext, buyoutInfoPage2);
 page('/create', decorateContext, createPage);
+
+
+page('/products/cd-cheindjyri', decorateContext, navigationSystemsPage);
+
 page('*', decorateContext, notfound);
 
 setUserNav();
