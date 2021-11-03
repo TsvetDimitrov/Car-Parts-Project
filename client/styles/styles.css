@@ -1995,7 +1995,8 @@ strong {
     width: 100%;
 } */
 
-.creatediv .model, .creatediv .engine, .creatediv .color, .creatediv .brand, .creatediv .type, .creatediv .category, .creatediv .year, .creatediv .image{
+.creatediv .model, .creatediv .engine, .creatediv .color, .creatediv .brand, .creatediv .type, .creatediv .category,
+ .creatediv .year, .creatediv .image, .creatediv .condition{
     margin-top: 10px;
     padding: 0;
     border: 0;
@@ -2008,7 +2009,7 @@ strong {
 }
 
 .creatediv select[name="category"], .creatediv select[name="type"], .creatediv select[name="brand"], .creatediv select[name="model"],
- .creatediv select[name="engineType"], .creatediv select[name="partColor"]{
+ .creatediv select[name="engineType"], .creatediv select[name="partColor"], .creatediv select[name="condition"]{
     width: 81%;
     height: 44px;
     padding: 0 15px;

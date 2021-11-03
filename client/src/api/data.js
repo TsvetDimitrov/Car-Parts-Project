@@ -16,7 +16,12 @@ export async function facebookLogin() {
     return result;
 }
 
-export async function isUserAdmin(){
+export async function isUserAdmin() {
     const result = await api.get(host + '/create');
+    return result;
+}
+
+export async function createPart(category, type, brand, model, yearFrom, yearTo, engineType, partColor, imageUrl, condition, title) {
+    const result = await api.post(host + '/parts/create', { category, type, brand, model, yearFrom, yearTo, engineType, partColor, imageUrl, condition, title });
     return result;
 }

@@ -1,5 +1,5 @@
 import { html } from '../../node_modules/lit-html/lit-html.js';
-import { isUserAdmin } from '../api/data.js';
+import { isUserAdmin, createPart } from '../api/data.js';
 
 const createTemplate = (onSubmit) => html`
     <div class="creatediv">
@@ -41,7 +41,6 @@ const createTemplate = (onSubmit) => html`
                             </select>
                         </div>
                     </div>
-    
                     <div class="brand">
                         <span>Марка*</span>
                         <div classs="select">
@@ -125,7 +124,7 @@ const createTemplate = (onSubmit) => html`
                         </div>
                     </div>
                     <div class="model">
-                        <span>Модел</span>
+                        <span>Модел*</span>
                         <div class="select">
                             <select name="model" id="">
                             </select>
@@ -340,6 +339,22 @@ const createTemplate = (onSubmit) => html`
                             <input type="text" placeholder="" name="imageUrl">
                         </div>
                     </div>
+                    <div class="condition">
+                        <span>Състояние</span>
+                        <div class="select">
+                            <select name="condition" id="">
+                                <option value=""></option>
+                                <option value="Ново">Ново</option>
+                                <option value="Втора употреба">Втора употреба</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="title">
+                        <span>Заглавие *</span>
+                        <div class="select">
+                            <input type="text" placeholder="" name="title">
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="button-wrapper">
@@ -362,6 +377,27 @@ export async function createPage(ctx) {
 
     async function onSubmit(e) {
         e.preventDefault();
+        const formData = new FormData(e.target);
+
+        const category = formData.get('category').trim();
+        const type = formData.get('type').trim();
+        const brand = formData.get('brand').trim();
+        const model = formData.get('model').trim();
+        const yearFrom = formData.get('yearFrom').trim();
+        const yearTo = formData.get('yearTo').trim();
+        const engineType = formData.get('engineType').trim();
+        const partColor = formData.get('partColor').trim();
+        const imageUrl = formData.get('imageUrl').trim();
+        const condition = formData.get('condition').trim();
+        const title = formData.get('title').trim();
+
+        console.log(category, type, brand, model, yearFrom, yearTo, engineType, partColor, imageUrl, condition, title)
+        if (!category || !type || !brand || !model || !title) {
+            return alert('Category, type, brand, model and title are required!');
+        }
+
+        await createPart(category, type, brand, model, yearFrom, yearTo, engineType, partColor, imageUrl, condition, title);
+        ctx.page.redirect('/');
     }
 
     document.querySelector('[name="category"]').addEventListener("change", applyDropdown);
