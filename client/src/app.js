@@ -27,7 +27,7 @@ page('/izkupuvane', decorateContext, buyoutPage);
 page('/izkupuvane/info', decorateContext, buyoutInfoPage1);
 page('/izkupuvane/info2', decorateContext, buyoutInfoPage2);
 page('/create', decorateContext, createPage);
-page('/details/:id', decorateContext, detailsPage);
+page('/product/:id', decorateContext, detailsPage);
 
 
 page('/products/cd-cheindjyri', decorateContext, navigationSystemsPage);
