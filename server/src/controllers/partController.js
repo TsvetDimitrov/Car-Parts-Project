@@ -23,6 +23,11 @@ router.get('/navigationSystems', async (req, res) => {
     }
 });
 
+router.get('/:id', async (req, res) => {
+    const product = await req.storage.getPartById(req.params.id);
+
+    re.status(200).json(product);
+});
 
 
 

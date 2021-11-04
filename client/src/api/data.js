@@ -30,3 +30,7 @@ export async function getNavigationSystems(){
     const result = await api.get(host + '/parts/navigationSystems');
     return result;
 }
+
+export async function getProductById(id) {
+    return await api.get(host + '/parts/' + id);
+}

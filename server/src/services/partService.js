@@ -8,11 +8,17 @@ async function createPart(partData) {
 
 async function getNavigationSystems() {
     const parts = await Part.find({ type: 'GPS и навигации' }).lean();
-    
+
     return parts;
 }
 
+async function getPartById(id) {
+    const part = await Part.findById(id).lean();
+
+    return part;
+}
 module.exports = {
     createPart,
-    getNavigationSystems
+    getNavigationSystems,
+    getPartById
 }
