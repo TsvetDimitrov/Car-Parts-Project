@@ -1,5 +1,5 @@
 import { html } from '../../node_modules/lit-html/lit-html.js';
-const homeTemplate = () => html`
+const homeTemplate = () => html `
 <div class="inner">
     <div class="homepage-font-picture"></div>
 
@@ -8,6 +8,11 @@ const homeTemplate = () => html`
             <div class="sidenav">
                 <div class="category-sidenav-header">
                     Категории
+                </div>
+                <div class="category-sidenav-header">
+                    <a href="/products">
+                        Последно добавени
+                    </a>
                 </div>
                 <div class="search">
                     <div class="search-field">
@@ -24,7 +29,8 @@ const homeTemplate = () => html`
                             <div class="title title-small-dark-strong">Аудио, видео, навигации</div>
                             <div class="children">
                                 <div class="column">
-                                    <a href="/products/cd-cheindjyri" class="category-child" data-value="300">CD Чейнджъри</a>
+                                    <a href="/products/cd-cheindjyri" class="category-child" data-value="300">CD
+                                        Чейнджъри</a>
                                     <a href="#" class="category-child" data-value="300">DVD и TV приемници</a>
                                     <a href="#" class="category-child" data-value="300">GPS и навигации</a>
                                     <a href="#" class="category-child" data-value="300">Hands Free и bluetooth

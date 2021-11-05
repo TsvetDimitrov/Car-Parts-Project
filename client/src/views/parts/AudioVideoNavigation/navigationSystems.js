@@ -2,22 +2,22 @@ import { html } from '../../../../node_modules/lit-html/lit-html.js';
 import { getNavigationSystems } from '../../../api/data.js';
 
 
-const productTemplate = (item) => html`
-        <a href="/product/${item._id}" class="product-item" title="${item.title}">
+const productTemplate = (part) => html `
+        <a href="/product/${part._id}" class="product-item" title="${part.title}">
             <div class="product-img">
-                <img src="${item.imageUrl}" alt="${item.title}" class="image">
+                <img src="${part.imageUrl}" alt="${part.title}" class="image">
             </div>
             <div class="product-name-title">
-                ${item.title}
+                ${part.title}
             </div>
             <div class="price-wrapper">
-                <span class="product-price">${item.price} лв.</span>
+                <span class="product-price">${part.price} лв.</span>
             </div>
         </a>
 `;
 
 
-const navigationSystemsTemplate = (items) => html`
+const navigationSystemsTemplate = (parts) => html `
 <div class="content-products">
     <div class="heading">
         <h1 class="title heading">
@@ -36,7 +36,7 @@ const navigationSystemsTemplate = (items) => html`
             </div>
         </a>
 
-        ${items.length == 0 ? html`<p class="no-items">No items listed</p>` : items.map(productTemplate)}
+        ${parts.length == 0 ? html`<p class="no-items">No items listed</p>` : parts.map(productTemplate)}
     </div>
 </div>
 
@@ -48,8 +48,7 @@ const navigationSystemsTemplate = (items) => html`
 
 
 export async function navigationSystemsPage(ctx) {
-    const items = await getNavigationSystems();
-    console.log(items);
-    ctx.render(navigationSystemsTemplate(items));
+    const parts = await getNavigationSystems();
+    ctx.render(navigationSystemsTemplate(parts));
 
 }

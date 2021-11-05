@@ -21,8 +21,8 @@ export async function isUserAdmin() {
     return result;
 }
 
-export async function createPart(category, type, brand, model, yearFrom, yearTo, engineType, partColor, imageUrl, condition, title) {
-    const result = await api.post(host + '/parts/create', { category, type, brand, model, yearFrom, yearTo, engineType, partColor, imageUrl, condition, title });
+export async function createPart(category, type, brand, model, yearFrom, yearTo, engineType, partColor, imageUrl, condition, title, price) {
+    const result = await api.post(host + '/parts/create', { category, type, brand, model, yearFrom, yearTo, engineType, partColor, imageUrl, condition, title, price });
     return result;
 }
 
@@ -35,6 +35,6 @@ export async function getProductById(id) {
     return await api.get(host + '/parts/' + id);
 }
 
-export async function getAllParts() {
+export async function getAllProducts() {
     return await api.get(host + '/parts');
 }

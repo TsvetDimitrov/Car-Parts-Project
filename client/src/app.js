@@ -14,6 +14,7 @@ import { notfound } from './views/notfound404.js';
 import { registerPage } from './views/register.js';
 import { createPage } from './views/create.js';
 import { detailsPage } from './views/details.js';
+import { allProductsPage } from './views/parts/allProducts.js';
 
 
 import { navigationSystemsPage } from './views/parts/AudioVideoNavigation/navigationSystems.js';
@@ -27,6 +28,8 @@ page('/izkupuvane', decorateContext, buyoutPage);
 page('/izkupuvane/info', decorateContext, buyoutInfoPage1);
 page('/izkupuvane/info2', decorateContext, buyoutInfoPage2);
 page('/create', decorateContext, createPage);
+
+page('/products', decorateContext, allProductsPage);
 page('/product/:id', decorateContext, detailsPage);
 
 
@@ -39,7 +42,7 @@ setUserNav();
 
 page.start();
 
-document.querySelector('.user').addEventListener('click', async () => {
+document.querySelector('.user').addEventListener('click', async() => {
     await logout();
     setUserNav();
     page.redirect('/');
@@ -77,5 +80,3 @@ function setFooter() {
     const footer = document.getElementById('footer');
     footer.style.display = '';
 }
-
-

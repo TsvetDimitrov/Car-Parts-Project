@@ -398,6 +398,14 @@ a {
     margin-top: 10px
 }
 
+.category-sidenav-header a {
+    color: #1c2d3a;
+}
+
+.category-sidenav-header a:hover {
+    color: #e8281e;
+}
+
 .homepage-grid .sidenav .search {
     margin-bottom: 20px;
     padding: 0 20px;
@@ -2113,21 +2121,21 @@ strong {
 .content-products {
     display: inline-block;
     vertical-align: top;
-    max-width: calc(100% - 300px);
+    /* max-width: calc(100% - 300px); */
     width: 100%;
 }
 
 .products-list {
     display: inline-block;
     vertical-align: top;
-    max-width: calc(100% - 300px);
+    /* max-width: calc(100% - 300px); */
     width: 100%;
     box-sizing: border-box;
     margin-top: 20px;
 }
 
 .products-list .product-item {
-    max-width: calc(33.33% - 14px);
+    max-width: calc(33.33% - 176px);
     margin-bottom: 40px;
     position: relative;
     display: inline-block;
