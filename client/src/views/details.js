@@ -1,10 +1,10 @@
 import { html } from '../../node_modules/lit-html/lit-html.js';
-import { getProductById } from '../api/data.js';
+import { getProductById, addProductToCart } from '../api/data.js';
 
 
-const detailsTemplate = (product) => html `
+const detailsTemplate = (product, addCartProduct) => html `
 <div class="product-details-wrapper">
-    <div class = "container">
+    <div class="container">
         <div class="product-image">
             <img src=${product.imageUrl} alt=${product.title}>
         </div>
@@ -38,7 +38,7 @@ const detailsTemplate = (product) => html `
                         <span class="item-price">${product.price} лв.</span>
                     </div>
                     <div class="add-to-cart">
-                        <button class="add-to-cart-button">
+                        <button @click=${addCartProduct} class="add-to-cart-button">
                             <span class="icon"></span>
                             <span class="text">Добави в количката</span>
                         </button>
@@ -55,9 +55,20 @@ const detailsTemplate = (product) => html `
 
 
 export async function detailsPage(ctx) {
-    console.log('here idiot');
     const id = ctx.params.id;
     const product = await getProductById(id);
-    console.log(product);
-    ctx.render(detailsTemplate(product));
+    ctx.render(detailsTemplate(product, addCartProduct));
+
+
+    async function addCartProduct() {
+        console.log('clicked');
+        try {
+            const result = await addProductToCart(id);
+            alert('You have successfully added your product to your cart!');
+            //TODO result.message show screen!
+        } catch (err) {
+            console.log(err.message);
+            ctx.page.redirect('/login');
+        }
+    }
 }

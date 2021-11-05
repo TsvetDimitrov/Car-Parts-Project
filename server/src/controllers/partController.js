@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const userService = require('../services/userService');
 
 router.post('/create', async(req, res) => {
     try {
@@ -54,7 +55,7 @@ router.post('/add/:id', async(req, res) => {
         }
 
         await req.storage.addPartToCart(req.params.id, user.email);
-
+        res.status(200).json({ ok: true, message: 'Successfully added to the shopping-cart!' });
     } catch (err) {
         console.log(err.message);
         res.status(400).json({ ok: false });

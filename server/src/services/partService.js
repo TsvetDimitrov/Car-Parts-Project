@@ -1,5 +1,5 @@
 const Part = require('../models/Part');
-const User = require('../models/User');
+const userService = require('../services/userService');
 
 async function createPart(partData) {
     const part = new Part(partData);
@@ -27,7 +27,7 @@ async function getAllParts() {
 
 async function addPartToCart(id, userMail) {
     const part = await Part.findById(id);
-    const user = await User.getUserByEmail(userMail);
+    const user = await userService.getUserByEmail(userMail);
 
     part.orderedBy.push(user);
     user.orders.push(part);
