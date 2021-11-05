@@ -1,4 +1,5 @@
 const Part = require('../models/Part');
+const User = require('../models/User');
 
 async function createPart(partData) {
     const part = new Part(partData);
@@ -23,9 +24,21 @@ async function getAllParts() {
 
     return parts;
 }
+
+async function addPartToCart(id, userMail) {
+    const part = await Part.findById(id);
+    const user = await User.getUserByEmail(userMail);
+
+    part.orderedBy.push(user);
+    user.orders.push(part);
+
+    return Promise.all([user.save(), part.save()]);
+
+}
 module.exports = {
     createPart,
     getNavigationSystems,
     getPartById,
-    getAllParts
+    getAllParts,
+    addPartToCart
 }

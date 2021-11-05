@@ -38,3 +38,7 @@ export async function getProductById(id) {
 export async function getAllProducts() {
     return await api.get(host + '/parts');
 }
+
+export async function addProductToCart(id) {
+    return await api.post(host + '/parts/add/' + id);
+}

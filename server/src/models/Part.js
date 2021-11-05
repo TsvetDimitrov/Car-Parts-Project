@@ -14,6 +14,7 @@ const partSchema = new mongoose.Schema({
     condition: { type: String },
     title: { type: String },
     price: { type: Number, required: [true, 'Price is required!'] },
+    orderedBy: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Part', default: [] }],
 }, { timestamps: true });
 
 

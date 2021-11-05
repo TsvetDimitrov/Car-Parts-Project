@@ -1,7 +1,6 @@
 const router = require('express').Router();
 
 router.post('/create', async(req, res) => {
-    console.log(req.body);
     try {
         await req.storage.createPart(req.body);
 
@@ -42,6 +41,23 @@ router.get('/', async(req, res) => {
     } catch (err) {
         console.log(err.message);
         res.status(400).send({ ok: false });
+    }
+});
+
+router.post('/add/:id', async(req, res) => {
+    try {
+        await req.auth.getToken();
+        const user = await userService.getUserByEmail(req.user.email);
+        if (!user.email) {
+            res.status(401).json({ message: 'You need to be logged in, in order to buy items!' });
+            throw new Error('You need to be logged in, in order to buy items!');
+        }
+
+        await req.storage.addPartToCart(req.params.id, user.email);
+
+    } catch (err) {
+        console.log(err.message);
+        res.status(400).json({ ok: false });
     }
 });
 
