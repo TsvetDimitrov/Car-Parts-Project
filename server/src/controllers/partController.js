@@ -1,6 +1,6 @@
 const router = require('express').Router();
 
-router.post('/create', async (req, res) => {
+router.post('/create', async(req, res) => {
     console.log(req.body);
     try {
         await req.storage.createPart(req.body);
@@ -12,7 +12,7 @@ router.post('/create', async (req, res) => {
     }
 });
 
-router.get('/navigationSystems', async (req, res) => {
+router.get('/navigationSystems', async(req, res) => {
     try {
         let products = await req.storage.getNavigationSystems();
 
@@ -23,10 +23,26 @@ router.get('/navigationSystems', async (req, res) => {
     }
 });
 
-router.get('/:id', async (req, res) => {
-    const product = await req.storage.getPartById(req.params.id);
+router.get('/:id', async(req, res) => {
+    try {
+        const product = await req.storage.getPartById(req.params.id);
+        res.status(200).json(product);
+    } catch (err) {
+        console.log(err.message);
+        res.status(400).send({ ok: false });
+    }
 
-    res.status(200).json(product);
+});
+
+router.get('/', async(req, res) => {
+    try {
+        const products = await req.storage.getAllParts();
+
+        res.status(200).json(products);
+    } catch (err) {
+        console.log(err.message);
+        res.status(400).send({ ok: false });
+    }
 });
 
 

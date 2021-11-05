@@ -17,6 +17,12 @@ async function getPartById(id) {
 
     return part;
 }
+
+async function getAllParts() {
+    const parts = await Park.find({}).lean();
+
+    return parts;
+}
 module.exports = {
     createPart,
     getNavigationSystems,
