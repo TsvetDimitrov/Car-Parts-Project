@@ -737,9 +737,19 @@ a {
     font-family: roboto, sans-serif;
 }
 
+.footerAbout .map {
+    width: 300px;
+    height: 300px;
+}
+
 .footerAbout .map .imageMap {
+    height: 200px;
     width: 300px;
     transition: transform .20s ease-in-out;
+    background: url(../images/location.png) no-repeat 0 0;
+    background-size: 100%;
+    position: absolute;
+    display: block;
 }
 
 .footerAbout .map .imageMap:hover {
