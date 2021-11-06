@@ -2256,6 +2256,7 @@ strong {
 
 .product-details-wrapper .container {
     margin-top: 20px;
+    margin-bottom: 20px
 }
 
 .product-details-wrapper .product-image {
@@ -2341,6 +2342,7 @@ strong {
 .product-details-wrapper .product-purchase .purchase .price {
     position: relative;
     margin-bottom: 20px;
+    text-align: center;
 }
 
 .product-details-wrapper .product-purchase .purchase {
@@ -2359,7 +2361,6 @@ strong {
 
 .product-details-wrapper .product-purchase .purchase .add-to-cart-button {
     flex-direction: row;
-    max-width: 85%;
     position: relative;
     overflow: hidden;
     background: #3fb662;
