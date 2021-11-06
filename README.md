@@ -1,6 +1,6 @@
 # PROJECT IN PROCESS! NOT YET COMPLETED AT 100%!
 
-# Techologies:
+# Technologies used:
 
 ### Back-end: Express.js, bcrypt, jsonwebtoken, mongoose, cors, cookie-parser, nodemon
 ### Front-end: lit-html.js, page.js, VanillaJS
