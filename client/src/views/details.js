@@ -30,6 +30,30 @@ const detailsTemplate = (product, addCartProduct) => html `
                             <span>${product.condition}</span>
                         </div>
                     </div>
+
+                    ${product.engineType ?  
+                    html`<div class="attribute">
+                        <div class="attribute-text">Двигател</div>
+                        <div class="attribute-info">
+                            <span>${product.engineType}</span>
+                        </div>
+                    </div>` : ''}
+
+                    ${product.partColor ?  
+                    html`<div class="attribute">
+                        <div class="attribute-text">Двигател</div>
+                        <div class="attribute-info">
+                            <span>${product.partColor}</span>
+                        </div>
+                    </div>` : ''}
+
+                    ${product.yearFrom ?  
+                    html`<div class="attribute">
+                        <div class="attribute-text">Година на производство</div>
+                        <div class="attribute-info">
+                            <span>${product.yearFrom} - ${product.yearTo}</span>
+                        </div>
+                    </div>` : ''}
                 </div>
             </div>
             <div class="product-purchase">
@@ -85,17 +109,21 @@ const detailsTemplate = (product, addCartProduct) => html `
 export async function detailsPage(ctx) {
     const id = ctx.params.id;
     const product = await getProductById(id);
+    console.log(product);
     ctx.render(detailsTemplate(product, addCartProduct));
 
 
     async function addCartProduct() {
         console.log('clicked');
         try {
+            if(!sessionStorage.getItem('email')){
+                throw new Error('Please log in first!');
+            }
             const result = await addProductToCart(id);
             alert('You have successfully added your product to your cart!');
             //TODO result.message show screen!
         } catch (err) {
-            console.log(err.message);
+           alert(err.message);
             ctx.page.redirect('/login');
         }
     }
