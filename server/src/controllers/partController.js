@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const userService = require('../services/userService');
+const { getPartTypeMapping } = require('../utils/utils');
 
 router.post('/create', async(req, res) => {
     try {
@@ -17,6 +18,21 @@ router.get('/navigationSystems', async(req, res) => {
         let products = await req.storage.getNavigationSystems();
 
         res.status(200).json(products);
+    } catch (err) {
+        console.log(err.message);
+        res.status(400).json({ ok: false, message: err.message });
+    }
+});
+
+router.get('/getPartsByType/:type', async(req, res) => {
+    try {
+        const partType = getPartTypeMapping(req.params.type);
+        if (!partType) {
+            throw new Error('Invalid search result.');
+        }
+        let parts = await req.storage.getPartsByType(partType);
+
+        res.status(200).json(parts);
     } catch (err) {
         console.log(err.message);
         res.status(400).json({ ok: false, message: err.message });

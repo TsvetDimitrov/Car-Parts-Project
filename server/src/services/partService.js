@@ -13,6 +13,12 @@ async function getNavigationSystems() {
     return parts;
 }
 
+async function getPartsByType(partsType) {
+    const parts = await Part.find({ type: partsType }).lean();
+
+    return parts;
+}
+
 async function getPartById(id) {
     const part = await Part.findById(id).lean();
 
@@ -38,6 +44,7 @@ async function addPartToCart(id, userMail) {
 module.exports = {
     createPart,
     getNavigationSystems,
+    getPartsByType,
     getPartById,
     getAllParts,
     addPartToCart
