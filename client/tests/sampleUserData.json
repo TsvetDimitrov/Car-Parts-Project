@@ -1,9 +1,9 @@
 {
-    "users": [
-        {
+    "users": [{
             "_id": "0001",
             "name": "Peter",
             "email": "peter@gmail.com",
+            "telName": "0899225630",
             "password": "123456",
             "accessToken": "AAAA"
         },
@@ -11,6 +11,7 @@
             "_id": "0002",
             "name": "John",
             "email": "john@gmail.com",
+            "telName": "0899225630",
             "password": "123456",
             "accessToken": "BBBB"
         }

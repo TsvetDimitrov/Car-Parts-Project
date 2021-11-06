@@ -24,17 +24,17 @@ let browser;
 let context;
 let page;
 
-describe('E2E tests', function () {
+describe('E2E tests', function() {
     // Setup
     this.timeout(DEBUG ? 120000 : 6000);
-    before(async () => browser = await chromium.launch(DEBUG ? { headless: false, slowMo } : {}));
-    after(async () => await browser.close());
-    beforeEach(async () => {
+    before(async() => browser = await chromium.launch(DEBUG ? { headless: false, slowMo } : {}));
+    after(async() => await browser.close());
+    beforeEach(async() => {
         context = await browser.newContext();
         setupContext(context);
         page = await context.newPage();
     });
-    afterEach(async () => {
+    afterEach(async() => {
         await page.close();
         await context.close();
     });
@@ -42,7 +42,7 @@ describe('E2E tests', function () {
 
     // Test proper
     describe('Authentication', () => {
-        it('register does not work with empty fields', async () => {
+        it('register does not work with empty fields', async() => {
             const { post } = await handle(endpoints.register);
             const isCalled = post().isHandled;
 
@@ -73,7 +73,7 @@ describe('E2E tests', function () {
             expect(isCalled()).to.be.false;
         });
 
-        it('register makes correct API call', async () => {
+        it('register makes correct API call', async() => {
             const data = mockData.users[0];
             const { post } = await handle(endpoints.register);
             const { onRequest } = post(data);
@@ -91,6 +91,7 @@ describe('E2E tests', function () {
 
             await page.fill('[name="name"]', data.name);
             await page.fill('[name="email"]', data.email);
+            await page.fill('[name="telNumber"]', data.telName);
             await page.fill('[name="password"]', data.password);
             await page.fill('[name="repeatPass"]', data.password);
             await page.click('[name="agreement_1"]');
@@ -108,7 +109,7 @@ describe('E2E tests', function () {
             expect(postData.password).to.equal(data.password);
         });
 
-        it('login makes correct API call', async () => {
+        it('login makes correct API call', async() => {
             const data = mockData.users[0];
             const { post } = await handle(endpoints.login);
             const { onRequest } = post(data);
@@ -134,7 +135,7 @@ describe('E2E tests', function () {
             expect(postData.password).to.equal(data.password);
         });
 
-        it('logout makes correct API call [ 5 Points ]', async () => {
+        it('logout makes correct API call [ 5 Points ]', async() => {
             const data = mockData.users[0];
             const { post } = await handle(endpoints.login);
             const { get } = await handle(endpoints.logout);
@@ -159,8 +160,8 @@ describe('E2E tests', function () {
                 onRequest(),
                 page.click('text=Изход')
             ]);
-            const sessionStorage = await page.evaluate(() => JSON.stringify(sessionStorage));
-            expect(sessionStorage).to.be.equal('{}');
+            const sessionStorage = await page.evaluate(() => sessionStorage);
+            expect(sessionStorage).to.be.empty;
             expect(request.method()).to.equal('GET');
         });
     });
