@@ -1,5 +1,5 @@
-import { html } from '../../../../node_modules/lit-html/lit-html.js';
-import { getPartsByType } from '../../../api/data.js';
+import { html } from '../../../node_modules/lit-html/lit-html.js';
+import { getPartsByType } from '../../api/data.js';
 
 
 const productTemplate = (part) => html `
@@ -17,7 +17,7 @@ const productTemplate = (part) => html `
 `;
 
 
-const navigationSystemsTemplate = (parts, partType) => html `
+const categoryCatalogTemplate = (parts, partType) => html `
 <div class="content-products">
     <div class="heading">
         <h1 class="title heading">
@@ -35,10 +35,10 @@ const navigationSystemsTemplate = (parts, partType) => html `
 `;
 
 
-export async function productTypePage(ctx) {
+export async function categoryCatalogPage(ctx) {
     let productType = ctx.path.split('/')[2];
     const { parts, partType } = await getPartsByType(productType);
     console.log(parts);
-    ctx.render(navigationSystemsTemplate(parts, partType));
+    ctx.render(categoryCatalogTemplate(parts, partType));
 
 }

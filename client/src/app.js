@@ -14,9 +14,9 @@ import { notfound } from './views/notfound404.js';
 import { registerPage } from './views/register.js';
 import { createPage } from './views/create.js';
 import { detailsPage } from './views/details.js';
-import { allProductsPage } from './views/parts/allProducts.js';
 
-import { productTypePage } from './views/parts/AudioVideoNavigation/navigationSystems.js';
+import { allProductsPage } from './views/parts/allProducts.js';
+import { categoryCatalogPage } from './views/parts/categoryCatalog.js';
 
 const main = document.querySelector('main');
 page('/', decorateContext, homePage);
@@ -32,7 +32,7 @@ page('/products', decorateContext, allProductsPage);
 page('/product/:id', decorateContext, detailsPage);
 
 
-page('/products/:type', decorateContext, productTypePage);
+page('/products/:type', decorateContext, categoryCatalogPage);
 
 page('*', decorateContext, notfound);
 
