@@ -911,12 +911,24 @@ a {
 }
 
 .footerContacts .content .logo a {
-    width: 0;
-    height: 0;
-    text-align: left;
-    transform: translateX(-50%);
     left: 51%;
     position: absolute;
+    display: block;
+    width: 95px;
+    height: 90px;
+    background: url(../images/rsz_logo-firm.png) no-repeat 0 0;
+    padding-right: 10px;
+    padding-left: 20px;
+}
+
+.footerContacts .content .logo a {
+    transition: transform .5s ease-in-out;
+    transform: scale(1.0, 1.0);
+}
+
+.footerContacts .content .logo:hover a {
+    transform: scale(1.12, 1.12);
+    transition: transform .4s ease-in-out;
 }
 
 @keyframes aaa {
@@ -984,16 +996,6 @@ a {
     height: 84px;
     width: 84px;
     text-align: left;
-}
-
-.footer-logo {
-    transition: transform .5s ease-in-out;
-    transform: scale(1.0, 1.0);
-}
-
-.footer-logo:hover {
-    transform: scale(1.12, 1.12);
-    transition: transform .4s ease-in-out;
 }
 
 

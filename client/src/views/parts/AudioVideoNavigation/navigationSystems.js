@@ -25,7 +25,9 @@ const navigationSystemsTemplate = (parts) => html `
     </div>
     <div class="products-list">
 
-        ${parts.length == 0 ? html`<p class="no-items">No items listed</p>` : parts.map(productTemplate)}
+        ${parts.length == 0 ? html`<div class="no-items">
+            <p class="text">Все още няма части, отговарящи на тази категория.</p>
+        </div>` : parts.map(productTemplate)}
     </div>
 </div>
 
