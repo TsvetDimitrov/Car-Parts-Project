@@ -42,3 +42,7 @@ export async function getAllProducts() {
 export async function addProductToCart(id) {
     return await api.post(host + '/parts/add/' + id);
 }
+
+export async function getPartsByType(partsType) {
+    return await api.get(host + '/parts/getPartsByType/' + partsType);
+}

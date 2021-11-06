@@ -1,5 +1,5 @@
 import { html } from '../../../../node_modules/lit-html/lit-html.js';
-import { getNavigationSystems } from '../../../api/data.js';
+import { getPartsByType } from '../../../api/data.js';
 
 
 const productTemplate = (part) => html `
@@ -43,12 +43,10 @@ const navigationSystemsTemplate = (parts) => html `
 `;
 
 
-
-
-
-
-export async function navigationSystemsPage(ctx) {
-    const parts = await getNavigationSystems();
+export async function productTypePage(ctx) {
+    let productType = ctx.path.split('/')[2];
+    console.log(productType);
+    const parts = await getPartsByType(productType);
     ctx.render(navigationSystemsTemplate(parts));
 
 }
