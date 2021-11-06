@@ -16,8 +16,7 @@ import { createPage } from './views/create.js';
 import { detailsPage } from './views/details.js';
 import { allProductsPage } from './views/parts/allProducts.js';
 
-
-import { navigationSystemsPage } from './views/parts/AudioVideoNavigation/navigationSystems.js';
+import { productTypePage } from './views/parts/AudioVideoNavigation/navigationSystems.js';
 
 const main = document.querySelector('main');
 page('/', decorateContext, homePage);
@@ -33,7 +32,7 @@ page('/products', decorateContext, allProductsPage);
 page('/product/:id', decorateContext, detailsPage);
 
 
-page('/products/cd-cheindjyri', decorateContext, navigationSystemsPage);
+page('/products/:type', decorateContext, productTypePage);
 
 page('*', decorateContext, notfound);
 
