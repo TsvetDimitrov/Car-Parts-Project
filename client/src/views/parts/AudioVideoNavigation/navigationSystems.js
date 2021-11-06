@@ -17,17 +17,17 @@ const productTemplate = (part) => html `
 `;
 
 
-const navigationSystemsTemplate = (parts) => html `
+const navigationSystemsTemplate = (parts, partType) => html `
 <div class="content-products">
     <div class="heading">
         <h1 class="title heading">
-            CD чейнджъри </h1>
+            ${partType} </h1>
     </div>
     <div class="products-list">
 
         ${parts.length == 0 ? html`<div class="no-items">
             <p class="text">Все още няма налични части, отговарящи на тази категория.</p>
-            <span class = "icon"></span>
+            <span class="icon"></span>
         </div>` : parts.map(productTemplate)}
     </div>
 </div>
@@ -37,8 +37,8 @@ const navigationSystemsTemplate = (parts) => html `
 
 export async function productTypePage(ctx) {
     let productType = ctx.path.split('/')[2];
-    const parts = await getPartsByType(productType);
+    const { parts, partType } = await getPartsByType(productType);
     console.log(parts);
-    ctx.render(navigationSystemsTemplate(parts));
+    ctx.render(navigationSystemsTemplate(parts, partType));
 
 }

@@ -44,6 +44,6 @@ const productTemplate = (part) => html`
 
 export async function allProductsPage(ctx) {
     const parts = await getAllProducts();
-
+    console.log(parts);
     ctx.render(allProductsTemplate(parts));
 }

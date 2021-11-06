@@ -2268,6 +2268,7 @@ strong {
     z-index: 1;
     position: relative;
     width: 100%;
+    margin-top: 30px
 }
 
 .product-details-wrapper .product-image img {

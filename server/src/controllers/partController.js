@@ -32,7 +32,7 @@ router.get('/getPartsByType/:type', async(req, res) => {
         }
         let parts = await req.storage.getPartsByType(partType);
 
-        res.status(200).json(parts);
+        res.status(200).json({ parts, partType });
     } catch (err) {
         console.log(err.message);
         res.status(400).json({ ok: false, message: err.message });
