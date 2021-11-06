@@ -3,7 +3,7 @@ import { addFocusClass, removeFocusClass } from '../util/util.js';
 import { login, facebookLogin } from '../api/data.js';
 
 
-const loginTemplate = (onSubmit, onSubmitFacebook) => html`
+const loginTemplate = (onSubmit, onSubmitFacebook) => html `
 <div class="login-wrap">
     <div class="content-login">
         <div class="page-member-login">
@@ -79,7 +79,7 @@ export async function loginPage(ctx) {
         const password = formData.get('password').trim();
 
         if (!email || !password) {
-            throw new Error('All fields are required!');
+            return alert('All fields are required!');
         }
 
         await login(email, password);
