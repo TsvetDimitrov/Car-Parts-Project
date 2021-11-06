@@ -24,17 +24,6 @@ const navigationSystemsTemplate = (parts) => html `
             CD чейнджъри </h1>
     </div>
     <div class="products-list">
-        <a href="/product/:id" class="product-item" title="PRODUCT TITLE">
-            <div class="product-img">
-                <img src="IMAGESRC" alt="PRODUCT TITLE" class="image">
-            </div>
-            <div class="product-name-title">
-                PRODUCT TITLE
-            </div>
-            <div class="price-wrapper">
-                <span class="product-price">PRODUCT PRICE лв.</span>
-            </div>
-        </a>
 
         ${parts.length == 0 ? html`<p class="no-items">No items listed</p>` : parts.map(productTemplate)}
     </div>
@@ -45,8 +34,8 @@ const navigationSystemsTemplate = (parts) => html `
 
 export async function productTypePage(ctx) {
     let productType = ctx.path.split('/')[2];
-    console.log(productType);
     const parts = await getPartsByType(productType);
+    console.log(parts);
     ctx.render(navigationSystemsTemplate(parts));
 
 }
