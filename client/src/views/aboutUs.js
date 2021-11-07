@@ -1,6 +1,6 @@
 import { html } from '../../node_modules/lit-html/lit-html.js';
 
-const aboutUsTemplate = () => html`
+const aboutUsTemplate = () => html `
 <div id="aboutUsPage">
     <div class="aboutUsHeader">
         <div class="container">
@@ -27,33 +27,33 @@ const aboutUsTemplate = () => html`
 
     </div>
     <div class="benefits-wrapper">
-        <div class="inner">
-            <div class="benefits">
-                <ul>
-                    <li>
-                        <img src="/images/icon-express-delivery.svg" alt="Експресна доставка">
-                        <p>Експресна доставка</p>
-                        <p>Доставяне из цяла България.</p>
-                    </li>
-                    <li>
-                        <img src="/images/icon-new-parts.svg" alt="Нови части">
-                        <p>Нови части всеки ден</p>
-                        <p>Ежедневно зарежваме нови части.</p>
-                    </li>
-                    <li>
-                        <img src="/images/icon-proven-quality.svg" alt="Нови части">
-                        <p>Проверено качество</p>
-                        <p>Авточасти с гаранция.</p>
-                    </li>
-                    <li>
-                        <img src="/images/icon-right-of-return.svg" alt="Нови части">
-                        <p>Право на връщане</p>
-                        <p>14 дни право на връщане на всяка поръчана стока.</p>
-                    </li>
-                </ul>
-            </div>
+    <div class="inner">
+        <div class="benefits">
+            <ul>
+                <li>
+                    <img src="/images/express-delivery-icon.png" alt="Експресна доставка">
+                    <p>Експресна доставка</p>
+                    <p>Доставяне из цяла България.</p>
+                </li>
+                <li>
+                    <img src="/images/delivery.png" alt="Нови части">
+                    <p>Нови части всеки ден</p>
+                    <p>Ежедневно зарежваме нови части.</p>
+                </li>
+                <li>
+                    <img src="/images/satisfaction-guaranteed.png" alt="Нови части">
+                    <p>Проверено качество</p>
+                    <p>Авточасти с гаранция.</p>
+                </li>
+                <li>
+                    <img src="/images/right-of-return.png" alt="Нови части">
+                    <p>Право на връщане</p>
+                    <p>14 дни право на връщане на всяка поръчана стока.</p>
+                </li>
+            </ul>
         </div>
     </div>
+</div>
 </div>
 `;
 
