@@ -2,7 +2,7 @@ import { html } from '../../node_modules/lit-html/lit-html.js';
 import { getProductById, addProductToCart } from '../api/data.js';
 
 
-const detailsTemplate = (product, addCartProduct) => html `
+const detailsTemplate = (product, addCartProduct, isAdmin) => html `
 <div class="product-details-wrapper">
     <div class="container">
         <div class="product-image">
@@ -69,6 +69,21 @@ const detailsTemplate = (product, addCartProduct) => html `
                     </div>
                 </div>
             </div>
+            ${isAdmin ? html`<div class = "admin-options">
+                    <div class = "edit-product">
+                        <button class="edit-button">
+                            <span class="icon"></span>
+                            <span class="text">Редактирай</span>
+                         </button>
+                    </div>
+                    <div class = "delete-product">
+                        <button class="delete-button">
+                            <span class="icon"></span>
+                            <span class="text">Изтрий</span>
+                         </button>
+                    </div>
+            </div>` : ''}
+
         </div>
     </div>
 </div>
@@ -110,7 +125,8 @@ export async function detailsPage(ctx) {
     const id = ctx.params.id;
     const product = await getProductById(id);
     console.log(product);
-    ctx.render(detailsTemplate(product, addCartProduct));
+    const isAdmin = sessionStorage.getItem('isAdmin');
+    ctx.render(detailsTemplate(product, addCartProduct, isAdmin));
 
 
     async function addCartProduct() {
