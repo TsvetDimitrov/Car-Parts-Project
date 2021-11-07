@@ -1,8 +1,8 @@
 import { html } from '../../node_modules/lit-html/lit-html.js';
-import { getProductById, addProductToCart } from '../api/data.js';
+import { getProductById, addProductToCart, isUserAdmin, deletePartById } from '../api/data.js';
 
 
-const detailsTemplate = (product, addCartProduct, isAdmin) => html `
+const detailsTemplate = (product, addCartProduct, isAdmin, deleteProduct) => html `
 <div class="product-details-wrapper">
     <div class="container">
         <div class="product-image">
@@ -77,7 +77,7 @@ const detailsTemplate = (product, addCartProduct, isAdmin) => html `
                          </button>
                     </div>
                     <div class = "delete-product">
-                        <button class="delete-button">
+                        <button @click=${deleteProduct} class="delete-button">
                             <span class="icon"></span>
                             <span class="text">Изтрий</span>
                          </button>
@@ -126,7 +126,7 @@ export async function detailsPage(ctx) {
     const product = await getProductById(id);
     console.log(product);
     const isAdmin = sessionStorage.getItem('isAdmin');
-    ctx.render(detailsTemplate(product, addCartProduct, isAdmin));
+    ctx.render(detailsTemplate(product, addCartProduct, isAdmin, deleteProduct));
 
 
     async function addCartProduct() {
@@ -141,6 +141,20 @@ export async function detailsPage(ctx) {
         } catch (err) {
            alert(err.message);
             ctx.page.redirect('/login');
+        }
+    }
+
+    async function deleteProduct(){
+        try{
+            await isUserAdmin();
+            const partId = ctx.params.id;
+            await deletePartById(partId);
+
+            ctx.page.redirect('/');
+            return alert('Part successfully deleted!');
+
+        }catch(err){
+            alert(err.message);
         }
     }
 }

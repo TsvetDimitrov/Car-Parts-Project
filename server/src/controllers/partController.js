@@ -78,6 +78,22 @@ router.post('/add/:id', async(req, res) => {
     }
 });
 
+router.delete('/delete/:id', async(req, res) => {
+    try {
+        await req.auth.getToken();
+        const user = await userService.getUserByEmail(req.user.email);
+        if (user.isAdmin == 0) {
+            res.status(401).json({ message: 'Not authorized!' });
+            throw new Error('Not authorized!');
+        }
+        await req.storage.deletePartById(req.params.id);
+        res.status(200).json({ ok: true });
+    } catch (err) {
+        console.log(err.message);
+        res.status(400).json({ ok: false, message: err.message });
+    }
+});
+
 
 
 module.exports = router;

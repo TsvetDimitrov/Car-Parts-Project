@@ -46,3 +46,7 @@ export async function addProductToCart(id) {
 export async function getPartsByType(partsType) {
     return await api.get(host + '/parts/getPartsByType/' + partsType);
 }
+
+export async function deletePartById(partId) {
+    return await api.del(host + '/parts/delete/' + partId);
+}

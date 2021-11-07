@@ -41,11 +41,17 @@ async function addPartToCart(id, userMail) {
     return Promise.all([user.save(), part.save()]);
 
 }
+
+async function deletePartById(id) {
+    return Part.findByIdAndDelete(id);
+}
+
 module.exports = {
     createPart,
     getNavigationSystems,
     getPartsByType,
     getPartById,
     getAllParts,
-    addPartToCart
+    addPartToCart,
+    deletePartById
 }
