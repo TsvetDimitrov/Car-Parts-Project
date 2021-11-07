@@ -94,6 +94,19 @@ router.delete('/delete/:id', async(req, res) => {
     }
 });
 
+router.put('/edit/:id', async(req, res) => {
+    try {
+        console.log(req.body);
+        const partId = req.params.id;
+        const partData = req.body;
+        await req.storage.editPartById(partId, partData);
+        res.status(200).json({ ok: true });
+    } catch (err) {
+        console.log(err.message);
+        res.status(400).json({ ok: false, message: err.message });
+    }
+});
+
 
 
 module.exports = router;

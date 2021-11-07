@@ -14,6 +14,7 @@ import { notfound } from './views/notfound404.js';
 import { registerPage } from './views/register.js';
 import { createPage } from './views/create.js';
 import { detailsPage } from './views/details.js';
+import { editPage } from './views/edit.js';
 
 import { allProductsPage } from './views/parts/allProducts.js';
 import { categoryCatalogPage } from './views/parts/categoryCatalog.js';
@@ -30,6 +31,7 @@ page('/create', decorateContext, createPage);
 
 page('/products', decorateContext, allProductsPage);
 page('/product/:id', decorateContext, detailsPage);
+page('/product/edit/:id', decorateContext, editPage);
 
 
 page('/products/:type', decorateContext, categoryCatalogPage);

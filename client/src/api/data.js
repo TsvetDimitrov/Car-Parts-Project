@@ -50,3 +50,7 @@ export async function getPartsByType(partsType) {
 export async function deletePartById(partId) {
     return await api.del(host + '/parts/delete/' + partId);
 }
+
+export async function editPartById(category, type, brand, model, yearFrom, yearTo, engineType, partColor, imageUrl, condition, title, price, partId) {
+    return await api.put(host + '/parts/edit/' + partId, { category, type, brand, model, yearFrom, yearTo, engineType, partColor, imageUrl, condition, title, price });
+}

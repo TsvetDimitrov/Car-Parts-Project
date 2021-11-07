@@ -1,8 +1,8 @@
 import { html } from '../../node_modules/lit-html/lit-html.js';
-import { getProductById, addProductToCart, isUserAdmin, deletePartById } from '../api/data.js';
+import { getProductById, addProductToCart, isUserAdmin, deletePartById, editPartById } from '../api/data.js';
 
 
-const detailsTemplate = (product, addCartProduct, isAdmin, deleteProduct) => html `
+const detailsTemplate = (product, addCartProduct, isAdmin, deleteProduct, editProduct) => html `
 <div class="product-details-wrapper">
     <div class="container">
         <div class="product-image">
@@ -70,7 +70,7 @@ const detailsTemplate = (product, addCartProduct, isAdmin, deleteProduct) => htm
                 </div>
             </div>
             ${isAdmin ? html`<div class = "admin-options">
-                    <div class = "edit-product">
+                    <div @click=${editProduct} class="edit-product">
                         <button class="edit-button">
                             <span class="icon"></span>
                             <span class="text">Редактирай</span>
@@ -126,7 +126,7 @@ export async function detailsPage(ctx) {
     const product = await getProductById(id);
     console.log(product);
     const isAdmin = sessionStorage.getItem('isAdmin');
-    ctx.render(detailsTemplate(product, addCartProduct, isAdmin, deleteProduct));
+    ctx.render(detailsTemplate(product, addCartProduct, isAdmin, deleteProduct, editProduct));
 
 
     async function addCartProduct() {
@@ -147,8 +147,7 @@ export async function detailsPage(ctx) {
     async function deleteProduct(){
         try{
             await isUserAdmin();
-            const partId = ctx.params.id;
-            await deletePartById(partId);
+            await deletePartById(id);
 
             ctx.page.redirect('/');
             return alert('Part successfully deleted!');
@@ -156,5 +155,10 @@ export async function detailsPage(ctx) {
         }catch(err){
             alert(err.message);
         }
+    }
+
+    async function editProduct(){
+        console.log('editProduct');
+        ctx.page.redirect('/product/edit/' + id);
     }
 }

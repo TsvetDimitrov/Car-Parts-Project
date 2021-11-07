@@ -46,6 +46,25 @@ async function deletePartById(id) {
     return Part.findByIdAndDelete(id);
 }
 
+async function editPartById(id, partData) {
+    const part = await Part.findById(id);
+    console.log('Service part Data >>', part);
+    part.category = partData.category;
+    part.type = partData.type;
+    part.brand = partData.brand
+    part.model = partData.model;
+    part.yearFrom = partData.yearFrom;
+    part.yearTo = partData.yearTo;
+    part.engineType = partData.engineType;
+    part.partColor = partData.partColor;
+    part.imageUrl = partData.imageUrl;
+    part.condition = partData.condition;
+    part.title = partData.title;
+    part.price = partData.price;
+
+    return part.save();
+}
+
 module.exports = {
     createPart,
     getNavigationSystems,
@@ -53,5 +72,6 @@ module.exports = {
     getPartById,
     getAllParts,
     addPartToCart,
-    deletePartById
+    deletePartById,
+    editPartById
 }
