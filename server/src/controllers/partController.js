@@ -39,6 +39,21 @@ router.get('/getPartsByType/:type', async(req, res) => {
     }
 });
 
+router.get('/cart', async(req, res) => {
+    try {
+        const result = await req.auth.getToken();
+        const user = await userService.getUserByEmail(req.user.email);
+        const userOrders = await req.storage.getUserOrders(user.orders);
+        res.status(200).json({ ok: true, userOrders });
+    } catch (err) {
+        console.log(err.message);
+        res.status(400).json({ ok: false, message: err.message });
+
+    }
+});
+
+
+
 router.get('/:id', async(req, res) => {
     try {
         const product = await req.storage.getPartById(req.params.id);
@@ -96,7 +111,6 @@ router.delete('/delete/:id', async(req, res) => {
 
 router.put('/edit/:id', async(req, res) => {
     try {
-        console.log(req.body);
         const partId = req.params.id;
         const partData = req.body;
         await req.storage.editPartById(partId, partData);
@@ -106,6 +120,7 @@ router.put('/edit/:id', async(req, res) => {
         res.status(400).json({ ok: false, message: err.message });
     }
 });
+
 
 
 

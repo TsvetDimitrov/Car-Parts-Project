@@ -15,6 +15,7 @@ import { registerPage } from './views/register.js';
 import { createPage } from './views/create.js';
 import { detailsPage } from './views/details.js';
 import { editPage } from './views/edit.js';
+import { cartPage } from './views/cart.js';
 
 import { allProductsPage } from './views/parts/allProducts.js';
 import { categoryCatalogPage } from './views/parts/categoryCatalog.js';
@@ -28,7 +29,7 @@ page('/izkupuvane', decorateContext, buyoutPage);
 page('/izkupuvane/info', decorateContext, buyoutInfoPage1);
 page('/izkupuvane/info2', decorateContext, buyoutInfoPage2);
 page('/create', decorateContext, createPage);
-
+page('/cart', decorateContext, cartPage);
 page('/products', decorateContext, allProductsPage);
 page('/product/:id', decorateContext, detailsPage);
 page('/product/edit/:id', decorateContext, editPage);

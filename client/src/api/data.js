@@ -18,7 +18,6 @@ export async function facebookLogin() {
 
 export async function isUserAdmin() {
     const result = await api.get(host + '/create');
-    console.log(result);
     return result;
 }
 
@@ -54,4 +53,8 @@ export async function deletePartById(partId) {
 
 export async function editPartById(category, type, brand, model, yearFrom, yearTo, engineType, partColor, imageUrl, condition, title, price, partId) {
     return await api.put(host + '/parts/edit/' + partId, { category, type, brand, model, yearFrom, yearTo, engineType, partColor, imageUrl, condition, title, price });
+}
+
+export async function getUserCartProducts() {
+    return await api.get(host + '/parts/cart');
 }
