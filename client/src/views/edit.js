@@ -388,7 +388,8 @@ const editTemplate = (productData, onSubmit) => html `
 
 export async function editPage(ctx) {
     console.log('in edit page.!');
-    await isUserAdmin;
+    await isUserAdmin();
+
     const productId = ctx.params.id;
     const productData = await getProductById(productId);
     console.log(productData);

@@ -1,7 +1,7 @@
 import { html } from '../../node_modules/lit-html/lit-html.js';
 import { isUserAdmin, createPart } from '../api/data.js';
 
-const createTemplate = (onSubmit) => html`
+const createTemplate = (onSubmit) => html `
     <div class="creatediv">
         <form @submit=${onSubmit} action="POST" name="buyoutForm" class="form-horiz">
             <div class="form-inputs">
@@ -379,7 +379,7 @@ const createTemplate = (onSubmit) => html`
 export async function createPage(ctx) {
     //TODO CHECK IF THE USER IS ADMIN AND IF HE TRIED TO TYPE THE URL.
     const isAdmin = await isUserAdmin();
-
+    console.log(isAdmin);
     ctx.render(createTemplate(onSubmit));
 
     async function onSubmit(e) {
@@ -1458,4 +1458,3 @@ function applyBrandDropdown() {
 
     makeDropDown(brandsModelsData, selectedBrand, applyModelsData);
 }
-
