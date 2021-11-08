@@ -172,8 +172,12 @@
         margin-right: 8px;
         background: url(../images/icon-add.ico) no-repeat center center;
         border-radius: 50%;
-        transition: background-color .5s;
-        transition: transform .4s;
+        transition: background-color .5s, transform .4s;
+    }
+    
+    .topnav>.innerTopNav .elements .create-part>.icon:hover {
+        transform: scale(1.055, 1.055);
+        background-color: gainsboro;
     }
     
     .topnav>.innerTopNav .elements .element.phone>.icon {
@@ -185,8 +189,7 @@
         margin-right: 8px;
         background: white url(../images/phone-icon.png) no-repeat center center;
         border-radius: 50%;
-        transition: background-color .5s;
-        transition: transform .4s;
+        transition: background-color .5s, transform .4s;
     }
     
     .topnav>.innerTopNav .elements .element.login {
@@ -208,8 +211,7 @@
         margin-right: 8px;
         background: white url(../images/user-icon.png) no-repeat center center;
         border-radius: 50%;
-        transition: background-color .5s;
-        transition: transform .4s;
+        transition: background-color .5s, transform .4s;
     }
     
     .topnav>.innerTopNav .elements .element.logout {
@@ -231,8 +233,7 @@
         margin-right: 8px;
         background: white url(../images/logout-ico.png) no-repeat center center;
         border-radius: 50%;
-        transition: background-color .5s;
-        transition: transform .4s;
+        transition: background-color .5s, transform .4s;
     }
     
     .topnav>.innerTopNav .elements .element.logout>.text {
