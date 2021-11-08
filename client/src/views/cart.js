@@ -50,12 +50,12 @@ const productTemplate = (product) => html `
         <strong>${product.price} лв.</strong>
     </td>
     <td class="remove-from-cart">
-        <span class="icon"></span>
+        <span @click=${deleteProductFromCart} class="icon"></span>
     </td>
 </tr>
 
 
-`;
+    `;
 
 
 
@@ -63,5 +63,15 @@ const productTemplate = (product) => html `
 export async function cartPage(ctx) {
     let { userOrders } = await getUserCartProducts();
     console.log(userOrders);
-    ctx.render(cartTemplate(userOrders));
+    ctx.render(cartTemplate(userOrders, deleteProductFromCart));
+
+
+}
+
+async function deleteProductFromCart(e) {
+    e.preventDefault();
+    const table = e.target.parentNode.parentNode;
+    const id = table.querySelector('.product-title-text').href.split('/')[3];
+    console.log(id);
+    //TODO make request to server, with the given id to delete the product form the shopping-cart.
 }
