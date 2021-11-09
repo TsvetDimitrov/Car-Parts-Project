@@ -58,3 +58,7 @@ export async function editPartById(category, type, brand, model, yearFrom, yearT
 export async function getUserCartProducts() {
     return await api.get(host + '/parts/cart');
 }
+
+export async function removeProductFromCart(id) {
+    return await api.post(host + '/parts/cart/delete/' + id);
+}

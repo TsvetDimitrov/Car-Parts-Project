@@ -69,6 +69,14 @@ async function editPartById(id, partData) {
 async function getUserOrders(ids) {
     return await Part.find({ '_id': { $in: ids } }).lean();
 }
+
+async function removeProductFromCart(user, id) {
+    console.log(user.orders);
+    console.log(id);
+    user.orders.pull(id);
+    user.save();
+}
+
 module.exports = {
     createPart,
     getNavigationSystems,
@@ -78,5 +86,6 @@ module.exports = {
     addPartToCart,
     deletePartById,
     editPartById,
-    getUserOrders
+    getUserOrders,
+    removeProductFromCart
 }

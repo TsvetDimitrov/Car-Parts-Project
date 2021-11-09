@@ -44,6 +44,8 @@ router.get('/cart', async(req, res) => {
         const result = await req.auth.getToken();
         const user = await userService.getUserByEmail(req.user.email);
         const userOrders = await req.storage.getUserOrders(user.orders);
+        console.log('усерОрдерс >>>>>',
+            userOrders);
         res.status(200).json({ ok: true, userOrders });
     } catch (err) {
         console.log(err.message);
@@ -114,6 +116,20 @@ router.put('/edit/:id', async(req, res) => {
         const partId = req.params.id;
         const partData = req.body;
         await req.storage.editPartById(partId, partData);
+        res.status(200).json({ ok: true });
+    } catch (err) {
+        console.log(err.message);
+        res.status(400).json({ ok: false, message: err.message });
+    }
+});
+
+router.post('/cart/delete/:id', async(req, res) => {
+    try {
+        let productId = req.params.id;
+        await req.auth.getToken();
+        const user = await userService.getUserByEmail(req.user.email);
+        console.log(productId);
+        await req.storage.removeProductFromCart(user, productId);
         res.status(200).json({ ok: true });
     } catch (err) {
         console.log(err.message);

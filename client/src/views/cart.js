@@ -1,7 +1,7 @@
 import { html } from '../../node_modules/lit-html/lit-html.js';
-import { getUserCartProducts } from '../api/data.js';
+import { getUserCartProducts, removeProductFromCart } from '../api/data.js';
 
-const cartTemplate = (products) => html `
+const cartTemplate = (products, deleteProductFromCart) => html `
 <div class="cart-wrapper">
     <div class="container-cart">
         <div class="header-cart">
@@ -25,18 +25,8 @@ const cartTemplate = (products) => html `
                             </tr>
                         </thead>
                         <tbody>
-                            ${products.length == 0 ? '' : products.map(productTemplate)}
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>`;
-
-
-
-const productTemplate = (product) => html `
+                            ${products.length == 0 ? '' : 
+                            products.map((product) => html `
 <tr class="row" scope="row">
     <th scope="row" class="product-image-title">
         <div class="product-div">
@@ -52,10 +42,17 @@ const productTemplate = (product) => html `
     <td class="remove-from-cart">
         <span @click=${deleteProductFromCart} class="icon"></span>
     </td>
-</tr>
+</tr>`)}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>`;
 
 
-    `;
+
 
 
 
@@ -65,13 +62,13 @@ export async function cartPage(ctx) {
     console.log(userOrders);
     ctx.render(cartTemplate(userOrders, deleteProductFromCart));
 
+    async function deleteProductFromCart(e) {
+        e.preventDefault();
+        const table = e.target.parentNode.parentNode;
+        const id = table.querySelector('.product-title-text').href.split('/')[4];
+        await removeProductFromCart(id);
+        //TODO DON'T RELOAD THE WHOLE PAGE AFTER THE DELETE. 
+        ctx.page.redirect('/cart');
+    }
 
-}
-
-async function deleteProductFromCart(e) {
-    e.preventDefault();
-    const table = e.target.parentNode.parentNode;
-    const id = table.querySelector('.product-title-text').href.split('/')[3];
-    console.log(id);
-    //TODO make request to server, with the given id to delete the product form the shopping-cart.
 }
