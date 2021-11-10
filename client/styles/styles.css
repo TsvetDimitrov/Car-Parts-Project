@@ -169,6 +169,56 @@ a {
     vertical-align: middle;
 }
 
+.topnav>.innerTopNav .elements .admin .dropdown-content {
+    display: none;
+}
+
+.topnav>.innerTopNav .elements .admin:hover .dropdown-content {
+    display: block;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgb(0 0 0 / 20%);
+    z-index: 1;
+}
+
+.topnav>.innerTopNav .elements .admin:hover .dropdown-content a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.topnav>.innerTopNav .elements .admin:hover .dropdown-content a .icon-car {
+    display: inline-block;
+    vertical-align: middle;
+    width: 48px;
+    height: 48px;
+    object-fit: cover;
+    margin-right: 7px;
+    background: url(../images/car-icon-header-nav.ico) no-repeat center center;
+    transition: background-color .5s, transform .4s;
+}
+
+.topnav>.innerTopNav .elements .icon-dropdown {
+    display: inline-block;
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    width: 40px;
+    height: 40px;
+    margin-right: 8px;
+    background: url(../images/menu-dropdown.png) no-repeat center center;
+    transition: background-color .5s, transform .4s;
+}
+
+.topnav>.innerTopNav .elements .admin .car-anounce:hover {
+    transform: scale(1.055, 1.055);
+    background-color: gainsboro;
+}
+
 .topnav>.innerTopNav .elements .create-part>.icon {
     position: relative;
     display: inline-block;
@@ -181,7 +231,7 @@ a {
     transition: background-color .5s, transform .4s;
 }
 
-.topnav>.innerTopNav .elements .create-part>.icon:hover {
+.topnav>.innerTopNav .elements .create-part:hover {
     transform: scale(1.055, 1.055);
     background-color: gainsboro;
 }

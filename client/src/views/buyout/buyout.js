@@ -1,6 +1,6 @@
 import { html } from '../../../node_modules/lit-html/lit-html.js';
 
-const buyoutTemplate = () => html`
+const buyoutTemplate = () => html `
 <div class="buyout-car-wrapper">
     <div class="header">
         <h1 class="title">Продай автомобила си</h1>
@@ -38,6 +38,10 @@ const buyoutTemplate = () => html`
 
 
 export async function buyoutPage(ctx) {
+    if (!sessionStorage.getItem('email')) {
+        alert('You need to login first in order to sell your car!');
+        return ctx.page.redirect('/login');
+    }
     ctx.render(buyoutTemplate());
 
     function createRipple(event) {
