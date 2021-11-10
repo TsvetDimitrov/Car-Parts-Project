@@ -66,3 +66,7 @@ export async function removeProductFromCart(id) {
 export async function getProductsByBrand(brand) {
     return await api.get(host + '/parts/getPartsByBrand/' + brand);
 }
+
+export async function createCarBuyOutRequest(carData) {
+    return await api.post(host + '/carRequests', carData);
+}

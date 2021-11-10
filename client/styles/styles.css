@@ -1975,25 +1975,17 @@ strong {
     background: #29bc55;
 }
 
-.buyout-car-info .buyout-car-content .image-preview {
-    width: 300px;
-    height: 150px;
-    min-width: 100px;
-    border: 2px solid #dddddd;
-    margin-top: 15px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    color: #cccccc;
-    object-fit: cover;
-}
-
-.buyout-car-info .buyout-car-content .image-preview .image-preview-image {
-    display: none;
-    width: 100%;
-    max-width: 300px;
-    max-height: 150px;
+.buyout-car-info .buyout-car-content .image-wrapper .required {
+    width: 240px;
+    height: 44px;
+    padding: 0 15px;
+    border: 1 px solid #e5e5e5;
+    border-radius: 3 px;
+    color: #1c2d3a;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0;
+    line-height: 14px;
 }
 
 

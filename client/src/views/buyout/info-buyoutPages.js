@@ -1,8 +1,9 @@
 import { html } from '../../../node_modules/lit-html/lit-html.js';
 import { removeFocusClass, addFocusClass } from '../../util/util.js';
+import { createCarBuyOutRequest } from '../../api/data.js';
 
 
-const infoBuyout1Template = (onSubmit) => html`
+const infoBuyout1Template = (onSubmit) => html `
 <div class="buyout-car-info">
     <div class="buyout-car-header">
         <div class="inner">
@@ -83,7 +84,7 @@ const infoBuyout1Template = (onSubmit) => html`
     </div>
 </div>
 `
-const infoBuyout2Template = () => html`
+const infoBuyout2Template = (onSubmit) => html `
 <div class="buyout-car-info">
     <div class="buyout-car-header">
         <div class="inner">
@@ -100,6 +101,7 @@ const infoBuyout2Template = () => html`
             </div>
             <div class="buyout-separator-step success"></div>
             <div class="buyout-step">
+
                 <div class="step-image">
                     <img src="/images/step-01-active.svg">
                 </div>
@@ -109,17 +111,22 @@ const infoBuyout2Template = () => html`
 
         </div>
         <div class="image-wrapper">
-            <input type="file" name="inpFile" id="inpFile" multiple>
-            <div class="image-preview" id="image-preview">
-                <img src="" alt="Image Preview" class="image-preview-image">
-                <span class="image-preview-default-text">Image preview</span>
-            </div>
-        </div>
+            <form @submit=${onSubmit}>
+                <label class="field-label">
+                    <span class="required-field">Въведете imageURL</span>
+                    <input type="text" name="imageUrl" class="required" min="$100" max="$10000">
+                </label>
+                <button type="submit">Изпрати заявка</button>
+            </form>
 
+        </div>
     </div>
+
+</div>
 </div>
 `;
 
+let carDataState = {}
 
 export async function buyoutInfoPage1(ctx) {
     ctx.render(infoBuyout1Template(onSubmit));
@@ -166,7 +173,7 @@ export async function buyoutInfoPage1(ctx) {
         const priceWanted = formData.get('priceWanted').trim();
         const additionalInfo = formData.get('text').trim();
 
-        //Check if fields are empty. If they are span will be showed in error style.
+        //Check if fields are empty. If they are: span will be showed in error style.
         let hasEmptyField = false;
 
         for (let entry of formData.entries()) {
@@ -185,6 +192,13 @@ export async function buyoutInfoPage1(ctx) {
                 }
             }
         }
+        carDataState.brand = brand;
+        carDataState.model = model;
+        carDataState.manufactureYear = manufactureYear;
+        carDataState.engineType = engineType;
+        carDataState.gearboxType = gearboxType;
+        carDataState.priceWanted = priceWanted;
+        carDataState.additionalInfo = additionalInfo;
 
         if (!hasEmptyField) {
             ctx.page.redirect('/izkupuvane/info2');
@@ -200,65 +214,23 @@ export async function buyoutInfoPage1(ctx) {
 }
 
 export async function buyoutInfoPage2(ctx) {
-    ctx.render(infoBuyout2Template());
+    ctx.render(infoBuyout2Template(onSubmit));
+    const imageUrlField = document.querySelector('input[name="imageUrl"]');
+    imageUrlField.addEventListener("focus", addFocusClass);
+    imageUrlField.addEventListener('blur', removeFocusClass);
 
-    function imageUploader() {
-        let imageWrapper = document.querySelector('.image-wrapper');
-        let inpFile = document.getElementById('inpFile');
-        let previewContainer = document.getElementById('image-preview');
-        let previewImage = previewContainer.querySelector('.image-preview-image');
-        let previewDefaultText = previewContainer.querySelector('.image-preview-default-text');
-        console.log(previewImage);
+    async function onSubmit(e) {
+        e.preventDefault();
+        const formData = new FormData(e.target);
+        const imageUrl = formData.get('imageUrl').trim();
+        if (!imageUrl) {
+            return alert('Please enter imageUrl');
+        } else {
+            console.log(carDataState);
 
-        inpFile.addEventListener('change', function () {
-            //const file = this.files[0];
-            for (let i = 0; i < this.files.length; i++) {
-                const file = this.files[i];
-                if (file) {
-                    const reader = new FileReader();
-                    previewDefaultText.style.display = 'none';
-                    previewImage.style.display = 'block';
-
-                    reader.addEventListener('load', function () {
-                        previewImage.setAttribute('src', this.result);
-                    });
-
-                    reader.readAsDataURL(file);
-                    imageWrapper.appendChild(createEl());
-                    previewContainer = document.getElementById('image-preview').lastElementChild;
-                    // TODO getting bug after the second upload.
-                    previewImage = previewContainer.querySelector('.image-preview-image').lastElementChild;
-                } else {
-                    previewDefaultText.style.display = null;
-                    previewImage.style.display = null;
-                    previewImage.setAttribute('src', '');
-                }
-            }
-
-        });
-
-
-        function createEl() {
-            let div = document.createElement('div');
-            div.className = "image-preview";
-            div.setAttribute('id', 'image-preview');
-
-            let img = document.createElement('img');
-            img.setAttribute('src', '');
-            img.setAttribute('alt', 'Image Preview');
-            img.className = 'image-preview-image';
-
-            let span = document.createElement('span');
-            span.className = "image-preview-default-text";
-            span.textContent = 'Image preview';
-
-            div.appendChild(img);
-            div.appendChild(span);
-
-            return div;
+            carDataState.imageUrl = imageUrl;
+            await createCarBuyOutRequest(carDataState);
+            ctx.page.redirect('/');
         }
     }
-
-    imageUploader();
 }
-

@@ -35,7 +35,5 @@ const brandProductsTemplate = (parts, partType) => html `
 export async function brandProductsPage(ctx) {
     const brandName = ctx.params.brand.toUpperCase();
     const { parts, brandNameTitle } = await getProductsByBrand(brandName);
-    console.log(parts);
-    console.log(brandNameTitle);
     ctx.render(brandProductsTemplate(parts, brandNameTitle));
 }
