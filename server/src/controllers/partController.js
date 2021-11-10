@@ -54,7 +54,7 @@ router.get('/getPartsByBrand/:brand', async(req, res) => {
 
 router.get('/cart', async(req, res) => {
     try {
-        const result = await req.auth.getToken();
+        await req.auth.getToken();
         const user = await userService.getUserByEmail(req.user.email);
         const userOrders = await req.storage.getUserOrders(user.orders);
         console.log('усерОрдерс >>>>>',

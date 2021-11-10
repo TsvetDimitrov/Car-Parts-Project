@@ -2,9 +2,9 @@ const router = require('express').Router();
 
 
 router.post('/', async(req, res) => {
-    console.log(req.body);
     try {
-        await req.storage.createCar(req.body);
+        await req.auth.getToken();
+        await req.storage.createCar(req.body, req.user.email);
 
         res.status(200).json({ ok: true });
     } catch (err) {

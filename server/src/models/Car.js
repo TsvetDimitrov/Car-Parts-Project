@@ -10,7 +10,7 @@ const carSchema = new mongoose.Schema({
     model: { type: String },
     priceWanted: { type: String },
     imageUrl: { type: String },
-    postedBy: { type: mongoose.Schema.Types.ObjectId, ref: 'User', }
+    postedBy: { type: mongoose.Schema.Types.ObjectId, ref: 'User' }
 
 }, { timestamps: true });
 
