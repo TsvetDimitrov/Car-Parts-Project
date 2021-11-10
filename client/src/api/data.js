@@ -62,3 +62,7 @@ export async function getUserCartProducts() {
 export async function removeProductFromCart(id) {
     return await api.post(host + '/parts/cart/delete/' + id);
 }
+
+export async function getProductsByBrand(brand) {
+    return await api.get(host + '/parts/getPartsByBrand/' + brand);
+}

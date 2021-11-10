@@ -606,7 +606,7 @@ const homeTemplate = () => html `
             <div class="homePageModel">
                 <div class="content-data content-data-4-columns but-only-2">
                     <h1 class="headerModel">Търсене по марка и модел</h1>
-                    <a href="#" class="content-data-item">
+                    <a href="/products/brand/abarth" class="content-data-item">
                         <picture class="lozad m-auto" style="display: block; min-height: 1rem;"
                             data-src="/images/abarth.png" data-alt="ABARTH" width="130" height="130" data-loaded="true">
                             <source type="image/webp" srcset="/images/abarth.png">
@@ -621,7 +621,7 @@ const homeTemplate = () => html `
                             </div>
                         </div>
                     </a>
-                    <a href="#" class="content-data-item">
+                    <a href="/products/brand/alfa-romeo" class="content-data-item">
                         <picture class="lozad m-auto" style="display: block; min-height: 1rem;"
                             data-src="/images/alfa-romeo.png" data-alt="alfa-romeo" width="130" height="130"
                             data-loaded="true">
@@ -637,7 +637,7 @@ const homeTemplate = () => html `
                             </div>
                         </div>
                     </a>
-                    <a href="#" class="content-data-item">
+                    <a href="/products/brand/audi" class="content-data-item">
                         <picture class="lozad m-auto" style="display: block; min-height: 1rem;" data-alt="audi"
                             width="130" height="130" data-loaded="true">
                             <source type="image/webp" srcset="/images/audi.webp">
@@ -651,7 +651,7 @@ const homeTemplate = () => html `
                             </div>
                         </div>
                     </a>
-                    <a href="#" class="content-data-item">
+                    <a href="/products/brand/bmw" class="content-data-item">
                         <picture class="lozad m-auto" style="display: block; min-height: 1rem;" data-alt="BMW"
                             width="130" height="130" data-loaded="true">
                             <source type="image/webp" srcset="/images/bmw.webp">
@@ -665,7 +665,7 @@ const homeTemplate = () => html `
                             </div>
                         </div>
                     </a>
-                    <a href="#" class="content-data-item">
+                    <a href="/products/brand/chevrolet" class="content-data-item">
                         <picture class="lozad m-auto" style="display: block; min-height: 1rem;" data-alt="chevrolet"
                             width="130" height="130" data-loaded="true">
                             <source type="image/webp" srcset="/images/chevrolet.webp">
@@ -679,7 +679,7 @@ const homeTemplate = () => html `
                             </div>
                         </div>
                     </a>
-                    <a href="#" class="content-data-item">
+                    <a href="/products/brand/chrysler" class="content-data-item">
                         <picture class="lozad m-auto" style="display: block; min-height: 1rem;" data-alt="chrysler"
                             width="130" height="130" data-loaded="true">
                             <source type="image/webp" srcset="/images/chrysler.webp">
@@ -693,7 +693,7 @@ const homeTemplate = () => html `
                             </div>
                         </div>
                     </a>
-                    <a href="#" class="content-data-item">
+                    <a href="/products/brand/CITROËN" class="content-data-item">
                         <picture class="lozad m-auto" style="display: block; min-height: 1rem;" data-alt="citroËn"
                             width="130" height="130" data-loaded="true">
                             <source type="image/webp" srcset="/images/citroËn.webp">
@@ -707,7 +707,7 @@ const homeTemplate = () => html `
                             </div>
                         </div>
                     </a>
-                    <a href="#" class="content-data-item">
+                    <a href="/products/brand/dacia" class="content-data-item">
                         <picture class="lozad m-auto" style="display: block; min-height: 1rem;" data-alt="dacia"
                             width="130" height="130" data-loaded="true">
                             <source type="image/webp" srcset="/images/dacia.webp">
@@ -721,7 +721,7 @@ const homeTemplate = () => html `
                             </div>
                         </div>
                     </a>
-                    <a href="#" class="content-data-item">
+                    <a href="/products/brand/daewoo" class="content-data-item">
                         <picture class="lozad m-auto" style="display: block; min-height: 1rem;" data-alt="daewoo"
                             width="130" height="130" data-loaded="true">
                             <source type="image/webp" srcset="/images/daewoo.webp">
@@ -735,7 +735,7 @@ const homeTemplate = () => html `
                             </div>
                         </div>
                     </a>
-                    <a href="#" class="content-data-item">
+                    <a href="/products/brand/daihatsu" class="content-data-item">
                         <picture class="lozad m-auto" style="display: block; min-height: 1rem;" data-alt="daihatsu"
                             width="130" height="130" data-loaded="true">
                             <source type="image/webp" srcset="/images/daihatsu.webp">
@@ -749,7 +749,7 @@ const homeTemplate = () => html `
                             </div>
                         </div>
                     </a>
-                    <a href="#" class="content-data-item">
+                    <a href="/products/brand/fiat" class="content-data-item">
                         <picture class="lozad m-auto" style="display: block; min-height: 1rem;" data-alt="fiat"
                             width="130" height="130" data-loaded="true">
                             <source type="image/webp" srcset="/images/fiat.webp">
@@ -763,7 +763,7 @@ const homeTemplate = () => html `
                             </div>
                         </div>
                     </a>
-                    <a href="#" class="content-data-item">
+                    <a href="/products/brand/ford" class="content-data-item">
                         <picture class="lozad m-auto" style="display: block; min-height: 1rem;" data-alt="FORD"
                             width="130" height="130" data-loaded="true">
                             <source type="image/webp" srcset="/images/ford.webp">
@@ -777,7 +777,7 @@ const homeTemplate = () => html `
                             </div>
                         </div>
                     </a>
-                    <a href="#" class="content-data-item">
+                    <a href="/products/brand/honda" class="content-data-item">
                         <picture class="lozad m-auto" style="display: block; min-height: 1rem;" data-alt="HONDA"
                             width="130" height="130" data-loaded="true">
                             <source type="image/webp" srcset="/images/honda.webp">
@@ -791,7 +791,7 @@ const homeTemplate = () => html `
                             </div>
                         </div>
                     </a>
-                    <a href="#" class="content-data-item">
+                    <a href="/products/brand/hyundai" class="content-data-item">
                         <picture class="lozad m-auto" style="display: block; min-height: 1rem;" data-alt="HYUNDAI"
                             width="130" height="130" data-loaded="true">
                             <source type="image/webp" srcset="/images/hyundai.webp">
@@ -805,7 +805,7 @@ const homeTemplate = () => html `
                             </div>
                         </div>
                     </a>
-                    <a href="#" class="content-data-item">
+                    <a href="/products/brand/infiniti" class="content-data-item">
                         <picture class="lozad m-auto" style="display: block; min-height: 1rem;" data-alt="INFINITI"
                             width="130" height="130" data-loaded="true">
                             <source type="image/webp" srcset="/images/infiniti.webp">
@@ -819,7 +819,7 @@ const homeTemplate = () => html `
                             </div>
                         </div>
                     </a>
-                    <a href="#" class="content-data-item">
+                    <a href="/products/brand/iveco" class="content-data-item">
                         <picture class="lozad m-auto" style="display: block; min-height: 1rem;" data-alt="IVECO"
                             width="130" height="130" data-loaded="true">
                             <source type="image/webp" srcset="/images/iveco.webp">
@@ -833,7 +833,7 @@ const homeTemplate = () => html `
                             </div>
                         </div>
                     </a>
-                    <a href="#" class="content-data-item">
+                    <a href="/products/brand/jeep" class="content-data-item">
                         <picture class="lozad m-auto" style="display: block; min-height: 1rem;" data-alt="JEEP"
                             width="130" height="130" data-loaded="true">
                             <source type="image/webp" srcset="/images/jeep.webp">
@@ -847,7 +847,7 @@ const homeTemplate = () => html `
                             </div>
                         </div>
                     </a>
-                    <a href="#" class="content-data-item">
+                    <a href="/products/brand/kia" class="content-data-item">
                         <picture class="lozad m-auto" style="display: block; min-height: 1rem;" data-alt="KIA"
                             width="130" height="130" data-loaded="true">
                             <source type="image/webp" srcset="/images/kia.webp">
@@ -861,7 +861,7 @@ const homeTemplate = () => html `
                             </div>
                         </div>
                     </a>
-                    <a href="#" class="content-data-item">
+                    <a href="/products/brand/lancia" class="content-data-item">
                         <picture class="lozad m-auto" style="display: block; min-height: 1rem;" data-alt="LANCIA"
                             width="130" height="130" data-loaded="true">
                             <source type="image/webp" srcset="/images/lancia.webp">
@@ -875,7 +875,7 @@ const homeTemplate = () => html `
                             </div>
                         </div>
                     </a>
-                    <a href="#" class="content-data-item">
+                    <a href="/products/brand/land-rover" class="content-data-item">
                         <picture class="lozad m-auto" style="display: block; min-height: 1rem;" data-alt="LAND-ROVER"
                             width="130" height="130" data-loaded="true">
                             <source type="image/webp" srcset="/images/land-rover.webp">
@@ -889,7 +889,7 @@ const homeTemplate = () => html `
                             </div>
                         </div>
                     </a>
-                    <a href="#" class="content-data-item">
+                    <a href="/products/brand/lexus" class="content-data-item">
                         <picture class="lozad m-auto" style="display: block; min-height: 1rem;" data-alt="LEXUS"
                             width="130" height="130" data-loaded="true">
                             <source type="image/webp" srcset="/images/lexus.webp">
@@ -903,7 +903,7 @@ const homeTemplate = () => html `
                             </div>
                         </div>
                     </a>
-                    <a href="#" class="content-data-item">
+                    <a href="/products/brand/mazda" class="content-data-item">
                         <picture class="lozad m-auto" style="display: block; min-height: 1rem;" data-alt="MAZDA"
                             width="130" height="130" data-loaded="true">
                             <source type="image/webp" srcset="/images/mazda.webp">
@@ -917,7 +917,7 @@ const homeTemplate = () => html `
                             </div>
                         </div>
                     </a>
-                    <a href="#" class="content-data-item">
+                    <a href="/products/brand/mercedes-benz" class="content-data-item">
                         <picture class="lozad m-auto" style="display: block; min-height: 1rem;" data-alt="MERCEDES-BENZ"
                             width="130" height="130" data-loaded="true">
                             <source type="image/webp" srcset="/images/mercedes-benz.webp">
@@ -931,7 +931,7 @@ const homeTemplate = () => html `
                             </div>
                         </div>
                     </a>
-                    <a href="#" class="content-data-item">
+                    <a href="/products/brand/mini" class="content-data-item">
                         <picture class="lozad m-auto" style="display: block; min-height: 1rem;" data-alt="MINI"
                             width="130" height="130" data-loaded="true">
                             <source type="image/webp" srcset="/images/mini.webp">
@@ -945,7 +945,7 @@ const homeTemplate = () => html `
                             </div>
                         </div>
                     </a>
-                    <a href="#" class="content-data-item">
+                    <a href="/products/brand/mitsubishi" class="content-data-item">
                         <picture class="lozad m-auto" style="display: block; min-height: 1rem;" data-alt="MITSUBISHI"
                             width="130" height="130" data-loaded="true">
                             <source type="image/webp" srcset="/images/mitsubishi.webp">
@@ -959,7 +959,7 @@ const homeTemplate = () => html `
                             </div>
                         </div>
                     </a>
-                    <a href="#" class="content-data-item">
+                    <a href="/products/brand/nissan" class="content-data-item">
                         <picture class="lozad m-auto" style="display: block; min-height: 1rem;" data-alt="NISSAN"
                             width="130" height="130" data-loaded="true">
                             <source type="image/webp" srcset="/images/nissan.webp">
@@ -973,7 +973,7 @@ const homeTemplate = () => html `
                             </div>
                         </div>
                     </a>
-                    <a href="#" class="content-data-item">
+                    <a href="/products/brand/opel" class="content-data-item">
                         <picture class="lozad m-auto" style="display: block; min-height: 1rem;" data-alt="OPEL"
                             width="130" height="130" data-loaded="true">
                             <source type="image/webp" srcset="/images/opel.webp">
@@ -987,7 +987,7 @@ const homeTemplate = () => html `
                             </div>
                         </div>
                     </a>
-                    <a href="#" class="content-data-item">
+                    <a href="/products/brand/peugeot" class="content-data-item">
                         <picture class="lozad m-auto" style="display: block; min-height: 1rem;" data-alt="PEUGEOT"
                             width="130" height="130" data-loaded="true">
                             <source type="image/webp" srcset="/images/peugeot.webp">
@@ -1001,7 +1001,7 @@ const homeTemplate = () => html `
                             </div>
                         </div>
                     </a>
-                    <a href="#" class="content-data-item">
+                    <a href="/products/brand/porsche" class="content-data-item">
                         <picture class="lozad m-auto" style="display: block; min-height: 1rem;" data-alt="PORSCHE"
                             width="130" height="130" data-loaded="true">
                             <source type="image/webp" srcset="/images/porsche.webp">
@@ -1015,7 +1015,7 @@ const homeTemplate = () => html `
                             </div>
                         </div>
                     </a>
-                    <a href="#" class="content-data-item">
+                    <a href="/products/brand/renault" class="content-data-item">
                         <picture class="lozad m-auto" style="display: block; min-height: 1rem;" data-alt="RENAULT"
                             width="130" height="130" data-loaded="true">
                             <source type="image/webp" srcset="/images/renault.webp">
@@ -1029,7 +1029,7 @@ const homeTemplate = () => html `
                             </div>
                         </div>
                     </a>
-                    <a href="#" class="content-data-item">
+                    <a href="/products/brand/rover" class="content-data-item">
                         <picture class="lozad m-auto" style="display: block; min-height: 1rem;" data-alt="ROVER"
                             width="130" height="130" data-loaded="true">
                             <source type="image/webp" srcset="/images/rover.webp">
@@ -1043,7 +1043,7 @@ const homeTemplate = () => html `
                             </div>
                         </div>
                     </a>
-                    <a href="#" class="content-data-item">
+                    <a href="/products/brand/saab" class="content-data-item">
                         <picture class="lozad m-auto" style="display: block; min-height: 1rem;" data-alt="SAAB"
                             width="130" height="130" data-loaded="true">
                             <source type="image/webp" srcset="/images/saab.webp">
@@ -1057,7 +1057,7 @@ const homeTemplate = () => html `
                             </div>
                         </div>
                     </a>
-                    <a href="#" class="content-data-item">
+                    <a href="/products/brand/seat" class="content-data-item">
                         <picture class="lozad m-auto" style="display: block; min-height: 1rem;" data-alt="SEAT"
                             width="130" height="130" data-loaded="true">
                             <source type="image/webp" srcset="/images/seat.webp">
@@ -1071,7 +1071,7 @@ const homeTemplate = () => html `
                             </div>
                         </div>
                     </a>
-                    <a href="#" class="content-data-item">
+                    <a href="/products/brand/skoda" class="content-data-item">
                         <picture class="lozad m-auto" style="display: block; min-height: 1rem;" data-alt="SKODA"
                             width="130" height="130" data-loaded="true">
                             <source type="image/webp" srcset="/images/skoda.webp">
@@ -1085,7 +1085,7 @@ const homeTemplate = () => html `
                             </div>
                         </div>
                     </a>
-                    <a href="#" class="content-data-item">
+                    <a href="/products/brand/smart" class="content-data-item">
                         <picture class="lozad m-auto" style="display: block; min-height: 1rem;" data-alt="SMART"
                             width="130" height="130" data-loaded="true">
                             <source type="image/webp" srcset="/images/smart.webp">
@@ -1099,7 +1099,7 @@ const homeTemplate = () => html `
                             </div>
                         </div>
                     </a>
-                    <a href="#" class="content-data-item">
+                    <a href="/products/brand/subaru" class="content-data-item">
                         <picture class="lozad m-auto" style="display: block; min-height: 1rem;" data-alt="SUBARU"
                             width="130" height="130" data-loaded="true">
                             <source type="image/webp" srcset="/images/subaru.webp">
@@ -1113,7 +1113,7 @@ const homeTemplate = () => html `
                             </div>
                         </div>
                     </a>
-                    <a href="#" class="content-data-item">
+                    <a href="/products/brand/suzuki" class="content-data-item">
                         <picture class="lozad m-auto" style="display: block; min-height: 1rem;" data-alt="SUZUKI"
                             width="130" height="130" data-loaded="true">
                             <source type="image/webp" srcset="/images/suzuki.webp">
@@ -1127,7 +1127,7 @@ const homeTemplate = () => html `
                             </div>
                         </div>
                     </a>
-                    <a href="#" class="content-data-item">
+                    <a href="/products/brand/toyota" class="content-data-item">
                         <picture class="lozad m-auto" style="display: block; min-height: 1rem;" data-alt="TOYOTA"
                             width="130" height="130" data-loaded="true">
                             <source type="image/webp" srcset="/images/toyota.webp">
@@ -1141,7 +1141,7 @@ const homeTemplate = () => html `
                             </div>
                         </div>
                     </a>
-                    <a href="#" class="content-data-item">
+                    <a href="/products/brand/volvo" class="content-data-item">
                         <picture class="lozad m-auto" style="display: block; min-height: 1rem;" data-alt="VOLVO"
                             width="130" height="130" data-loaded="true">
                             <source type="image/webp" srcset="/images/volvo.webp">
@@ -1155,7 +1155,7 @@ const homeTemplate = () => html `
                             </div>
                         </div>
                     </a>
-                    <a href="#" class="content-data-item">
+                    <a href="/products/brand/volkswagen" class="content-data-item">
                         <picture class="lozad m-auto" style="display: block; min-height: 1rem;" data-alt="VOLKSWAGEN"
                             width="130" height="130" data-loaded="true">
                             <source type="image/webp" srcset="/images/vw.webp">

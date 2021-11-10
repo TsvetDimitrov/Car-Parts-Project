@@ -19,6 +19,7 @@ import { cartPage } from './views/cart.js';
 
 import { allProductsPage } from './views/parts/allProducts.js';
 import { categoryCatalogPage } from './views/parts/categoryCatalog.js';
+import { brandProductsPage } from './views/parts/brandProducts.js'
 
 const main = document.querySelector('main');
 page('/', decorateContext, homePage);
@@ -36,6 +37,7 @@ page('/product/edit/:id', decorateContext, editPage);
 
 
 page('/products/:type', decorateContext, categoryCatalogPage);
+page('/products/brand/:brand', decorateContext, brandProductsPage);
 
 page('*', decorateContext, notfound);
 

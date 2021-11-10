@@ -19,6 +19,12 @@ async function getPartsByType(partsType) {
     return parts;
 }
 
+async function getPartsByBrand(brandName) {
+    const parts = await Part.find({ brand: brandName }).lean();
+
+    return parts;
+}
+
 async function getPartById(id) {
     const part = await Part.findById(id).lean();
 
@@ -81,6 +87,7 @@ module.exports = {
     createPart,
     getNavigationSystems,
     getPartsByType,
+    getPartsByBrand,
     getPartById,
     getAllParts,
     addPartToCart,
