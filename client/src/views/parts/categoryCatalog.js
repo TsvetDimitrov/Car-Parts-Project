@@ -38,7 +38,5 @@ const categoryCatalogTemplate = (parts, partType) => html `
 export async function categoryCatalogPage(ctx) {
     let productType = ctx.path.split('/')[2];
     const { parts, partType } = await getPartsByType(productType);
-    console.log(parts);
     ctx.render(categoryCatalogTemplate(parts, partType));
-
 }
