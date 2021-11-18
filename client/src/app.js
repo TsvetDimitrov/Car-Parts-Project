@@ -50,7 +50,7 @@ document.querySelector('.user').addEventListener('click', async() => {
     await logout();
     setUserNav();
     page.redirect('/');
-})
+});
 
 
 function decorateContext(ctx, next) {
