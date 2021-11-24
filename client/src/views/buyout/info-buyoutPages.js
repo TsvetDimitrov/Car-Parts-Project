@@ -123,7 +123,6 @@ const infoBuyout2Template = (onSubmit) => html `
     </div>
 
 </div>
-</div>
 `;
 
 let carDataState = {}
@@ -226,8 +225,6 @@ export async function buyoutInfoPage2(ctx) {
         if (!imageUrl) {
             return alert('Please enter imageUrl');
         } else {
-            console.log(carDataState);
-
             carDataState.imageUrl = imageUrl;
             await createCarBuyOutRequest(carDataState);
             ctx.page.redirect('/');
