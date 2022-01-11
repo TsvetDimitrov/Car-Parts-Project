@@ -17,7 +17,7 @@
 
 
 # TODO:
-### POST query in /create page. Check if the user have got manually accessed the page. Check if the user is authorized. 
+### Route guard a better one! (https://blog.netcetera.com/how-to-create-guarded-routes-for-your-react-app-d2fe7c7b6122)
 ### Write E2E tests in Playwright or similar testing framework.
 ### Get data and visualize in the corresponding page.
 ### Update the shopping-cart if the user has ordered a part.
